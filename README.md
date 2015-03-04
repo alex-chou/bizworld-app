@@ -12,3 +12,9 @@ Bizworld First Interview Video: http://youtu.be/86k3TqS-VzA
 $ db:migrate:up VERSION=my_version
 $ db:migrate:down VERSION=my_version
 ```
+### Setup Cucumber
+`rails generate cucumber:install`
+### Setup RSpec
+`rails generate cucumber:install`
+### Create DB Migration
+`rails generate migration`
