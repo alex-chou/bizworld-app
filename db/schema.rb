@@ -13,4 +13,9 @@
 
 ActiveRecord::Schema.define(:version => 0) do
 
+  create_table "classroom_student", :force => true do |t|
+    t.integer "student_id"
+    t.integer "classroom_id"
+  end
+
 end

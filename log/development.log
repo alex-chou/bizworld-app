@@ -62,3 +62,29 @@ Migrating to CreateBaseModels (20150228002024)
   [1m[35m (36.2ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (22.6ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateBaseModels (20150228002024)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "school_name" varchar(255), "city" varchar(255), "state" varchar(255), "email" varchar(255), "username" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "program" varchar(255), "class_type" varchar(255), "start_date" datetime, "end_date" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "classroom_student" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "classroom_id" integer) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "grade" varchar(255), "gender" varchar(255), "ethnicity" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "type" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150228002024')[0m
+  [1m[35m (35.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.9ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateBaseModels (20150228002024)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "teachers"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "classrooms"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "students"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "surveys"
+  [1m[36m (0.0ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20150228002024'[0m
+  [1m[35m (19.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
