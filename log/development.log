@@ -88,3 +88,203 @@ Migrating to CreateBaseModels (20150228002024)
   [1m[36m (0.0ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20150228002024'[0m
   [1m[35m (19.7ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateBaseModels (20150228002024)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "school_name" varchar(255), "city" varchar(255), "state" varchar(255), "email" varchar(255), "username" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "program" varchar(255), "class_type" varchar(255), "start_date" datetime, "end_date" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "classroom_student" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "classroom_id" integer) 
+SQLite3::SQLException: table "classroom_student" already exists: CREATE TABLE "classroom_student" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "classroom_id" integer) 
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateBaseModels (20150228002024)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "school_name" varchar(255), "city" varchar(255), "state" varchar(255), "email" varchar(255), "username" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "program" varchar(255), "class_type" varchar(255), "start_date" datetime, "end_date" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "classroom_student" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "classroom_id" integer) 
+SQLite3::SQLException: table "classroom_student" already exists: CREATE TABLE "classroom_student" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "classroom_id" integer) 
+  [1m[36m (8.4ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "school_name" varchar(255), "city" varchar(255), "state" varchar(255), "email" varchar(255), "username" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150308225823')[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "program" varchar(255), "class_type" varchar(255), "start_date" date, "end_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150308230159')[0m
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+Migrating to CreateStudents (20150308230343)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "age" integer, "gender" varchar(255), "ethnicity" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150308230343')[0m
+  [1m[35m (8.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+Migrating to CreateStudents (20150308230343)
+Migrating to CreateSurveys (20150308230421)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150308230421')[0m
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+Migrating to CreateStudents (20150308230343)
+Migrating to CreateSurveys (20150308230421)
+Migrating to AddTeacherRefToClassroom (20150308230926)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "classrooms" ADD "teacher_id" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150308230926')[0m
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+Migrating to CreateStudents (20150308230343)
+Migrating to CreateSurveys (20150308230421)
+Migrating to AddTeacherRefToClassroom (20150308230926)
+Migrating to AddClassroomRefToClassroomStudents (20150308231223)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "classroom_students" ADD "classroom_id" integer
+SQLite3::SQLException: no such table: classroom_students: ALTER TABLE "classroom_students" ADD "classroom_id" integer
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+Migrating to CreateStudents (20150308230343)
+Migrating to CreateSurveys (20150308230421)
+Migrating to AddTeacherRefToClassroom (20150308230926)
+Migrating to AddClassroomRefToClassroomStudents (20150308231223)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "classroom_students" ADD "classroom_id" integer
+SQLite3::SQLException: no such table: classroom_students: ALTER TABLE "classroom_students" ADD "classroom_id" integer
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (8.9ms)[0m  DROP TABLE "classroom_student"
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150308231446')[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+Migrating to CreateStudents (20150308230343)
+Migrating to CreateSurveys (20150308230421)
+Migrating to AddTeacherRefToClassroom (20150308230926)
+Migrating to AddClassroomRefToClassroomStudents (20150308231223)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "classroom_students" ADD "classroom_id" integer
+SQLite3::SQLException: no such table: classroom_students: ALTER TABLE "classroom_students" ADD "classroom_id" integer
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "classroom_students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20150308231700')
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+Migrating to CreateStudents (20150308230343)
+Migrating to CreateSurveys (20150308230421)
+Migrating to AddTeacherRefToClassroom (20150308230926)
+Migrating to AddClassroomRefToClassroomStudents (20150308231223)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "classroom_students" ADD "classroom_id" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150308231223')[0m
+  [1m[35m (8.7ms)[0m  commit transaction
+Migrating to DropClassroomStudentTable (20150308231446)
+Migrating to CreateClassroomStudentsTable (20150308231700)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+Migrating to CreateStudents (20150308230343)
+Migrating to CreateSurveys (20150308230421)
+Migrating to AddTeacherRefToClassroom (20150308230926)
+Migrating to AddClassroomRefToClassroomStudents (20150308231223)
+Migrating to DropClassroomStudentTable (20150308231446)
+Migrating to CreateClassroomStudentsTable (20150308231700)
+Migrating to AddStudentRefToClassroomStudents (20150308231952)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "classroom_students" ADD "student_id" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150308231952')[0m
+  [1m[35m (8.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+Migrating to CreateStudents (20150308230343)
+Migrating to CreateSurveys (20150308230421)
+Migrating to AddTeacherRefToClassroom (20150308230926)
+Migrating to AddClassroomRefToClassroomStudents (20150308231223)
+Migrating to DropClassroomStudentTable (20150308231446)
+Migrating to CreateClassroomStudentsTable (20150308231700)
+Migrating to AddStudentRefToClassroomStudents (20150308231952)
+Migrating to AddStudentRefToSurveys (20150308232024)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "surveys" ADD "student_id" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150308232024')[0m
+  [1m[35m (9.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml

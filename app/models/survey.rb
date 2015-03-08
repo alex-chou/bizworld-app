@@ -1,4 +1,4 @@
 class Survey < ActiveRecord::Base
   belongs_to :student
-  attr_accessible :id, :type, :student
+  attr_accessible :type
 end

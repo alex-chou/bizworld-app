@@ -11,11 +11,49 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20150308232024) do
 
-  create_table "classroom_student", :force => true do |t|
-    t.integer "student_id"
+  create_table "classroom_students", :force => true do |t|
     t.integer "classroom_id"
+    t.integer "student_id"
+  end
+
+  create_table "classrooms", :force => true do |t|
+    t.string   "name"
+    t.string   "program"
+    t.string   "class_type"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "teacher_id"
+  end
+
+  create_table "students", :force => true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "gender"
+    t.string   "ethnicity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "surveys", :force => true do |t|
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "student_id"
+  end
+
+  create_table "teachers", :force => true do |t|
+    t.string   "name"
+    t.string   "school_name"
+    t.string   "city"
+    t.string   "state"
+    t.string   "email"
+    t.string   "username"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
