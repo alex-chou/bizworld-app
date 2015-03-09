@@ -26,4 +26,4 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
-
+gem 'bitly', '~> 0.10.4'
