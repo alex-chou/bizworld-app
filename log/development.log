@@ -2787,6 +2787,7 @@ ActionController::RoutingError (No route matches {:controller=>"classrooms", :te
 
 
   Rendered /Users/Kenneth/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+<<<<<<< HEAD
 >>>>>>> 857d09803e2b4aeaabc895fc14d36ea30c8468db
 Connecting to database specified by database.yml
 
@@ -2980,3 +2981,11 @@ Served asset /teachers.js - 304 Not Modified (4ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:54 -0300
 Served asset /application.js - 304 Not Modified (11ms)
+=======
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+>>>>>>> d4b3a655cdc628d739f3d64ba8323d39f17daf75
