@@ -1,0 +1,20 @@
+%h1 Create New Class
+
+= form_tag teacher_classrooms_path(@teacher) do
+
+  = label :classroom, :name, 'Name'
+  = text_field :classroom, 'name'
+
+  = label :classroom, :program, 'Program'
+  = text_field :classroom, 'program'
+
+  = label :classroom, :class_type, 'Class Type'
+  = text_field :classroom, 'class_type'
+
+  = label :classroom, :start_date, 'Start Date'
+  = text_field :classroom, 'start_date'
+
+  = label :classroom, :end_date, 'End Date'
+  = text_field :classroom, 'end_date'
+
+  = submit_tag 'Save Changes'
