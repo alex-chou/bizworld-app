@@ -20,7 +20,7 @@ Given /the following classrooms belong to the teacher/ do |classrooms_table|
 		c = t.classrooms.new
 		c.name = classroom[:name]
 		c.program = classroom[:program]
-		c.class_type = classroom[:classroom_type]
+		c.class_type = classroom[:class_type]
 		start_date_array = classroom[:start_date].split('-')
 		end_date_array = classroom[:end_date].split('-')
 		c.start_date = Date.new(start_date_array[2].to_i, start_date_array[1].to_i, start_date_array[0].to_i)

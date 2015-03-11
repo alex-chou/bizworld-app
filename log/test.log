@@ -427,3 +427,73 @@ Processing by ClassroomsController#new as HTML
   Rendered classrooms/new.html.haml within layouts/application (54.7ms)
 Completed 200 OK in 58.5ms (Views: 58.2ms | ActiveRecord: 0.0ms)
   [1m[35m (0.2ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (45.0ms)[0m  [1mINSERT INTO "teachers" ("city", "created_at", "email", "name", "school_name", "state", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "Berkeley"], ["created_at", Wed, 11 Mar 2015 18:51:21 UTC +00:00], ["email", "armando@berkeley.edu"], ["name", "Armando Fox"], ["school_name", "UC Berkeley"], ["state", "CA"], ["updated_at", Wed, 11 Mar 2015 18:51:21 UTC +00:00], ["username", "Armando"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "classrooms" ("class_type", "created_at", "end_date", "name", "program", "start_date", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["class_type", nil], ["created_at", Wed, 11 Mar 2015 18:51:21 UTC +00:00], ["end_date", Thu, 01 Oct 2015], ["name", "Monday 8AM"], ["program", "Bizworld"], ["start_date", Thu, 01 Jan 2015], ["teacher_id", 1], ["updated_at", Wed, 11 Mar 2015 18:51:21 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (39.4ms)[0m  [1mINSERT INTO "teachers" ("city", "created_at", "email", "name", "school_name", "state", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "Berkeley"], ["created_at", Wed, 11 Mar 2015 18:51:46 UTC +00:00], ["email", "armando@berkeley.edu"], ["name", "Armando Fox"], ["school_name", "UC Berkeley"], ["state", "CA"], ["updated_at", Wed, 11 Mar 2015 18:51:46 UTC +00:00], ["username", "Armando"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "classrooms" ("class_type", "created_at", "end_date", "name", "program", "start_date", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["class_type", nil], ["created_at", Wed, 11 Mar 2015 18:51:46 UTC +00:00], ["end_date", Thu, 01 Oct 2015], ["name", "Monday 8AM"], ["program", "Bizworld"], ["start_date", Thu, 01 Jan 2015], ["teacher_id", 1], ["updated_at", Wed, 11 Mar 2015 18:51:46 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/teachers" for 127.0.0.1 at 2015-03-11 15:51:46 -0300
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+Redirected to http://www.example.com/teachers/1
+Completed 302 Found in 52.8ms (ActiveRecord: 0.3ms)
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 15:51:46 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClassroom Load (0.2ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
+  Rendered teachers/show.html.haml within layouts/application (7.3ms)
+Completed 200 OK in 61.3ms (Views: 60.6ms | ActiveRecord: 0.2ms)
+Started GET "/teachers/1/classrooms/1" for 127.0.0.1 at 2015-03-11 15:51:46 -0300
+Processing by ClassroomsController#show as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[36mClassroom Load (0.1ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered classrooms/show.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 7.1ms (Views: 5.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (43.2ms)[0m  [1mINSERT INTO "teachers" ("city", "created_at", "email", "name", "school_name", "state", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["city", "Berkeley"], ["created_at", Wed, 11 Mar 2015 18:52:38 UTC +00:00], ["email", "armando@berkeley.edu"], ["name", "Armando Fox"], ["school_name", "UC Berkeley"], ["state", "CA"], ["updated_at", Wed, 11 Mar 2015 18:52:38 UTC +00:00], ["username", "Armando"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mTeacher Load (0.2ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "classrooms" ("class_type", "created_at", "end_date", "name", "program", "start_date", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["class_type", "After School"], ["created_at", Wed, 11 Mar 2015 18:52:38 UTC +00:00], ["end_date", Thu, 01 Oct 2015], ["name", "Monday 8AM"], ["program", "Bizworld"], ["start_date", Thu, 01 Jan 2015], ["teacher_id", 1], ["updated_at", Wed, 11 Mar 2015 18:52:38 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/teachers" for 127.0.0.1 at 2015-03-11 15:52:38 -0300
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+Redirected to http://www.example.com/teachers/1
+Completed 302 Found in 44.6ms (ActiveRecord: 0.3ms)
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 15:52:39 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClassroom Load (0.1ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
+  Rendered teachers/show.html.haml within layouts/application (12.8ms)
+Completed 200 OK in 80.3ms (Views: 79.7ms | ActiveRecord: 0.1ms)
+Started GET "/teachers/1/classrooms/1" for 127.0.0.1 at 2015-03-11 15:52:39 -0300
+Processing by ClassroomsController#show as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[36mClassroom Load (0.1ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered classrooms/show.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 7.4ms (Views: 6.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction

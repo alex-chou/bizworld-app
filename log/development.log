@@ -2888,3 +2888,290 @@ Served asset /teachers.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/teachers/" for 127.0.0.1 at 2015-03-11 14:43:08 -0300
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.2ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+Redirected to http://localhost:3000/teachers/1
+Completed 302 Found in 2.2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClassroom Load (0.2ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
+  Rendered teachers/show.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 10.1ms (Views: 9.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/teachers/1/classrooms/new" for 127.0.0.1 at 2015-03-11 14:43:14 -0300
+Processing by ClassroomsController#new as HTML
+  Parameters: {"teacher_id"=>"1"}
+  Rendered classrooms/new.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 12.8ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
+Served asset /application.js - 304 Not Modified (1ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/teachers/" for 127.0.0.1 at 2015-03-11 15:03:14 -0300
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+Redirected to http://localhost:3000/teachers/1
+Completed 302 Found in 10.0ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 15:03:14 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClassroom Load (0.2ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
+  Rendered teachers/show.html.haml within layouts/application (29.4ms)
+Completed 500 Internal Server Error in 35.4ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"classrooms", :clasroom=>#<Classroom id: 1, name: "Monday 8AM", program: "BizWorld", class_type: "Lunch Time", start_date: nil, end_date: nil, created_at: "2015-03-08 23:23:38", updated_at: "2015-03-08 23:23:38", teacher_id: 1>}):
+  app/views/teachers/show.html.haml:15:in `block in _app_views_teachers_show_html_haml__885552280__624367408'
+  app/views/teachers/show.html.haml:13:in `_app_views_teachers_show_html_haml__885552280__624367408'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/teachers/" for 127.0.0.1 at 2015-03-11 15:06:27 -0300
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.2ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+Redirected to http://localhost:3000/teachers/1
+Completed 302 Found in 1.5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 15:06:27 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
+  Rendered teachers/show.html.haml within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 8.7ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"classrooms", :clasroom=>#<Classroom id: 1, name: "Monday 8AM", program: "BizWorld", class_type: "Lunch Time", start_date: nil, end_date: nil, created_at: "2015-03-08 23:23:38", updated_at: "2015-03-08 23:23:38", teacher_id: 1>}):
+  app/views/teachers/show.html.haml:15:in `block in _app_views_teachers_show_html_haml__885552280__624367408'
+  app/views/teachers/show.html.haml:13:in `_app_views_teachers_show_html_haml__885552280__624367408'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 15:07:04 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mClassroom Load (0.2ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1[0m
+  Rendered teachers/show.html.haml within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 5.1ms
+
+ActionController::RoutingError (No route matches {:action=>"show", :controller=>"classrooms", :classroom=>#<Classroom id: 1, name: "Monday 8AM", program: "BizWorld", class_type: "Lunch Time", start_date: nil, end_date: nil, created_at: "2015-03-08 23:23:38", updated_at: "2015-03-08 23:23:38", teacher_id: 1>}):
+  app/views/teachers/show.html.haml:15:in `block in _app_views_teachers_show_html_haml__885552280__621496468'
+  app/views/teachers/show.html.haml:13:in `_app_views_teachers_show_html_haml__885552280__621496468'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
+  Rendered teachers/show.html.haml within layouts/application (20.3ms)
+Completed 200 OK in 25.1ms (Views: 24.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Served asset /classrooms.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/teachers/1/classrooms/1" for 127.0.0.1 at 2015-03-11 15:08:40 -0300
+Processing by ClassroomsController#show as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  Rendered classrooms/show.html.haml within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 7.9ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: %h1= "Information on class #{@classroom.name}"
+    3: 
+    4: %h4= "Class Type: #{@classroom.class_type}"
+    5: %h4= "Program: #{@classroom.program}"
+  app/views/classrooms/show.html.haml:2:in `_app_views_classrooms_show_html_haml___303438705__623588858'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.1ms)
+
+
+Started GET "/teachers/1/classrooms/1" for 127.0.0.1 at 2015-03-11 15:32:36 -0300
+Processing by ClassroomsController#show as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+Completed 500 Internal Server Error in 0.8ms
+
+NameError (uninitialized constant ClassroomsController::Classrooms):
+  app/controllers/classrooms_controller.rb:15:in `show'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (41.4ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (47.8ms)
+
+
+Started GET "/teachers/1/classrooms/1" for 127.0.0.1 at 2015-03-11 15:32:44 -0300
+Processing by ClassroomsController#show as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[36mClassroom Load (0.2ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered classrooms/show.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 26.3ms (Views: 7.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Served asset /classrooms.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Served asset /application.js - 304 Not Modified (1ms)
+Connecting to database specified by database.yml
+  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (28.6ms)[0m  [1mCREATE TABLE "classroom_students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom_id" integer, "student_id" integer) [0m
+  [1m[35m (22.4ms)[0m  CREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "program" varchar(255), "class_type" varchar(255), "start_date" date, "end_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "teacher_id" integer) 
+  [1m[36m (14.1ms)[0m  [1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (13.9ms)[0m  CREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")
+  [1m[36m (33.1ms)[0m  [1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [1m[35m (13.8ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "age" integer, "gender" varchar(255), "ethnicity" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (16.2ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "student_id" integer) [0m
+  [1m[35m (14.4ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "school_name" varchar(255), "city" varchar(255), "state" varchar(255), "email" varchar(255), "username" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (14.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (15.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (12.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150309014013')
+  [1m[36m (14.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231446')[0m
+  [1m[35m (14.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308225823')
+  [1m[36m (13.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231700')[0m
+  [1m[35m (14.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230421')
+  [1m[36m (14.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308232024')[0m
+  [1m[35m (12.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308231223')
+  [1m[36m (12.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308230926')[0m
+  [1m[35m (12.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230159')
+  [1m[36m (13.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231952')[0m
+  [1m[35m (12.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230343')

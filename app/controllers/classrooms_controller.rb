@@ -10,4 +10,9 @@ class ClassroomsController < ApplicationController
 		redirect_to teacher_path(@teacher)
 	end
 
+  def show
+    id = params[:id]
+    @classroom = Classroom.find(id)
+  end
+
 end
