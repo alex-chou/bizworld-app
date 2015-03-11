@@ -12,7 +12,7 @@
   %tbody
     - @teacher.classrooms.each do |classroom|
       %tr
-        %td= link_to "#{classroom.name}", teacher_classroom_path(classroom)
+        %td= link_to "#{classroom.name}", teacher_classroom_path(@teacher.id, classroom.id)
         %td= classroom.program
         %td= classroom.class_type
         %td= classroom.start_date.to_s
