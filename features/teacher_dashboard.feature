@@ -6,23 +6,23 @@ Feature: View classes on the dashboard
 Background: Teacher exists and has multiple classes
 
   Given the following teacher exists:
-  | name         | school       | city         |
-  | Armando Fox  | UC Berkeley  | Berkeley     |
+  | name         | school_name  | city         | state | email				  | username	|
+  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando 	|
 
-  And the following classes exists:
-  | class_id | grade   | teacher     | num_students |
-  | 2		 | 7	   | Armando Fox | 26           |
-  | 4        | 9       | Armando Fox | 32           |
+  And the following classrooms belong to the teacher:
+  | name       | program     | class_type   | start_date | end_date	 |
+  | Monday 8AM | Bizworld    | After School | 1-1-2015   | 1-10-2015 |
 
 Scenario: View all classes
 	When I am on the teacher dashboard page
-	I should see "Class 2"
-	And I should see "Class 4"
+	Then I should see "Monday 8AM"
 
-Scenario: View specific class
-	When I am on the teacher dashboard page
-	And I click "Class 2"
-	I should see "Administer pretest"
-	And I should see "Administer posttest"
-	And I should see "Class 2"
-	And I should not see "Class 4"
+Scenario: create a new class
+  When I am on the teacher dashboard page
+	And I follow "Add new class"
+	Then I should see "Create New Class"
+	And I should see "Name"
+	And I should see "Program"
+	And I should see "Class Type"
+  And I should see "Start Date"
+  And I should see "End Date"

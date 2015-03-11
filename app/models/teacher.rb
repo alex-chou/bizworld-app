@@ -1,4 +1,4 @@
 class Teacher < ActiveRecord::Base
   has_many :classrooms
-  attr_accessible :id, :name, :school_name, :city, :state, :email, :username, :classroom
+  attr_accessible :city, :email, :name, :school_name, :state, :username
 end

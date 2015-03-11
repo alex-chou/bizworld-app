@@ -1,4 +1,6 @@
 class Classroom < ActiveRecord::Base
+  belongs_to :teacher
+  has_many :classroom_students
   has_many :students, :through => :classroom_students
-  attr_accessible :id, :name, :program, :class_type, :start_date, :end_date, :student
+  attr_accessible :class_type, :end_date, :name, :program, :start_date
 end
