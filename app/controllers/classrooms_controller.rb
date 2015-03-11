@@ -11,7 +11,7 @@ class ClassroomsController < ApplicationController
 	end
 
   def create_link
-    require 'bitly'
+#    require 'bitly'
     teacher = session[:teacher]
     classroom = Classroom.find(params[:id])
     
@@ -23,12 +23,16 @@ class ClassroomsController < ApplicationController
     school_field = %Q{&entry.363323870=} + school
     teacher_field = %Q{&entry.819974938=} + teacher_name
     city_field = %Q{&entry.1920272073=} + city
+    school_field = %Q{&entry.1402717777=} + school
+    teacher_field = %Q{&entry.363323870=} + teacher_name
+    city_field = %Q{&entry.819974938=} + city
     state_name = %Q{&entry.1920272073=} + state
     tail_url = %Q{&entry.942453101&entry.1463927784}
     survey_url = base_url + school_field + teacher_field + city_field + state_name + tail_url
 
-    bitly = Bitly.new('cs169bizworld', 'R_b3491d455043441192ad7e645659cbd0')
+    bitly = Bitly.client
     @prefilledURL = bitly.shorten(survey_url).short_url
+    #@prefilledURL = survey_url
   end
 
 end
