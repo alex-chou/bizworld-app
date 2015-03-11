@@ -88,6 +88,14 @@ Migrating to CreateBaseModels (20150228002024)
   [1m[36m (0.0ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20150228002024'[0m
   [1m[35m (19.7ms)[0m  commit transaction
   [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+<<<<<<< HEAD
+
+
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-10 02:17:17 -0300
+Connecting to database specified by database.yml
+
+ActionController::RoutingError (No route matches [GET] "/teachers/1"):
+=======
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
   [1m[36m (1.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
@@ -321,6 +329,7 @@ Served asset /rails.png - 304 Not Modified (2ms)
 Started GET "/teachers" for 127.0.0.1 at 2015-03-08 17:41:04 -0700
 
 ActionController::RoutingError (No route matches [GET] "/teachers"):
+>>>>>>> 857d09803e2b4aeaabc895fc14d36ea30c8468db
   actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
   actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
   railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
@@ -338,6 +347,18 @@ ActionController::RoutingError (No route matches [GET] "/teachers"):
   rack (1.4.5) lib/rack/content_length.rb:14:in `call'
   railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
   rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+<<<<<<< HEAD
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (28.5ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2015-03-10 02:17:28 -0300
+Served asset /rails.png - 200 OK (42ms)
+=======
   /Users/Kenneth/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
   /Users/Kenneth/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
   /Users/Kenneth/.rvm/rubies/ruby-1.9.3-p551/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
@@ -2766,412 +2787,1646 @@ ActionController::RoutingError (No route matches {:controller=>"classrooms", :te
 
 
   Rendered /Users/Kenneth/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+<<<<<<< HEAD
+>>>>>>> 857d09803e2b4aeaabc895fc14d36ea30c8468db
 Connecting to database specified by database.yml
 
 
-Started GET "/teachers" for 127.0.0.1 at 2015-03-11 14:24:31 -0300
-Processing by TeachersController#index as HTML
-  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
-Redirected to http://localhost:3000/teachers/1
-Completed 302 Found in 103.7ms (ActiveRecord: 3.0ms)
-
-
-Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 14:24:31 -0300
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-10 02:18:59 -0300
 Processing by TeachersController#show as HTML
   Parameters: {"id"=>"1"}
-  [1m[35mClassroom Load (0.4ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
-  Rendered teachers/show.html.haml within layouts/application (118.6ms)
-Warning. Error encountered while saving cache /home/saasbook/bizworld-app/tmp/cache/sass/953c9b0f4f5b62edb1276ad643a74ca5f8eeb3b8/classrooms.css.scssc: can't dump anonymous class #<Class:0xba79e40>
-Compiled classrooms.css  (8ms)  (pid 2560)
-Warning. Error encountered while saving cache /home/saasbook/bizworld-app/tmp/cache/sass/953c9b0f4f5b62edb1276ad643a74ca5f8eeb3b8/teachers.css.scssc: can't dump anonymous class #<Class:0xba79e40>
-Compiled teachers.css  (2ms)  (pid 2560)
-Compiled application.css  (23ms)  (pid 2560)
-Compiled jquery.js  (1ms)  (pid 2560)
-Compiled jquery_ujs.js  (0ms)  (pid 2560)
-Compiled classrooms.js  (53ms)  (pid 2560)
-Compiled teachers.js  (1ms)  (pid 2560)
-Compiled application.js  (138ms)  (pid 2560)
-Completed 200 OK in 350.1ms (Views: 349.0ms | ActiveRecord: 0.8ms)
+  Rendered teachers/show.html.haml within layouts/application (55.6ms)
+Completed 500 Internal Server Error in 104.7ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: %h1= "Welcome #{@teacher.name}, here is a list of your classes"
+    3: 
+    4: %table#classes
+    5:   %thead
+  app/views/teachers/show.html.haml:2:in `_app_views_teachers_show_html_haml___359771906_100384590'
 
 
-Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
-Served asset /application.css - 200 OK (56ms)
-
-
-Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
-Served asset /jquery.js - 200 OK (2ms)
-
-
-Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
-Served asset /teachers.css - 200 OK (1ms)
-
-
-Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
-Served asset /classrooms.css - 200 OK (1ms)
-
-
-Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
-Served asset /jquery_ujs.js - 200 OK (1ms)
-
-
-Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
-Served asset /classrooms.js - 200 OK (0ms)
-
-
-Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
-Served asset /teachers.js - 200 OK (1ms)
-
-
-Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
-Served asset /application.js - 200 OK (13ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (7.5ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (24.2ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (59.4ms)
 Connecting to database specified by database.yml
-  [1m[36m (1.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
-  [1m[35m (0.2ms)[0m  select sqlite_version(*)
-  [1m[36m (22.9ms)[0m  [1mCREATE TABLE "classroom_students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom_id" integer, "student_id" integer) [0m
-  [1m[35m (14.1ms)[0m  CREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "program" varchar(255), "class_type" varchar(255), "start_date" date, "end_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "teacher_id" integer) 
-  [1m[36m (14.4ms)[0m  [1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
-  [1m[35m (13.3ms)[0m  CREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")
-  [1m[36m (14.4ms)[0m  [1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
-  [1m[35m (11.8ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "age" integer, "gender" varchar(255), "ethnicity" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
-  [1m[36m (12.3ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "student_id" integer) [0m
-  [1m[35m (11.2ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "school_name" varchar(255), "city" varchar(255), "state" varchar(255), "email" varchar(255), "username" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
-  [1m[36m (12.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [1m[35m (13.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
-  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
-  [1m[35m (13.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150309014013')
-  [1m[36m (13.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231446')[0m
-  [1m[35m (9.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308225823')
-  [1m[36m (14.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231700')[0m
-  [1m[35m (14.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230421')
-  [1m[36m (14.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308232024')[0m
-  [1m[35m (12.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308231223')
-  [1m[36m (13.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308230926')[0m
-  [1m[35m (14.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230159')
-  [1m[36m (12.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231952')[0m
-  [1m[35m (14.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230343')
+  [1m[36m (19.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTeachers (20150308225823)
+Migrating to CreateClassrooms (20150308230159)
+Migrating to CreateStudents (20150308230343)
+Migrating to CreateSurveys (20150308230421)
+Migrating to AddTeacherRefToClassroom (20150308230926)
+Migrating to AddClassroomRefToClassroomStudents (20150308231223)
+Migrating to DropClassroomStudentTable (20150308231446)
+Migrating to CreateClassroomStudentsTable (20150308231700)
+Migrating to AddStudentRefToClassroomStudents (20150308231952)
+Migrating to AddStudentRefToSurveys (20150308232024)
+Migrating to AddSessionsTable (20150309014013)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
 
 
-Started GET "/teachers/1/classrooms/new" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
-Processing by ClassroomsController#new as HTML
-  Parameters: {"teacher_id"=>"1"}
-  Rendered classrooms/new.html.haml within layouts/application (8.8ms)
-Completed 200 OK in 16.5ms (Views: 15.0ms | ActiveRecord: 0.3ms)
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-10 02:20:19 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered teachers/show.html.haml within layouts/application (52.2ms)
+Completed 500 Internal Server Error in 103.2ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: %h1= "Welcome #{@teacher.name}, here is a list of your classes"
+    3: 
+    4: %table#classes
+    5:   %thead
+  app/views/teachers/show.html.haml:2:in `_app_views_teachers_show_html_haml__616821083_81398510'
 
 
-Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
-Served asset /application.css - 304 Not Modified (0ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (32.8ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (46.5ms)
 
 
-Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
-Served asset /classrooms.js - 304 Not Modified (0ms)
-
-
-Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
-Served asset /jquery.js - 304 Not Modified (0ms)
-
-
-Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
-Served asset /teachers.css - 304 Not Modified (0ms)
-
-
-Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
-Served asset /classrooms.css - 304 Not Modified (0ms)
-
-
-Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
-Served asset /jquery_ujs.js - 304 Not Modified (0ms)
-
-
-Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
-Served asset /teachers.js - 304 Not Modified (0ms)
-
-
-Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
-Served asset /application.js - 304 Not Modified (0ms)
-
-
-Started GET "/teachers/" for 127.0.0.1 at 2015-03-11 14:43:08 -0300
+Started GET "/teachers" for 127.0.0.1 at 2015-03-10 02:22:12 -0300
 Processing by TeachersController#index as HTML
-  [1m[36mTeacher Load (0.2ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+  [1m[36mTeacher Load (0.3ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
 Redirected to http://localhost:3000/teachers/1
-Completed 302 Found in 2.2ms (ActiveRecord: 0.2ms)
+Completed 302 Found in 156.1ms (ActiveRecord: 6.1ms)
 
 
-Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-10 02:22:12 -0300
 Processing by TeachersController#show as HTML
   Parameters: {"id"=>"1"}
   [1m[35mClassroom Load (0.2ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
-  Rendered teachers/show.html.haml within layouts/application (5.2ms)
-Completed 200 OK in 10.1ms (Views: 9.5ms | ActiveRecord: 0.2ms)
+  Rendered teachers/show.html.haml within layouts/application (165.5ms)
+Warning. Error encountered while saving cache /home/saasbook/Documents/project/test/bizworld-app/tmp/cache/sass/03a716064e436de7218167887f09da9e0f2bfe44/classrooms.css.scssc: can't dump anonymous class #<Class:0x9ca1c10>
+Compiled classrooms.css  (17ms)  (pid 2538)
+Warning. Error encountered while saving cache /home/saasbook/Documents/project/test/bizworld-app/tmp/cache/sass/03a716064e436de7218167887f09da9e0f2bfe44/teachers.css.scssc: can't dump anonymous class #<Class:0x9ca1c10>
+Compiled teachers.css  (1ms)  (pid 2538)
+Compiled application.css  (71ms)  (pid 2538)
+Compiled jquery.js  (6ms)  (pid 2538)
+Compiled jquery_ujs.js  (1ms)  (pid 2538)
+Compiled classrooms.js  (137ms)  (pid 2538)
+Compiled teachers.js  (1ms)  (pid 2538)
+Compiled application.js  (297ms)  (pid 2538)
+Completed 200 OK in 624.1ms (Views: 623.1ms | ActiveRecord: 0.5ms)
 
 
-Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
-Served asset /application.css - 304 Not Modified (0ms)
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-10 02:22:13 -0300
+Served asset /application.css - 200 OK (55ms)
 
 
-Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
-Served asset /classrooms.js - 304 Not Modified (0ms)
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:13 -0300
+Served asset /jquery_ujs.js - 200 OK (13ms)
 
 
-Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
-Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:13 -0300
+Served asset /jquery.js - 200 OK (44ms)
 
 
-Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
-Served asset /jquery.js - 304 Not Modified (0ms)
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:13 -0300
+Served asset /classrooms.js - 200 OK (30ms)
 
 
-Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-10 02:22:13 -0300
+Served asset /teachers.css - 200 OK (2ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-10 02:22:13 -0300
+Served asset /classrooms.css - 200 OK (7ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:13 -0300
+Served asset /teachers.js - 200 OK (8ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:13 -0300
+Served asset /application.js - 200 OK (97ms)
+
+
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-10 02:22:24 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered teachers/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 21.5ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-10 02:22:24 -0300
+Served asset /application.css - 304 Not Modified (34ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-10 02:22:24 -0300
+Served asset /classrooms.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-10 02:22:24 -0300
 Served asset /teachers.css - 304 Not Modified (0ms)
 
 
-Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
-Served asset /classrooms.css - 304 Not Modified (0ms)
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:24 -0300
+Served asset /jquery.js - 304 Not Modified (16ms)
 
 
-Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
-Served asset /teachers.js - 304 Not Modified (0ms)
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:24 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
 
 
-Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:09 -0300
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:24 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:24 -0300
+Served asset /teachers.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:24 -0300
 Served asset /application.js - 304 Not Modified (1ms)
 
 
-Started GET "/teachers/1/classrooms/new" for 127.0.0.1 at 2015-03-11 14:43:14 -0300
+Started GET "/teachers/1/classrooms/new" for 127.0.0.1 at 2015-03-10 02:22:54 -0300
 Processing by ClassroomsController#new as HTML
   Parameters: {"teacher_id"=>"1"}
-  Rendered classrooms/new.html.haml within layouts/application (9.2ms)
-Completed 200 OK in 12.8ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+  Rendered classrooms/new.html.haml within layouts/application (10.7ms)
+Completed 200 OK in 27.0ms (Views: 26.6ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
-Served asset /application.css - 304 Not Modified (0ms)
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-10 02:22:54 -0300
+Served asset /application.css - 304 Not Modified (7ms)
 
 
-Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
-Served asset /classrooms.js - 304 Not Modified (0ms)
-
-
-Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
-Served asset /jquery_ujs.js - 304 Not Modified (0ms)
-
-
-Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:54 -0300
 Served asset /jquery.js - 304 Not Modified (0ms)
 
 
-Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
-Served asset /teachers.css - 304 Not Modified (0ms)
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-10 02:22:54 -0300
+Served asset /teachers.css - 304 Not Modified (6ms)
 
 
-Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
-Served asset /classrooms.css - 304 Not Modified (0ms)
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-10 02:22:54 -0300
+Served asset /classrooms.css - 304 Not Modified (41ms)
 
 
-Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
-Served asset /teachers.js - 304 Not Modified (0ms)
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:54 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
 
 
-Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 14:43:15 -0300
-Served asset /application.js - 304 Not Modified (1ms)
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:54 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:54 -0300
+Served asset /teachers.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-10 02:22:54 -0300
+Served asset /application.js - 304 Not Modified (11ms)
+=======
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+>>>>>>> d4b3a655cdc628d739f3d64ba8323d39f17daf75
+Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 
 
-Started GET "/teachers/" for 127.0.0.1 at 2015-03-11 15:03:14 -0300
+Started GET "/teachers" for 127.0.0.1 at 2015-03-11 05:37:13 -0300
 Processing by TeachersController#index as HTML
-  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+  [1m[36mTeacher Load (0.0ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
 Redirected to http://localhost:3000/teachers/1
-Completed 302 Found in 10.0ms (ActiveRecord: 0.5ms)
+Completed 302 Found in 130.2ms (ActiveRecord: 3.9ms)
 
 
-Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 15:03:14 -0300
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 05:37:14 -0300
 Processing by TeachersController#show as HTML
   Parameters: {"id"=>"1"}
-  [1m[35mClassroom Load (0.2ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
-  Rendered teachers/show.html.haml within layouts/application (29.4ms)
-Completed 500 Internal Server Error in 35.4ms
-
-ActionController::RoutingError (No route matches {:action=>"show", :controller=>"classrooms", :clasroom=>#<Classroom id: 1, name: "Monday 8AM", program: "BizWorld", class_type: "Lunch Time", start_date: nil, end_date: nil, created_at: "2015-03-08 23:23:38", updated_at: "2015-03-08 23:23:38", teacher_id: 1>}):
-  app/views/teachers/show.html.haml:15:in `block in _app_views_teachers_show_html_haml__885552280__624367408'
-  app/views/teachers/show.html.haml:13:in `_app_views_teachers_show_html_haml__885552280__624367408'
+  [1m[35mClassroom Load (0.1ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
+  Rendered teachers/show.html.haml within layouts/application (109.8ms)
+Completed 200 OK in 462.6ms (Views: 461.9ms | ActiveRecord: 0.4ms)
 
 
-  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
-Connecting to database specified by database.yml
-Connecting to database specified by database.yml
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:37:14 -0300
+Served asset /application.css - 304 Not Modified (73ms)
 
 
-Started GET "/teachers/" for 127.0.0.1 at 2015-03-11 15:06:27 -0300
-Processing by TeachersController#index as HTML
-  [1m[36mTeacher Load (0.2ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
-Redirected to http://localhost:3000/teachers/1
-Completed 302 Found in 1.5ms (ActiveRecord: 0.2ms)
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:37:14 -0300
+Served asset /classrooms.js - 304 Not Modified (9ms)
 
 
-Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 15:06:27 -0300
-Processing by TeachersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[35mClassroom Load (0.3ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
-  Rendered teachers/show.html.haml within layouts/application (7.1ms)
-Completed 500 Internal Server Error in 8.7ms
-
-ActionController::RoutingError (No route matches {:action=>"show", :controller=>"classrooms", :clasroom=>#<Classroom id: 1, name: "Monday 8AM", program: "BizWorld", class_type: "Lunch Time", start_date: nil, end_date: nil, created_at: "2015-03-08 23:23:38", updated_at: "2015-03-08 23:23:38", teacher_id: 1>}):
-  app/views/teachers/show.html.haml:15:in `block in _app_views_teachers_show_html_haml__885552280__624367408'
-  app/views/teachers/show.html.haml:13:in `_app_views_teachers_show_html_haml__885552280__624367408'
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:37:14 -0300
+Served asset /classrooms.css - 304 Not Modified (1ms)
 
 
-  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:37:14 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (7ms)
 
 
-Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 15:07:04 -0300
-Processing by TeachersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mClassroom Load (0.2ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1[0m
-  Rendered teachers/show.html.haml within layouts/application (3.8ms)
-Completed 500 Internal Server Error in 5.1ms
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:37:14 -0300
+Served asset /jquery.js - 304 Not Modified (7ms)
 
-ActionController::RoutingError (No route matches {:action=>"show", :controller=>"classrooms", :classroom=>#<Classroom id: 1, name: "Monday 8AM", program: "BizWorld", class_type: "Lunch Time", start_date: nil, end_date: nil, created_at: "2015-03-08 23:23:38", updated_at: "2015-03-08 23:23:38", teacher_id: 1>}):
-  app/views/teachers/show.html.haml:15:in `block in _app_views_teachers_show_html_haml__885552280__621496468'
-  app/views/teachers/show.html.haml:13:in `_app_views_teachers_show_html_haml__885552280__621496468'
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:37:14 -0300
+Served asset /teachers.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:37:14 -0300
+Served asset /teachers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:37:14 -0300
+Served asset /application.js - 304 Not Modified (20ms)
+
+
+Started GET "/teachers/1/classrooms/new" for 127.0.0.1 at 2015-03-11 05:37:22 -0300
+
+SyntaxError (/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:23: syntax error, unexpected tLSHFT, expecting keyword_end
+<<<<<<< HEAD
+  ^
+/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:27: syntax error, unexpected tEQQ, expecting keyword_end
+=======
+   ^
+/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:31: syntax error, unexpected tRSHFT, expecting keyword_end
+>>>>>>> 8e23f9a9d93ce1226117c0b8a4f369f502795e1e
+  ^):
+  activesupport (3.2.16) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.16) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.16) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `_run__704571560__call__651268527__callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.4ms)
+
+
+Started GET "/teachers/1/create_link" for 127.0.0.1 at 2015-03-11 05:38:10 -0300
+
+ActionController::RoutingError (No route matches [GET] "/teachers/1/create_link"):
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/teachers/1/classrooms/:id/create_link" for 127.0.0.1 at 2015-03-11 05:38:19 -0300
+
+SyntaxError (/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:23: syntax error, unexpected tLSHFT, expecting keyword_end
+<<<<<<< HEAD
+  ^
+/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:27: syntax error, unexpected tEQQ, expecting keyword_end
+=======
+   ^
+/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:31: syntax error, unexpected tRSHFT, expecting keyword_end
+>>>>>>> 8e23f9a9d93ce1226117c0b8a4f369f502795e1e
+  ^):
+  activesupport (3.2.16) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.16) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.16) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `_run__704571560__call__651268527__callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.9ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (48.5ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:38:23 -0300
+
+SyntaxError (/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:23: syntax error, unexpected tLSHFT, expecting keyword_end
+<<<<<<< HEAD
+  ^
+/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:27: syntax error, unexpected tEQQ, expecting keyword_end
+=======
+   ^
+/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:31: syntax error, unexpected tRSHFT, expecting keyword_end
+>>>>>>> 8e23f9a9d93ce1226117c0b8a4f369f502795e1e
+  ^):
+  activesupport (3.2.16) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.16) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.16) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `_run__704571560__call__651268527__callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (28.0ms)
+
+
+Started GET "/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:38:27 -0300
+
+ActionController::RoutingError (No route matches [GET] "/classrooms/1/create_link"):
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
 
 
   Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
 
 
-Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Started GET "/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:38:29 -0300
+
+ActionController::RoutingError (No route matches [GET] "/classrooms/1/create_link"):
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.5ms)
+
+
+Started GET "/teachers.1" for 127.0.0.1 at 2015-03-11 05:39:01 -0300
+Processing by TeachersController#index as 
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+Redirected to http://localhost:3000/teachers/1
+Completed 302 Found in 11.5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 05:39:01 -0300
 Processing by TeachersController#show as HTML
   Parameters: {"id"=>"1"}
-  [1m[35mClassroom Load (0.3ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
-  Rendered teachers/show.html.haml within layouts/application (20.3ms)
-Completed 200 OK in 25.1ms (Views: 24.6ms | ActiveRecord: 0.3ms)
+  [1m[35mClassroom Load (0.1ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
+  Rendered teachers/show.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 17.3ms (Views: 16.9ms | ActiveRecord: 0.3ms)
 
 
-Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:39:01 -0300
 Served asset /application.css - 304 Not Modified (3ms)
 
 
-Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
-Served asset /classrooms.js - 304 Not Modified (8ms)
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:39:01 -0300
+Served asset /jquery.js - 304 Not Modified (18ms)
 
 
-Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:39:01 -0300
 Served asset /jquery_ujs.js - 304 Not Modified (0ms)
 
 
-Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
-Served asset /jquery.js - 304 Not Modified (0ms)
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:39:01 -0300
+Served asset /teachers.css - 304 Not Modified (5ms)
 
 
-Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
-Served asset /teachers.css - 304 Not Modified (0ms)
-
-
-Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:39:01 -0300
 Served asset /classrooms.css - 304 Not Modified (0ms)
 
 
-Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:39:01 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:39:01 -0300
 Served asset /teachers.js - 304 Not Modified (0ms)
 
 
-Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 15:08:38 -0300
-Served asset /application.js - 304 Not Modified (0ms)
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:39:01 -0300
+Served asset /application.js - 304 Not Modified (9ms)
 
 
-Started GET "/teachers/1/classrooms/1" for 127.0.0.1 at 2015-03-11 15:08:40 -0300
-Processing by ClassroomsController#show as HTML
-  Parameters: {"teacher_id"=>"1", "id"=>"1"}
-  Rendered classrooms/show.html.haml within layouts/application (6.3ms)
-Completed 500 Internal Server Error in 7.9ms
+Started GET "/teachers/1/create_link" for 127.0.0.1 at 2015-03-11 05:39:10 -0300
 
-ActionView::Template::Error (undefined method `name' for nil:NilClass):
-    1: 
-    2: %h1= "Information on class #{@classroom.name}"
-    3: 
-    4: %h4= "Class Type: #{@classroom.class_type}"
-    5: %h4= "Program: #{@classroom.program}"
-  app/views/classrooms/show.html.haml:2:in `_app_views_classrooms_show_html_haml___303438705__623588858'
+ActionController::RoutingError (No route matches [GET] "/teachers/1/create_link"):
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.2ms)
+
+
+Started GET "/classrooms/:id/create_link" for 127.0.0.1 at 2015-03-11 05:40:38 -0300
+
+ActionController::RoutingError (No route matches [GET] "/classrooms/:id/create_link"):
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:40:42 -0300
+
+ActionController::RoutingError (No route matches [GET] "/classrooms/1/create_link"):
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.1ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 05:41:20 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered teachers/show.html.haml within layouts/application (17.2ms)
+Completed 200 OK in 68.9ms (Views: 67.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:41:21 -0300
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:41:21 -0300
+Served asset /classrooms.css - 304 Not Modified (68ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:41:21 -0300
+Served asset /teachers.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:41:21 -0300
+Served asset /jquery.js - 304 Not Modified (18ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:41:21 -0300
+Served asset /application.js - 304 Not Modified (21ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:41:21 -0300
+Served asset /teachers.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:41:21 -0300
+Served asset /classrooms.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:41:21 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (10ms)
+
+
+Started GET "/teachers/1/classrooms/:id/create_link" for 127.0.0.1 at 2015-03-11 05:41:26 -0300
+
+SyntaxError (/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:23: syntax error, unexpected tLSHFT, expecting keyword_end
+<<<<<<< HEAD
+  ^
+/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:27: syntax error, unexpected tEQQ, expecting keyword_end
+=======
+   ^
+/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:31: syntax error, unexpected tRSHFT, expecting keyword_end
+>>>>>>> 8e23f9a9d93ce1226117c0b8a4f369f502795e1e
+  ^):
+  activesupport (3.2.16) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.16) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.16) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `_run__770352521__call__175859140__callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
 
 
   Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
-  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
-  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.1ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.2ms)
 
 
-Started GET "/teachers/1/classrooms/1" for 127.0.0.1 at 2015-03-11 15:32:36 -0300
-Processing by ClassroomsController#show as HTML
-  Parameters: {"teacher_id"=>"1", "id"=>"1"}
-Completed 500 Internal Server Error in 0.8ms
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:41:30 -0300
 
-NameError (uninitialized constant ClassroomsController::Classrooms):
-  app/controllers/classrooms_controller.rb:15:in `show'
+SyntaxError (/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:23: syntax error, unexpected tLSHFT, expecting keyword_end
+<<<<<<< HEAD
+  ^
+/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:27: syntax error, unexpected tEQQ, expecting keyword_end
+=======
+   ^
+/home/saasbook/Documents/project/test/bizworld-app/app/controllers/classrooms_controller.rb:31: syntax error, unexpected tRSHFT, expecting keyword_end
+>>>>>>> 8e23f9a9d93ce1226117c0b8a4f369f502795e1e
+  ^):
+  activesupport (3.2.16) lib/active_support/dependencies.rb:469:in `load'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:469:in `block in load_file'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:639:in `new_constants_in'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:468:in `load_file'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:353:in `require_or_load'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:192:in `block in const_missing'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:190:in `each'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:190:in `const_missing'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:229:in `each'
+  activesupport (3.2.16) lib/active_support/inflector/methods.rb:229:in `constantize'
+  activesupport (3.2.16) lib/active_support/dependencies.rb:554:in `get'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:32:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.16) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.16) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `_run__770352521__call__175859140__callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
 
 
   Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
-  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (41.4ms)
-  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (47.8ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.1ms)
+Connecting to database specified by database.yml
 
 
-Started GET "/teachers/1/classrooms/1" for 127.0.0.1 at 2015-03-11 15:32:44 -0300
-Processing by ClassroomsController#show as HTML
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:42:49 -0300
+Processing by ClassroomsController#create_link as HTML
   Parameters: {"teacher_id"=>"1", "id"=>"1"}
   [1m[36mClassroom Load (0.2ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
-  Rendered classrooms/show.html.haml within layouts/application (0.2ms)
-Completed 200 OK in 26.3ms (Views: 7.3ms | ActiveRecord: 0.7ms)
+  Rendered classrooms/create_link.html.haml within layouts/application (5.4ms)
+Completed 200 OK in 447.1ms (Views: 91.6ms | ActiveRecord: 1.0ms)
 
 
-Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
-Served asset /application.css - 304 Not Modified (0ms)
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:42:50 -0300
+Served asset /application.css - 304 Not Modified (4ms)
 
 
-Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:42:50 -0300
+Served asset /classrooms.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:42:50 -0300
+Served asset /teachers.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:42:50 -0300
+Served asset /classrooms.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:42:50 -0300
+Served asset /teachers.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:42:50 -0300
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:42:50 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:42:50 -0300
+Served asset /application.js - 304 Not Modified (17ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:44:16 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[36mClassroom Load (0.2ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (4.2ms)
+Completed 200 OK in 398.5ms (Views: 90.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:44:17 -0300
+Served asset /application.css - 304 Not Modified (18ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:44:17 -0300
+Served asset /classrooms.css - 304 Not Modified (19ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:44:17 -0300
+Served asset /jquery.js - 304 Not Modified (22ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:44:17 -0300
+Served asset /teachers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:44:17 -0300
 Served asset /classrooms.js - 304 Not Modified (10ms)
 
 
-Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
-Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:44:17 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
 
 
-Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
-Served asset /jquery.js - 304 Not Modified (1ms)
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:44:17 -0300
+Served asset /teachers.js - 304 Not Modified (9ms)
 
 
-Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
-Served asset /teachers.css - 304 Not Modified (0ms)
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:44:17 -0300
+Served asset /application.js - 304 Not Modified (18ms)
 
 
-Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
-Served asset /classrooms.css - 304 Not Modified (0ms)
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:46:16 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[35mClassroom Load (0.1ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 301.9ms (Views: 21.2ms | ActiveRecord: 0.1ms)
 
 
-Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:46:16 -0300
+Served asset /application.css - 304 Not Modified (66ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:46:17 -0300
+Served asset /classrooms.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:46:17 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:46:17 -0300
+Served asset /teachers.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:46:17 -0300
+Served asset /classrooms.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:46:17 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:46:17 -0300
 Served asset /teachers.js - 304 Not Modified (0ms)
 
 
-Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 15:32:45 -0300
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:46:17 -0300
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:47:40 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[36mClassroom Load (0.1ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 308.3ms (Views: 9.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:40 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:40 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:40 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:40 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:40 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:40 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:40 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:40 -0300
+Served asset /application.js - 304 Not Modified (12ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:47:42 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[35mClassroom Load (0.0ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 290.3ms (Views: 8.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:42 -0300
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:42 -0300
+Served asset /jquery.js - 304 Not Modified (25ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:42 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:42 -0300
+Served asset /classrooms.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:42 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:42 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:42 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:42 -0300
+Served asset /application.js - 304 Not Modified (11ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:47:44 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[36mClassroom Load (0.0ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 290.3ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:44 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:44 -0300
+Served asset /classrooms.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:44 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (16ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:44 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:44 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:44 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:44 -0300
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:44 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:47:45 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[35mClassroom Load (0.1ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 300.3ms (Views: 30.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:46 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:46 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:47:46 -0300
+Served asset /teachers.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:46 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:46 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:46 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:46 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:47:46 -0300
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:48:30 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[36mClassroom Load (0.1ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 282.0ms (Views: 11.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:48:30 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:48:30 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:48:30 -0300
+Served asset /teachers.css - 304 Not Modified (22ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:48:30 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:48:30 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:48:30 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:48:30 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:48:30 -0300
+Served asset /application.js - 304 Not Modified (14ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:48:56 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[35mClassroom Load (0.1ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (0.6ms)
+Completed 200 OK in 289.6ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:48:57 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:48:57 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:48:57 -0300
+Served asset /jquery.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:48:57 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:48:57 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:48:57 -0300
+Served asset /teachers.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:48:57 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:48:57 -0300
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:50:02 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[36mClassroom Load (0.1ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+ERROR: compiling _app_views_classrooms_create_link_html_haml___665676766__632139838 RAISED /home/saasbook/Documents/project/test/bizworld-app/app/views/classrooms/create_link.html.haml:2: syntax error, unexpected tIVAR, expecting ')'
+...ure;@haml_buffer = @haml_buffer.upper if @haml_buffer;end;
+...                               ^
+/home/saasbook/Documents/project/test/bizworld-app/app/views/classrooms/create_link.html.haml:2: syntax error, unexpected keyword_end, expecting ')'
+...uffer.upper if @haml_buffer;end;
+...                               ^
+/home/saasbook/Documents/project/test/bizworld-app/app/views/classrooms/create_link.html.haml:5: syntax error, unexpected keyword_end, expecting ')'
+Function body:           def _app_views_classrooms_create_link_html_haml___665676766__632139838(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "classrooms/create_link";_old_output_buffer = @output_buffer;;begin;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(haml_buffer, {:autoclose=>["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "menuitem", "meta", "param", "source", "track", "wbr"], :preserve=>["textarea", "pre", "code"], :attr_wrapper=>"'", :ugly=>false, :format=>:html5, :encoding=>"UTF-8", :escape_html=>true, :escape_attrs=>true, :hyphenate_data_attrs=>true, :cdata=>false});_erbout = _hamlout.buffer;@output_buffer = output_buffer ||= ActionView::OutputBuffer.new rescue nil;;_hamlout.push_text("#{_hamlout.format_script_false_false_false_true_false_true_false(( link_to <%=@prefilledURL%>, @prefilledURL
+));}\n", 0, false);::Haml::Util.html_safe(_erbout);ensure;@haml_buffer = @haml_buffer.upper if @haml_buffer;end;
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/template.rb:297:in `module_eval'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/template.rb:297:in `compile'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/template.rb:244:in `block in compile!'
+<internal:prelude>:10:in `synchronize'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/template.rb:232:in `compile!'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/template.rb:144:in `block in render'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/notifications.rb:125:in `instrument'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/template.rb:143:in `render'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/notifications.rb:123:in `block in instrument'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/notifications.rb:123:in `instrument'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/renderer/template_renderer.rb:18:in `render'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/renderer/renderer.rb:36:in `render_template'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_view/renderer/renderer.rb:17:in `render'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/abstract_controller/rendering.rb:110:in `_render_template'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/streaming.rb:225:in `_render_template'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/abstract_controller/rendering.rb:103:in `render_to_body'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/abstract_controller/rendering.rb:88:in `render'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.2.16/lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/abstract_controller/base.rb:167:in `process_action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/callbacks.rb:414:in `_run__154872715__process_action__504585789__callbacks'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/callbacks.rb:405:in `__run_callback'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/notifications.rb:123:in `block in instrument'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/notifications.rb:123:in `instrument'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.2.16/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/abstract_controller/base.rb:121:in `process'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/abstract_controller/rendering.rb:45:in `process'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal.rb:203:in `dispatch'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_controller/metal.rb:246:in `block in action'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/routing/route_set.rb:73:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/routing/route_set.rb:36:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/journey-1.0.4/lib/journey/router.rb:56:in `each'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/journey-1.0.4/lib/journey/router.rb:56:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/routing/route_set.rb:608:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.4.5/lib/rack/etag.rb:23:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.4.5/lib/rack/conditionalget.rb:25:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/flash.rb:242:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.4.5/lib/rack/session/abstract/id.rb:210:in `context'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.4.5/lib/rack/session/abstract/id.rb:205:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/cookies.rb:341:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.2.16/lib/active_record/query_cache.rb:64:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activerecord-3.2.16/lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/callbacks.rb:405:in `_run__212602842__call__1043869597__callbacks'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/callbacks.rb:405:in `__run_callback'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.2.16/lib/rails/rack/logger.rb:32:in `call_app'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.2.16/lib/rails/rack/logger.rb:16:in `block in call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/tagged_logging.rb:22:in `tagged'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.2.16/lib/rails/rack/logger.rb:16:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-3.2.16/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/static.rb:63:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.2.16/lib/rails/engine.rb:484:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.2.16/lib/rails/application.rb:231:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/railties-3.2.16/lib/rails/rack/log_tailer.rb:17:in `call'
+/home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+/home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+/home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+/home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+  Rendered classrooms/create_link.html.haml within layouts/application (69.3ms)
+Completed 500 Internal Server Error in 345.8ms
+
+ActionView::Template::Error (/home/saasbook/Documents/project/test/bizworld-app/app/views/classrooms/create_link.html.haml:2: syntax error, unexpected tIVAR, expecting ')'
+...ure;@haml_buffer = @haml_buffer.upper if @haml_buffer;end;
+...                               ^
+/home/saasbook/Documents/project/test/bizworld-app/app/views/classrooms/create_link.html.haml:2: syntax error, unexpected keyword_end, expecting ')'
+...uffer.upper if @haml_buffer;end;
+...                               ^
+/home/saasbook/Documents/project/test/bizworld-app/app/views/classrooms/create_link.html.haml:5: syntax error, unexpected keyword_end, expecting ')'):
+    1: = link_to <%=@prefilledURL%>, @prefilledURL
+  actionpack (3.2.16) lib/action_view/template.rb:297:in `module_eval'
+  actionpack (3.2.16) lib/action_view/template.rb:297:in `compile'
+  actionpack (3.2.16) lib/action_view/template.rb:244:in `block in compile!'
+  <internal:prelude>:10:in `synchronize'
+  actionpack (3.2.16) lib/action_view/template.rb:232:in `compile!'
+  actionpack (3.2.16) lib/action_view/template.rb:144:in `block in render'
+  activesupport (3.2.16) lib/active_support/notifications.rb:125:in `instrument'
+  actionpack (3.2.16) lib/action_view/template.rb:143:in `render'
+  actionpack (3.2.16) lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+  actionpack (3.2.16) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (3.2.16) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.16) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.16) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.16) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (3.2.16) lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+  actionpack (3.2.16) lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+  actionpack (3.2.16) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.16) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.16) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.16) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.16) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.16) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.16) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.16) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.16) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.16) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.16) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.16) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.16) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (3.2.16) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.16) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.16) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.16) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.16) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.16) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.16) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.2.16) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.16) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.16) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:414:in `_run__154872715__process_action__504585789__callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.16) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.16) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.16) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.16) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.16) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.16) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.16) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.16) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.16) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.16) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.16) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.16) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.16) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.16) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.16) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.16) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.16) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `_run__212602842__call__1043869597__callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.16) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.16) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.16) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.16) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.16) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.16) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.16) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.16) lib/rails/engine.rb:484:in `call'
+  railties (3.2.16) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.16) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/saasbook/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/saasbook/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.1ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:53:50 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[35mClassroom Load (0.2ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 302.2ms (Views: 16.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:53:51 -0300
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:53:51 -0300
+Served asset /teachers.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:53:51 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:53:51 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:53:51 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:53:51 -0300
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:53:51 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:53:51 -0300
 Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:54:09 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[36mClassroom Load (0.1ms)[0m  [1mSELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 307.4ms (Views: 15.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:54:09 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:54:09 -0300
+Served asset /jquery.js - 304 Not Modified (39ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:54:09 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:54:09 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:54:09 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:54:09 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:54:09 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:54:09 -0300
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/teachers/1/classrooms/1/create_link" for 127.0.0.1 at 2015-03-11 05:54:21 -0300
+Processing by ClassroomsController#create_link as HTML
+  Parameters: {"teacher_id"=>"1", "id"=>"1"}
+  [1m[35mClassroom Load (0.1ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered classrooms/create_link.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 280.4ms (Views: 7.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 05:54:22 -0300
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 05:54:22 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 05:54:22 -0300
+Served asset /jquery.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 05:54:22 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 05:54:22 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 05:54:22 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 05:54:22 -0300
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 05:54:22 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
 Connecting to database specified by database.yml
-  [1m[36m (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[36m (1.6ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
   [1m[35m (0.2ms)[0m  select sqlite_version(*)
-  [1m[36m (28.6ms)[0m  [1mCREATE TABLE "classroom_students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom_id" integer, "student_id" integer) [0m
-  [1m[35m (22.4ms)[0m  CREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "program" varchar(255), "class_type" varchar(255), "start_date" date, "end_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "teacher_id" integer) 
-  [1m[36m (14.1ms)[0m  [1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
-  [1m[35m (13.9ms)[0m  CREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")
-  [1m[36m (33.1ms)[0m  [1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
-  [1m[35m (13.8ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "age" integer, "gender" varchar(255), "ethnicity" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
-  [1m[36m (16.2ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "student_id" integer) [0m
-  [1m[35m (14.4ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "school_name" varchar(255), "city" varchar(255), "state" varchar(255), "email" varchar(255), "username" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
-  [1m[36m (14.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [1m[35m (15.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
-  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
-  [1m[35m (12.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150309014013')
-  [1m[36m (14.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231446')[0m
-  [1m[35m (14.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308225823')
-  [1m[36m (13.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231700')[0m
-  [1m[35m (14.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230421')
-  [1m[36m (14.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308232024')[0m
-  [1m[35m (12.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308231223')
-  [1m[36m (12.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308230926')[0m
-  [1m[35m (12.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230159')
-  [1m[36m (13.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231952')[0m
-  [1m[35m (12.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230343')
+  [1m[36m (109.2ms)[0m  [1mCREATE TABLE "classroom_students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom_id" integer, "student_id" integer) [0m
+  [1m[35m (28.1ms)[0m  CREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "program" varchar(255), "class_type" varchar(255), "start_date" date, "end_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "teacher_id" integer) 
+  [1m[36m (32.7ms)[0m  [1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (35.3ms)[0m  CREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")
+  [1m[36m (25.5ms)[0m  [1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [1m[35m (25.4ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "age" integer, "gender" varchar(255), "ethnicity" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (27.1ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "student_id" integer) [0m
+  [1m[35m (29.2ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "school_name" varchar(255), "city" varchar(255), "state" varchar(255), "email" varchar(255), "username" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (26.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (26.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (50.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150309014013')
+  [1m[36m (23.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231446')[0m
+  [1m[35m (40.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308225823')
+  [1m[36m (25.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231700')[0m
+  [1m[35m (22.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230421')
+  [1m[36m (26.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308232024')[0m
+  [1m[35m (62.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308231223')
+  [1m[36m (24.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308230926')[0m
+  [1m[35m (25.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230159')
+  [1m[36m (24.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231952')[0m
+  [1m[35m (46.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230343')

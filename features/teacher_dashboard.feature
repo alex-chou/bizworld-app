@@ -19,10 +19,10 @@ Scenario: View all classes
 
 Scenario: create a new class
   When I am on the teacher dashboard page
-	And I follow "Add new class"
-	Then I should see "Create New Class"
-	And I should see "Name"
-	And I should see "Program"
-	And I should see "Class Type"
+  And I follow "Add new class"
+  Then I should see "Create New Class"
+  And I should see "Name"
+  And I should see "Program"
+  And I should see "Class Type"
   And I should see "Start Date"
   And I should see "End Date"
