@@ -18,4 +18,4 @@ Background: one teacher and two classes have been added to the database
 Scenario: generate link for "class a"
   Given I am "Armando Fox" looking at "class a"
   And I want to administer a pre-test 
-  Then I should see the following in the link: Armando Fox, UC Berkeley, CA
+  Then I should see the link to pre-test

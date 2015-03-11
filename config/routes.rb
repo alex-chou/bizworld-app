@@ -6,6 +6,7 @@ BizworldApp::Application.routes.draw do
   end
 
   Bitly.configure do |config|
+    config.use_api_version_3
   	config.login = 'cs169bizworld'
   	config.api_key = 'R_b3491d455043441192ad7e645659cbd0'
   end

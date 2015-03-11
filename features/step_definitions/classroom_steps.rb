@@ -18,6 +18,7 @@ end
 
 And /^I want to administer a (pre|post)-test$/ do |test_type|
   click_link("Administer #{test_type}-test")
+  assert_equal current_path, teacher_classroom_path(@teacher.id, @classroom.id) + "/create_link"
 end
 
 Then /^(?:I )should(n't)? see "([^"]*)" in the link$/ do |not_seen, value|
@@ -31,4 +32,8 @@ Then /^I should(n't)? see the following in the link: (.*)$/ do |not_seen, values
   values_list.split(", ").each do |value|
     step %Q{I should#{not_seen} see "#{value}" in the link}
   end
+end
+
+Then /^I should see the link to (?:pre|post)-test$/ do
+  page.should have_content("bit.ly")
 end
