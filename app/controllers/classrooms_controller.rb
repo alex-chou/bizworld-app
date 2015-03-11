@@ -10,9 +10,18 @@ class ClassroomsController < ApplicationController
 		redirect_to teacher_path(@teacher)
 	end
 
+  def show
+    if session[:teacher]
+      @teacher = session[:teacher]
+    else
+      @teacher = Teacher.find(params[:teacher_id])
+    end
+    @classroom = Classroom.find(params[:id])
+  end
+
   def create_link
 #    require 'bitly'
-    teacher = session[:teacher]
+    teacher = Teacher.find(params[:teacher_id])
     classroom = Classroom.find(params[:id])
     
     teacher_name = teacher.name.split(' ').join('+')

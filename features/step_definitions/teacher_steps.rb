@@ -4,7 +4,7 @@ Given /the following teacher exists/ do |teacher_table|
 	teacher_table.hashes.each do |teacher|
 		t = Teacher.new
 		t.name = teacher[:name]
-		t.school_name = teacher[:school_name]
+		t.school_name = teacher[:school]
 		t.city = teacher[:city]
 		t.state = teacher[:state]
 		t.email = teacher[:email]
