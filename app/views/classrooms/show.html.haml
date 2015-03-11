@@ -1,0 +1,8 @@
+
+%h1= "Information on class #{@classroom.name}"
+
+%h4= "Class Type: #{@classroom.class_type}"
+%h4= "Program: #{@classroom.program}"
+%h4= "Start Date: #{@classroom.start_date}"
+%h4= "End Date: #{@classroom.end_date}"
+= link_to "Administer pre-test", teacher_classroom_path + "/create_link"
