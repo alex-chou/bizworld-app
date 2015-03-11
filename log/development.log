@@ -2766,3 +2766,125 @@ ActionController::RoutingError (No route matches {:controller=>"classrooms", :te
 
 
   Rendered /Users/Kenneth/.rvm/gems/ruby-1.9.3-p551/gems/actionpack-3.2.16/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/teachers" for 127.0.0.1 at 2015-03-11 14:24:31 -0300
+Processing by TeachersController#index as HTML
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT "teachers".* FROM "teachers" LIMIT 1[0m
+Redirected to http://localhost:3000/teachers/1
+Completed 302 Found in 103.7ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/teachers/1" for 127.0.0.1 at 2015-03-11 14:24:31 -0300
+Processing by TeachersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT "classrooms".* FROM "classrooms" WHERE "classrooms"."teacher_id" = 1
+  Rendered teachers/show.html.haml within layouts/application (118.6ms)
+Warning. Error encountered while saving cache /home/saasbook/bizworld-app/tmp/cache/sass/953c9b0f4f5b62edb1276ad643a74ca5f8eeb3b8/classrooms.css.scssc: can't dump anonymous class #<Class:0xba79e40>
+Compiled classrooms.css  (8ms)  (pid 2560)
+Warning. Error encountered while saving cache /home/saasbook/bizworld-app/tmp/cache/sass/953c9b0f4f5b62edb1276ad643a74ca5f8eeb3b8/teachers.css.scssc: can't dump anonymous class #<Class:0xba79e40>
+Compiled teachers.css  (2ms)  (pid 2560)
+Compiled application.css  (23ms)  (pid 2560)
+Compiled jquery.js  (1ms)  (pid 2560)
+Compiled jquery_ujs.js  (0ms)  (pid 2560)
+Compiled classrooms.js  (53ms)  (pid 2560)
+Compiled teachers.js  (1ms)  (pid 2560)
+Compiled application.js  (138ms)  (pid 2560)
+Completed 200 OK in 350.1ms (Views: 349.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
+Served asset /application.css - 200 OK (56ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
+Served asset /teachers.css - 200 OK (1ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
+Served asset /classrooms.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
+Served asset /jquery_ujs.js - 200 OK (1ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
+Served asset /classrooms.js - 200 OK (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
+Served asset /teachers.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 14:24:32 -0300
+Served asset /application.js - 200 OK (13ms)
+Connecting to database specified by database.yml
+  [1m[36m (1.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (22.9ms)[0m  [1mCREATE TABLE "classroom_students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "classroom_id" integer, "student_id" integer) [0m
+  [1m[35m (14.1ms)[0m  CREATE TABLE "classrooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "program" varchar(255), "class_type" varchar(255), "start_date" date, "end_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "teacher_id" integer) 
+  [1m[36m (14.4ms)[0m  [1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (13.3ms)[0m  CREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")
+  [1m[36m (14.4ms)[0m  [1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [1m[35m (11.8ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "age" integer, "gender" varchar(255), "ethnicity" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (12.3ms)[0m  [1mCREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "student_id" integer) [0m
+  [1m[35m (11.2ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "school_name" varchar(255), "city" varchar(255), "state" varchar(255), "email" varchar(255), "username" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (12.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (13.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (13.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150309014013')
+  [1m[36m (13.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231446')[0m
+  [1m[35m (9.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308225823')
+  [1m[36m (14.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231700')[0m
+  [1m[35m (14.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230421')
+  [1m[36m (14.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308232024')[0m
+  [1m[35m (12.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308231223')
+  [1m[36m (13.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308230926')[0m
+  [1m[35m (14.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230159')
+  [1m[36m (12.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150308231952')[0m
+  [1m[35m (14.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150308230343')
+
+
+Started GET "/teachers/1/classrooms/new" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
+Processing by ClassroomsController#new as HTML
+  Parameters: {"teacher_id"=>"1"}
+  Rendered classrooms/new.html.haml within layouts/application (8.8ms)
+Completed 200 OK in 16.5ms (Views: 15.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
+Served asset /classrooms.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.css?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
+Served asset /teachers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/classrooms.css?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
+Served asset /classrooms.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/teachers.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
+Served asset /teachers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 14:35:51 -0300
+Served asset /application.js - 304 Not Modified (0ms)

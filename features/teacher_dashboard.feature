@@ -18,8 +18,11 @@ Scenario: View all classes
 	Then I should see "Monday 8AM"
 
 Scenario: create a new class
-	When I click "Add class"
-	Then I should see "Add new class"
-	And I should see "Class Name:"
-	And I should see "Grade:"
-	And I should see "Number of students:"
+  When I am on the teacher dashboard page
+	And I follow "Add new class"
+	Then I should see "Create New Class"
+	And I should see "Name"
+	And I should see "Program"
+	And I should see "Class Type"
+  And I should see "Start Date"
+  And I should see "End Date"
