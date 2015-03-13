@@ -10,7 +10,7 @@ Background: one teacher and 2 classes have been added to the database
 		| name 					| school			| city 			|
 		| Armando Fox			| UC Berkeley		| Berkeley		|
 
-		And the following classes eixts:
+		And the following classrooms eixts:
 		| class id				| grade				| num students	|
 		| 1						| 4					| 25			|
 		| 2 					| 5					| 32			|
