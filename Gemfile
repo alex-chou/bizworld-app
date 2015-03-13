@@ -10,6 +10,7 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
+  gem 'rake'
 end
 
 
@@ -27,4 +28,3 @@ end
 gem 'jquery-rails'
 gem 'haml'
 gem 'bitly', '~> 0.10.4'
-gem 'rake'
