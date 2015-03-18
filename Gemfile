@@ -5,11 +5,11 @@ gem 'rails', '3.2.16'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'debugger'
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
+  gem 'rake'
 end
 
 
