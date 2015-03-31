@@ -15,7 +15,7 @@
   %tbody
     - @classroom.students.each do |student|
       %tr
-        %td= student.name
+        %td= link_to student.name, teacher_classroom_student_path(@classroom.id, student.id)
         %td= student.get_survey('pre').score
         %td= student.get_survey('post').score
 

@@ -11,8 +11,8 @@ class ClassroomsController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @classroom = Classroom.find(id)
+    debugger
+    @classroom = Classroom.find(params[:id])
   end
 
   def create_link
