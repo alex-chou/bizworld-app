@@ -1,5 +1,9 @@
 BizworldApp::Application.routes.draw do
   
+  get "/" => "teachers#index", :as => "root"
+
+  devise_for :teachers
+
   resources :teachers do
     resources :classrooms do
       resources :students

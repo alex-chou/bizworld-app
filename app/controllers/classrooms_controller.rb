@@ -11,7 +11,6 @@ class ClassroomsController < ApplicationController
   end
 
   def show
-    debugger
     @classroom = Classroom.find(params[:id])
   end
 
