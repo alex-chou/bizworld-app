@@ -1,4 +1,5 @@
 class ClassroomsController < ApplicationController
+  before_filter :authenticate_teacher!
 
   def new
   	@teacher = session[:teacher]

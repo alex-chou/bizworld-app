@@ -2,6 +2,10 @@ BizworldApp::Application.routes.draw do
   
   get "/" => "teachers#index", :as => "root"
 
+  devise_scope :teacher do
+    post "sign_in", :to => "teachers#show"
+  end
+
   devise_for :teachers
 
   resources :teachers do
