@@ -1,7 +1,9 @@
 BizworldApp::Application.routes.draw do
   
   resources :teachers do
-    resources :classrooms
+    resources :classrooms do
+      get '/students/:id' => 'students#show'
+    end
     get '/classrooms/:id/create_link' => 'classrooms#create_link'
   end
 
