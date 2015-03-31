@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150330021021) do
+ActiveRecord::Schema.define(:version => 20150309014013) do
 
   create_table "classroom_students", :force => true do |t|
     t.integer "classroom_id"
@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(:version => 20150330021021) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "teacher_id"
-    t.text     "link"
-    t.text     "short_link"
   end
 
   create_table "sessions", :force => true do |t|
