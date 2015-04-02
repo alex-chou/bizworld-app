@@ -1,18 +1,18 @@
 class ClassroomsController < ApplicationController
+  before_filter :authenticate_teacher!
 
-	def new
-		@teacher = session[:teacher]
-	end
+  def new
+  	@teacher = session[:teacher]
+  end
 
-	def create
-		@teacher = session[:teacher]
-		@teacher.classrooms.create(params[:classroom])
-		redirect_to teacher_path(@teacher)
-	end
+  def create
+  	@teacher = session[:teacher]
+  	@teacher.classrooms.create(params[:classroom])
+  	redirect_to teacher_path(@teacher)
+  end
 
   def show
-    id = params[:id]
-    @classroom = Classroom.find(id)
+    @classroom = Classroom.find(params[:id])
   end
 
   def create_link

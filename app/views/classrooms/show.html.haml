@@ -5,4 +5,18 @@
 %h4= "Program: #{@classroom.program}"
 %h4= "Start Date: #{@classroom.start_date}"
 %h4= "End Date: #{@classroom.end_date}"
+
+%table#roster
+  %thead
+    %tr
+      %th Name
+      %th Pre-test score
+      %th Post-test score
+  %tbody
+    - @classroom.students.each do |student|
+      %tr
+        %td= link_to student.name, teacher_classroom_student_path(@classroom.id, student.id)
+        %td= student.get_survey('pre').score
+        %td= student.get_survey('post').score
+
 = link_to "Administer pre-test", teacher_classroom_path + "/create_link"

@@ -10,10 +10,27 @@ Given /the following classrooms exist/ do |classroom_table|
   end
 end
 
+Given /the following students belong to the classroom/ do |students_table|
+  students_table.hashes.each do |student|
+    c = Classroom.first
+    name = student[:name]
+    age = student[:age]
+    gender = student[:gender]
+    eth = student[:ethnicity]
+    s = c.students.create(:name => name, :age => age, :gender => gender, :ethnicity => eth)
+    s.surveys.create(:survey_type => 'pre', :score => student[:pre_test])
+    s.surveys.create(:survey_type => 'post', :score => student[:post_test])
+  end
+end
+
 Given /^I am "(.*)" looking at "(.*)"$/ do |teacher_name, classroom_name|
   @teacher = Teacher.find_by_name(teacher_name)
   @classroom = Classroom.find_by_name(classroom_name)
   visit teacher_classroom_path(@teacher.id, @classroom.id)
+end
+
+Then /^"(.*)" should be on the class roster$/ do |student|
+  page.should have_content(student)
 end
 
 And /^I want to administer a (pre|post)-test$/ do |test_type|

@@ -1,12 +1,11 @@
 class TeachersController < ApplicationController
+  before_filter :authenticate_teacher!, except: [:index]
 
 	def index
-    teacher = Teacher.first
-    session[:teacher] = teacher
-	  redirect_to teacher_path(teacher)
 	end
 
 	def show
+    session[:teacher] = Teacher.find(params[:id])
     @teacher = session[:teacher]
 	end
 
