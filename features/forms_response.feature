@@ -18,4 +18,4 @@ Scenario: View a student's response
   When I am on the teacher dashboard page
   And I click "Monday 8AM"
   And I click "Armando Fox"
-  I should see Armando Fox's survey results
+  Then I should see Armando Fox's survey results
