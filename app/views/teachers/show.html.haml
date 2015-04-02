@@ -1,7 +1,7 @@
 
 %h1= "Welcome #{@teacher.name}, here is a list of your classes"
 
-%table#classes
+%table{:id => 'classes', :class => 'table-bordered'}
   %thead
     %tr
       %th Name
