@@ -12,6 +12,13 @@ class ClassroomsController < ApplicationController
   end
 
   def show
+    @teacher = session[:teacher]
+    params[:teacher_id] = @teacher.id
+    debugger
+    if !@teacher.classrooms.include?(Classroom.find(params[:id].to_i))
+      flash[:notice] = "You cannot access that classroom"
+      redirect_to teacher_path(@teacher.id)
+    end
     @classroom = Classroom.find(params[:id])
   end
 
