@@ -5,7 +5,7 @@ Feature: Login for teachers
 
 Background: Teacher exists and has multiple classes
 
-  Given the following teacher exists:
+  Given the following teacher is signed up:
   | name         | school_name  | city         | state | email                | username  | password  |
   | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando   | armando1  |
 

@@ -1,6 +1,6 @@
 require 'uri'
 require 'cgi'
-Given /the following teacher exists/ do |teacher_table|
+Given /the following teacher is signed up/ do |teacher_table|
 	teacher_table.hashes.each do |teacher|
 		t = Teacher.new
 		t.name = teacher[:name]
@@ -14,21 +14,15 @@ Given /the following teacher exists/ do |teacher_table|
 	end
 end
 
-
-Given /the following classrooms belong to the teacher/ do |classrooms_table|
-	classrooms_table.hashes.each do |classroom|
-		t = Teacher.first
-		c = t.classrooms.new
-		c.name = classroom[:name]
-		c.program = classroom[:program]
-		c.class_type = classroom[:class_type]
-		start_date_array = classroom[:start_date].split('-')
-		end_date_array = classroom[:end_date].split('-')
-		c.start_date = Date.new(start_date_array[2].to_i, start_date_array[1].to_i, start_date_array[0].to_i)
-		c.end_date = Date.new(end_date_array[2].to_i, end_date_array[1].to_i, end_date_array[0].to_i)
-		c.save
-	end
+Given /^the teacher is signed in$/ do
+  t = Teacher.first
+  visit path_to('the login page')
+  click_link('Login')
+  fill_in('Email', :with => t.email)
+  fill_in('Password', :with => 'password')
+  click_button('Log in')
 end
+
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)

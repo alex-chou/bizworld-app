@@ -8,7 +8,7 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^"(.*?)" dashboard page$/ then '/teachers/#{Teacher.find_by_name($1)'
+    when /^the teacher dashboard page for "(.*)"$/ then "/teachers/1"
     when /^the login page$/ then '/teachers'
 
     # Add more mappings here.

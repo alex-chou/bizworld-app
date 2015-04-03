@@ -5,9 +5,9 @@ Feature: View class roster
 
 Background: Teacher exists and has a class with multiple students
   
-  Given the following teacher exists:
-  | name         | school_name  | city         | state | email          | username  |
-  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando   |
+  Given the following teacher is signed up:
+  | name         | school_name  | city         | state | email                | username  | password |
+  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando   | password |
 
   And the following classrooms belong to the teacher:
   | name       | program     | class_type   | start_date | end_date  |
@@ -18,6 +18,7 @@ Background: Teacher exists and has a class with multiple students
   | Billy Bob  | 9           | male         | Indian     | 99.2     | 99.5      |
   | Ashley Le  | 8           | female       | Asian      | 65.1     | 70.2      |
 
+  Given the teacher is signed in
   Given I am "Armando Fox" looking at "Monday 8AM"
 
 Scenario: View student names
