@@ -2,10 +2,6 @@ BizworldApp::Application.routes.draw do
   
   get "/" => "teachers#index", :as => "root"
 
-  devise_scope :teacher do
-    post "sign_in", :to => "teachers#show"
-  end
-
   devise_for :teachers
 
   resources :teachers do
@@ -20,4 +16,4 @@ BizworldApp::Application.routes.draw do
   	config.login = 'cs169bizworld'
   	config.api_key = 'R_b3491d455043441192ad7e645659cbd0'
   end
-end
+end 

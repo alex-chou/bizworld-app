@@ -9,6 +9,7 @@ Given /the following teacher exists/ do |teacher_table|
 		t.state = teacher[:state]
 		t.email = teacher[:email]
 		t.username = teacher[:username]
+		t.password = teacher[:password]
 		t.save
 	end
 end
@@ -70,4 +71,8 @@ Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   else
     assert page.has_no_content?(text)
   end
+end
+
+And /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+  fill_in(field, :with => value)
 end
