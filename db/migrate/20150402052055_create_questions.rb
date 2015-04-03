@@ -1,0 +1,12 @@
+class CreateQuestions < ActiveRecord::Migration
+  def up
+    create_table :questions do |t|
+      t.string :question
+      t.string :answer
+    end
+  end
+
+  def down
+    drop_table :questions
+  end
+end
