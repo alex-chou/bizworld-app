@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150309014013) do
+ActiveRecord::Schema.define(:version => 20150402052204) do
 
   create_table "classroom_students", :force => true do |t|
     t.integer "classroom_id"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(:version => 20150309014013) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "teacher_id"
+  end
+
+  create_table "question_surveys", :force => true do |t|
+    t.integer "question_id"
+    t.integer "survey_id"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.string "question"
+    t.string "answer"
   end
 
   create_table "sessions", :force => true do |t|
@@ -49,10 +59,11 @@ ActiveRecord::Schema.define(:version => 20150309014013) do
   end
 
   create_table "surveys", :force => true do |t|
-    t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "survey_type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "student_id"
+    t.float    "score"
   end
 
   create_table "teachers", :force => true do |t|
@@ -60,10 +71,22 @@ ActiveRecord::Schema.define(:version => 20150309014013) do
     t.string   "school_name"
     t.string   "city"
     t.string   "state"
-    t.string   "email"
     t.string   "username"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "teachers", ["email"], :name => "index_teachers_on_email", :unique => true
+  add_index "teachers", ["reset_password_token"], :name => "index_teachers_on_reset_password_token", :unique => true
 
 end

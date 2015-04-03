@@ -10,6 +10,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
   gem 'rake'
+  gem 'debugger'
+  gem 'devise'
 end
 
 
@@ -22,8 +24,10 @@ group :assets do
   gem 'therubyracer'
   gem 'sass-rails'
   gem 'coffee-rails'
+
 end
 
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'haml'
 gem 'bitly', '~> 0.10.4'

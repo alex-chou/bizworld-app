@@ -5,9 +5,9 @@ Feature: Fetch response from google forms
 
 Background: Teacher exists and has multiple classes
 
-  Given the following teacher exists:
-  | name         | school_name  | city         | state | email				  | username	|
-  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando 	|
+  Given the following teacher is signed up:
+  | name         | school_name  | city         | state | email				        | username	| password |
+  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando 	| password |
 
   And the following classrooms belong to the teacher:
   | name       | program     | class_type   | start_date | end_date	 |
@@ -15,7 +15,8 @@ Background: Teacher exists and has multiple classes
 
 Scenario: View a student's response
 	Given Armando Fox submits a form
-  When I am on the teacher dashboard page
+  When I am on the teacher dashboard page for "Armando Fox"
   And I click "Monday 8AM"
   And I click "Armando Fox"
+
   Then I should see Armando Fox's survey results
