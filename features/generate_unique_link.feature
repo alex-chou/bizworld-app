@@ -15,6 +15,8 @@ Background: one teacher and two classes have been added to the database
   | class a   | 3           | Armando Fox   |
   | class b   | 4           | Armando Fox   |
 
+  And the teacher is signed in
+
 Scenario: generate link for "class a"
   Given I am "Armando Fox" looking at "class a"
   And I want to administer a pre-test 
