@@ -1,0 +1,17 @@
+%h1 Teacher Information
+
+= form_tag Teacher_path(@teacher) do
+
+  = label :teacher, :name, 'Name'
+  = text_field :teacher, 'name'
+
+  = label :teacher, :school, 'School'
+  = text_field :teacher, 'school'
+
+  = label :teacher, :city, 'City'
+  = text_field :teacher, 'city'
+
+  = label :teacher, :state, 'State'
+  = text_field :teacher, 'state'
+
+  = submit_tag 'Register Teacher'

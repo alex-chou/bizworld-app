@@ -5,3 +5,5 @@
 - else
   = link_to "Signup", new_teacher_registration_path
   = link_to "Login", new_teacher_session_path
+- if session[:teacher]
+  = link_to "View Dashboard", teacher_path(session[:teacher].id)

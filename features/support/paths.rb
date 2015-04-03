@@ -8,7 +8,8 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the teacher dashboard page$/ then '/teachers'
+    when /^"(.*?)" dashboard page$/ then '/teachers/#{Teacher.find_by_name($1)'
+    when /^the login page$/ then '/teachers'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

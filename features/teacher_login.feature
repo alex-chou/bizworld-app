@@ -6,8 +6,8 @@ Feature: Login for teachers
 Background: Teacher exists and has multiple classes
 
   Given the following teacher exists:
-  | name         | school_name  | city         | state | email          | username  |
-  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando   |
+  | name         | school_name  | city         | state | email                | username  | password  |
+  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando   | armando1  |
 
   And the following classrooms belong to the teacher:
   | name       | program     | class_type   | start_date | end_date  |
@@ -15,7 +15,7 @@ Background: Teacher exists and has multiple classes
 
 Scenario: Log into a teacher account
   When I am on the login page
-  And I login with username "Armando" and password "pass123"
+  And I login with email "armando@berkeley.edu" and password "armando"
   Then I should be on the teacher dashboard
 
 Scenario: Wrong user information
