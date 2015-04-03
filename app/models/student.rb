@@ -9,6 +9,7 @@ class Student < ActiveRecord::Base
         return survey
       end
     end
+    nil
   end
 
 end

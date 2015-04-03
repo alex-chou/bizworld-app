@@ -1,6 +1,17 @@
 require 'uri'
 require 'cgi'
 
+When /I create the following class/ do |classroom_table|
+  click_link 'Add new class'
+  classroom_table.hashes.each do |classroom|
+    fill_in('Name', :with => classroom[:name])
+    fill_in('Program', :with => classroom[:program])
+    fill_in('Class Type', :with => classroom[:class_type])
+  end
+  click_button 'Save Changes'
+end
+
+
 Given /the following classrooms belong to the teacher/ do |classrooms_table|
   t = Teacher.first
   classrooms_table.hashes.each do |classroom|
