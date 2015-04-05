@@ -15,17 +15,25 @@
     = "End Date: #{@classroom.end_date}"
     %br
 
-    %table{:id => 'roster', :class => 'table-striped'}
-      %thead
-        %tr
-          %th Name
-          %th Pre-test score
-          %th Post-test score
-      %tbody
-        - @classroom.students.each do |student|
-          %tr
-            %td= link_to student.name, teacher_classroom_student_path(@teacher.id, @classroom.id, :student_id => student.id)
-            %td= student.get_survey('pre').score
-            %td= student.get_survey('post').score
+    %div#row
+      %div#col-lg-12
+        %div.panel.panel-default
+          %div.panel-body
+            %div.dataTable_wrapper
+              %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
+                %div.row
+                  %div.col-sm-12
+                    %table.table.table-striped.table-bordered.table-hover.dataTable.no-footer
+                      %thead
+                        %tr
+                          %th Name
+                          %th Pre-test score
+                          %th Post-test score
+                      %tbody
+                        - @classroom.students.each do |student|
+                          %tr
+                            %td= link_to student.name, teacher_classroom_student_path(@teacher.id, @classroom.id, :student_id => student.id)
+                            %td= student.get_survey('pre').score
+                            %td= student.get_survey('post').score
 
     = link_to "Administer pre-test", teacher_classroom_path + "/create_link"
