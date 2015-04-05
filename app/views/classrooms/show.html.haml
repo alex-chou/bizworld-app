@@ -17,7 +17,7 @@
       - @classroom.students.each do |student|
         %tr
           %td= link_to student.name, teacher_classroom_student_path(@teacher.id, @classroom.id, :student_id => student.id)
-          %td= student.get_survey('pre').score
-          %td= student.get_survey('post').score
+          %td= student.get_survey_score('pre')
+          %td= student.get_survey_score('post')
 
 = link_to "Administer pre-test", teacher_classroom_path + "/create_link"

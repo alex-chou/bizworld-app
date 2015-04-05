@@ -4,5 +4,5 @@
 %h4= "Ethnicity: #{@student.ethnicity}"
 
 %h2= "#{@student.name}'s test scores"
-%h4= "Pre-test Score: #{@student.get_survey('pre').score}"
-%h4= "Post-test Score: #{@student.get_survey('post').score}"
+%h4= "Pre-test Score: #{@student.get_survey_score('pre')}"
+%h4= "Post-test Score: #{@student.get_survey_score('post')}"
