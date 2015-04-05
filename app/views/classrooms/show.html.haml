@@ -1,23 +1,31 @@
+%div#wrapper
+  
+  = render :partial => "shared/navbar"
 
-%h1= "Information on class #{@classroom.name}"
+  %div#page-wrapper
 
-%h4= "Class Type: #{@classroom.class_type}"
-%h4= "Program: #{@classroom.program}"
-%h4= "Start Date: #{@classroom.start_date}"
-%h4= "End Date: #{@classroom.end_date}"
+    = "Information on class #{@classroom.name}"
+    %br
+    = "Class Type: #{@classroom.class_type}"
+    %br
+    = "Program: #{@classroom.program}"
+    %br
+    = "Start Date: #{@classroom.start_date}"
+    %br
+    = "End Date: #{@classroom.end_date}"
+    %br
 
-%div.container
-  %table{:id => 'roster', :class => 'table-striped'}
-    %thead
-      %tr
-        %th Name
-        %th Pre-test score
-        %th Post-test score
-    %tbody
-      - @classroom.students.each do |student|
+    %table{:id => 'roster', :class => 'table-striped'}
+      %thead
         %tr
-          %td= link_to student.name, teacher_classroom_student_path(@teacher.id, @classroom.id, :student_id => student.id)
-          %td= student.get_survey('pre').score
-          %td= student.get_survey('post').score
+          %th Name
+          %th Pre-test score
+          %th Post-test score
+      %tbody
+        - @classroom.students.each do |student|
+          %tr
+            %td= link_to student.name, teacher_classroom_student_path(@teacher.id, @classroom.id, :student_id => student.id)
+            %td= student.get_survey('pre').score
+            %td= student.get_survey('post').score
 
-= link_to "Administer pre-test", teacher_classroom_path + "/create_link"
+    = link_to "Administer pre-test", teacher_classroom_path + "/create_link"
