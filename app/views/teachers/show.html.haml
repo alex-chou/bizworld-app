@@ -3,22 +3,35 @@
   = render :partial => "shared/navbar"      
 
   %div#page-wrapper
-    %table{:id => 'classes', :class => 'table-striped'}
-      %thead
-        %tr
-          %th Name
-          %th Program
-          %th Class Type
-          %th Start Date
-          %th End Date
-      %tbody
-        - @teacher.classrooms.each do |classroom|
-          %tr
-            %td= link_to "#{classroom.name}", teacher_classroom_path(@teacher.id, classroom.id)
-            %td= classroom.program
-            %td= classroom.class_type
-            %td= classroom.start_date.to_s
-            %td= classroom.end_date.to_s
+
+    %div#row
+      %div#col-lg-12
+        %h1#page-header Classrooms
+
+    %div#row
+      %div#col-lg-12
+        %div.panel.panel-default
+          %div.panel-body
+            %div.dataTable_wrapper
+              %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
+                %div.row
+                  %div.col-sm-12
+                    %table.table.table-striped.table-bordered.table-hover.dataTable.no-footer
+                      %thead
+                        %tr
+                          %th Name
+                          %th Program
+                          %th Class Type
+                          %th Start Date
+                          %th End Date
+                      %tbody
+                        - @teacher.classrooms.each do |classroom|
+                          %tr
+                            %td= link_to "#{classroom.name}", teacher_classroom_path(@teacher.id, classroom.id)
+                            %td= classroom.program
+                            %td= classroom.class_type
+                            %td= classroom.start_date.to_s
+                            %td= classroom.end_date.to_s
     = link_to "Add new class", new_teacher_classroom_path(@teacher.id)
 
   
