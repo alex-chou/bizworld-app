@@ -11,7 +11,7 @@ BizworldApp::Application.routes.draw do
     get '/classrooms/:id/create_link' => 'classrooms#create_link'
   end
 
-  post '/survey/create' => 'surveys#create'
+  get '/survey/create' => 'surveys#create'
 
   Bitly.configure do |config|
     config.use_api_version_3
