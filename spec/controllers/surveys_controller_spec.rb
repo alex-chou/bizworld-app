@@ -8,10 +8,22 @@ describe SurveysController do
       @classroom.students << @student
     end
 
-    it 'works' do
-      post :create, {:responses => {:first_name => 'Aneesh',
-          :last_name => 'Prasad', :classroom_id => '1', :survey_type => 'pre'}}
+    it 'finds existing student and adds survey' do
+      post :create, {'responses' => {'First Name' => 'Aneesh',
+          'Last Name' => 'Prasad', 'Classroom ID' => '1', 'Survey Type' => 'pre'}}
       assigns(:survey).student.id.should equal @student.id
+    end
+
+    it 'creates new student and adds survey' do
+      post :create, {'responses' => {'First Name' => 'Kevin',
+          'Last Name' => 'Casey', 'Classroom ID' => '1', 'Survey Type' => 'pre'}}
+      assigns(:survey).student.id.should equal assigns(:student).id
+    end
+
+    it 'returns false if no responses' do
+      expected = {:success => false}.to_json
+      post :create
+      response.body.should == expected
     end
   end
 
