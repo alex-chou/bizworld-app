@@ -9,6 +9,8 @@ BizworldApp::Application.routes.draw do
       resources :students
     end
     get '/classrooms/:id/create_link' => 'classrooms#create_link'
+    get '/classrooms/:id/add_students_form' => 'classrooms#add_students_form'
+    post '/classrooms/:id/add_students' => 'classrooms#add_students'
   end
 
   Bitly.configure do |config|

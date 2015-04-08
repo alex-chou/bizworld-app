@@ -4,6 +4,7 @@ class Classroom < ActiveRecord::Base
   has_many :students, :through => :classroom_students
   attr_accessible :class_type, :end_date, :name, :program, :start_date, :link, :short_link
 
+
   def get_short_link
     bitly = Bitly.client
     bitly.shorten(self.get_link).short_url
@@ -20,5 +21,11 @@ class Classroom < ActiveRecord::Base
 
   def self.sanitize_field(field)
     field.split(" ").join("+")
+  end
+
+  def create_students(student_names)
+    for student_name in student_names
+      self.students.create(:name => student_name)
+    end
   end
 end
