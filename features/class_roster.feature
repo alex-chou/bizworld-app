@@ -14,9 +14,9 @@ Background: Teacher exists and has a class with multiple students
   | Monday 8AM | Bizworld    | After School | 1-1-2015   | 1-10-2015 |
 
   And the following students belong to the classroom:
-  | name       | age         | gender       | ethnicity  | pre_test | post_test |
-  | Billy Bob  | 9           | male         | Indian     | 99.2     | 99.5      |
-  | Ashley Le  | 8           | female       | Asian      | 65.1     | 70.2      |
+  | first_name  | last_name | age         | gender       | ethnicity  | pre_score | post_score |
+  | Billy       | Bob       | 9           | male         | Indian     | 50%       | 75%        |
+  | Ashley      | Le        | 8           | female       | Asian      | 60%       | 80%        |
 
   Given the teacher is signed in
   Given I am "Armando Fox" looking at "Monday 8AM"
