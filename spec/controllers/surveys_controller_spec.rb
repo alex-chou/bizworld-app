@@ -9,14 +9,19 @@ describe SurveysController do
     end
 
     it 'finds existing student and adds survey' do
-      post :create, {'responses' => {'First Name' => 'Aneesh',
-          'Last Name' => 'Prasad', 'Classroom ID' => '1', 'Survey Type' => 'pre'}}
+      post :create, {'responses' =>
+        {'First Name' => 'Aneesh',
+          'Last Name' => 'Prasad', 'Classroom ID' => '1',
+          'Survey Type' => 'pre', 'Question 1' => 'True'}}
       assigns(:survey).student.id.should equal @student.id
     end
 
     it 'creates new student and adds survey' do
-      post :create, {'responses' => {'First Name' => 'Kevin',
-          'Last Name' => 'Casey', 'Classroom ID' => '1', 'Survey Type' => 'pre'}}
+      post :create, {'responses' =>
+        {'First Name' => 'Kevin',
+          'Last Name' => 'Casey', 'Classroom ID' => '1',
+          'Survey Type' => 'pre','Question 1' => 'True'}
+      }
       assigns(:survey).student.id.should equal assigns(:student).id
     end
 
