@@ -11,7 +11,6 @@ class Survey < ActiveRecord::Base
     non_questions = ["First Name", "Last Name", "Classroom ID", "Survey Type"]
     responses.each do |question, answer|
       if !non_questions.include?(question)
-        debugger
         self.questions.create :question => question, :answer => answer
       end
     end
