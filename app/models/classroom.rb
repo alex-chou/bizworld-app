@@ -29,4 +29,10 @@ class Classroom < ActiveRecord::Base
       field.split(" ").join("+")
     end
   end
+
+  def create_students(student_names)
+    for student_name in student_names
+      self.students.create(:name => student_name)
+    end
+  end
 end
