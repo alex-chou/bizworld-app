@@ -10,7 +10,7 @@
   3.times do |count1|
     classroom = teacher.classrooms.create!(name: "MWF#{count1} #{count1}-#{count1 + 1} PM", class_type: count1.to_s, program: "bizworld")
     12.times do |count2|
-      student = classroom.students.create!(name: "Eve#{count2}", age: (count0+count1+count2).to_s, gender: "female", ethnicity: "Decline to answer")
+      student = classroom.students.create!(first_name: "Eve#{count2}", last_name: "Casey", age: (count0+count1+count2).to_s, gender: "female", ethnicity: "Decline to answer")
       if count2 % 2 == 0
         student.surveys.create(:survey_type => 'pre', :score => count2 * 2.5)
       end
