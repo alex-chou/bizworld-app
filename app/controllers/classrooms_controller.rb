@@ -26,6 +26,7 @@ class ClassroomsController < ApplicationController
       @classroom = Classroom.find(params[:id])
     end
     @prefilledURL = @classroom.get_short_link
+    @teacher = session[:teacher]
   end
 
   def add_students_form

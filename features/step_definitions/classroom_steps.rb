@@ -40,11 +40,12 @@ end
 Given /the following students belong to the classroom/ do |students_table|
   c = Classroom.first
   students_table.hashes.each do |student|
-    name = student[:name]
+    first_name = student[:first_name]
+    last_name = student[:last_name]
     age = student[:age]
     gender = student[:gender]
     eth = student[:ethnicity]
-    s = c.students.create(:name => name, :age => age, :gender => gender, :ethnicity => eth)
+    s = c.students.create(:first_name => first_name, :last_name => last_name, :age => age, :gender => gender, :ethnicity => eth)
     s.surveys.create(:survey_type => 'pre', :score => student[:pre_score])
     s.surveys.create(:survey_type => 'post', :score => student[:post_score])
   end
