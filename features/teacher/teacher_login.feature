@@ -15,7 +15,6 @@ Background: Teacher exists and has multiple classes
 
 Scenario: Log into a teacher account
   When I am on the login page
-  And I follow "Login"
   And I fill in "teacher_email" with "armando@berkeley.edu"
   And I fill in "teacher_password" with "armando1"
   And I press "Log in"
@@ -23,7 +22,6 @@ Scenario: Log into a teacher account
 
 Scenario: Wrong user information
   When I am on the login page
-  And I follow "Login"
   And I fill in "teacher_email" with "Stanford@stanford.edu"
   And I fill in "teacher_password" with "redredred"
   And I press "Log in"
