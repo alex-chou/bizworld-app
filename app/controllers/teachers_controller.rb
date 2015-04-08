@@ -4,8 +4,9 @@ class TeachersController < ApplicationController
 	def index
     if !session[:teacher]
       redirect_to new_teacher_session_path
+    else
+      redirect_to teacher_path(session[:teacher].id)
     end
-    redirect_to teacher_path(session[:teacher].id)
 	end
 
 	def show
