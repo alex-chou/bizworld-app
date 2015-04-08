@@ -25,3 +25,7 @@ Scenario: View student names
   Then "Billy Bob" should be on the class roster
   And "Ashley Le" should be on the class roster
 
+Scenario: A teacher should be able to upload a class roster using an excel sheet
+  Given that I am a teacher
+  Then I want to be able to upload an excel file of student data
+  And I can easily populate my student roster
