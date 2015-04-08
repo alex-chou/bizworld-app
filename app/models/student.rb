@@ -12,4 +12,13 @@ class Student < ActiveRecord::Base
     nil
   end
 
+  def get_survey_score(survey_type)
+    survey = get_survey(survey_type)
+    if survey
+      survey.score
+    else
+      "N/A"
+    end
+  end
+
 end
