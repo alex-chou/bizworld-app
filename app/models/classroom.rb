@@ -32,7 +32,10 @@ class Classroom < ActiveRecord::Base
 
   def create_students(student_names)
     for student_name in student_names
-      self.students.create(:name => student_name)
+      first_and_last = student_name.split(" ")
+      first_name = first_and_last[0]
+      last_name = first_and_last[1]
+      self.students.create(:first_name => first_name, :last_name => last_name)
     end
   end
 end
