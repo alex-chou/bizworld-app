@@ -17,7 +17,6 @@ end
 Given /^the teacher is signed in$/ do
   t = Teacher.first
   visit path_to('the login page')
-  click_link('Login')
   fill_in('Email', :with => t.email)
   fill_in('Password', :with => 'password')
   click_button('Log in')

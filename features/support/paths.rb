@@ -9,7 +9,7 @@ module NavigationHelpers
     case page_name
 
     when /^the teacher dashboard page for "(.*)"$/ then "/teachers/1"
-    when /^the login page$/ then '/teachers'
+    when /^the login page$/ then '/teachers/sign_in'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
