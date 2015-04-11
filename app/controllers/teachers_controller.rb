@@ -2,11 +2,14 @@ class TeachersController < ApplicationController
   before_filter :authenticate_teacher!, except: [:index]
 
 	def index
-    if !session[:teacher]
-      redirect_to new_teacher_session_path
-    else
-      redirect_to teacher_path(session[:teacher].id)
+    if !current_teacher.try(:admin?)
+      if !session[:teacher]
+        redirect_to new_teacher_session_path
+      else
+        redirect_to teacher_path(session[:teacher].id)
+      end
     end
+    @teacher = current_teacher
 	end
 
 	def show
