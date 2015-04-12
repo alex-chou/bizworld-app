@@ -6,7 +6,7 @@
 
     %div#row
       %div#col-lg-12
-        %h1#page-header Classrooms
+        %h1#page-header Teachers
 
     %div#row
       %div#col-lg-12
@@ -27,7 +27,7 @@
                       %tbody
                         - Teacher.all.each do |teacher|
                           %tr
-                            %td= teacher.name
+                            %td= link_to "#{teacher.name}", teacher_path(teacher)
                             %td= teacher.classrooms.count
                             %td= teacher.school_name
                             %td= teacher.city
