@@ -14,11 +14,12 @@ class ClassroomsController < ApplicationController
   def show
     @teacher = current_teacher
     params[:teacher_id] = @teacher.id
-    if !@teacher.classrooms.include?(Classroom.find(params[:id].to_i))
+    if !@teacher.classrooms.find_by_id(params[:id].to_i)
       flash[:notice] = "You cannot access that classroom"
       redirect_to teacher_path(@teacher.id)
+    else
+      @classroom = Classroom.find(params[:id])
     end
-    @classroom = Classroom.find(params[:id])
   end
 
   def create_link
@@ -28,5 +29,4 @@ class ClassroomsController < ApplicationController
     @prefilledURL = @classroom.get_short_link
     @teacher = current_teacher
   end
-
 end

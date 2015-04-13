@@ -5,7 +5,7 @@ end
 FactoryGirl.define do
   factory :teacher do
     name "Alice Private"
-    email "private@yahoo.com"
+    sequence(:email) { |n| "private#{n}@yahoo.com" }
     password "password"
     password_confirmation "password"
     city "Berkeley"
@@ -24,8 +24,8 @@ FactoryGirl.define do
   end
 
   factory :survey do
-    association :student, :factory => :student
+    association :student, factory: :student
     survey_type "pre"
-    score 76.4
+    sequence(:score) { |n| (n * 3.22) % 100 }
   end
 end
