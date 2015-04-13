@@ -1,5 +1,3 @@
-require 'devise'
-
 module SignInHelper
   def sign_in(user = double('user'))
     if user.nil?
