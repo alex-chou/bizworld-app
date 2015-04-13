@@ -4,8 +4,11 @@ describe TeachersController do
 
   describe 'teacher logged in' do
     before (:each) do
-      @teacher = FactoryGirl.build(:teacher)
-      sign_in :teacher, @teacher
+      sign_in_valid_teacher
+    end
+
+    after (:each) do
+      sign_out_teacher
     end
 
     describe '#index' do
@@ -15,7 +18,7 @@ describe TeachersController do
       end
 
       it 'should redirect the teacher to their own page' do
-        get 'index', :id => 0
+        get 'index', :id => 10
         response.should redirect_to(teacher_path(@teacher.id))
       end
     end
