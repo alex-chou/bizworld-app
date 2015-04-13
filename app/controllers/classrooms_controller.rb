@@ -6,9 +6,9 @@ class ClassroomsController < ApplicationController
   end
 
   def create
-  	@teacher = current_teacher
-  	@teacher.classrooms.create(params[:classroom])
-  	redirect_to teacher_path(@teacher)
+  	teacher = current_teacher
+  	teacher.classrooms.create(params[:classroom])
+  	redirect_to teacher_path(teacher)
   end
 
   def show
