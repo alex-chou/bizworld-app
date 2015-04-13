@@ -38,7 +38,7 @@ class ClassroomsController < ApplicationController
     end
     student_names = []
     # debugger
-    num_students = 3 # for now
+    num_students = 50 # for now
     for i in (1..num_students).to_a
       student_index = "name" + i.to_s
       student_name = params[:students][student_index]

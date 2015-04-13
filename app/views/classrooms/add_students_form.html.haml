@@ -1,17 +1,10 @@
 %h1 Add Students
 
 = form_tag "/teachers/#{params[:teacher_id]}/classrooms/#{params[:id]}/add_students" do
-
-  = label :students, :name, 'Name'
-  = text_field :students, 'name1'
-
-  = label :students, :name, 'Name'
-  = text_field :students, 'name2'
-
-  = label :students, :name, 'Name'
-  = text_field :students, 'name3'
-
+  - for i in (1..30).to_a do
+    - title = "name" + i.to_s
+    = label :students, title.to_sym, title
+    = text_field :students, title
 
   = submit_tag 'Add Students'
 
-= debug(params)
