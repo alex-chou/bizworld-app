@@ -8,4 +8,5 @@ class Teacher < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :classrooms
   attr_accessible :city, :name, :school_name, :state, :username
+  validates_presence_of :city, :name, :school_name, :state
 end
