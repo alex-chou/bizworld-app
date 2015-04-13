@@ -10,12 +10,9 @@ class TeachersController < ApplicationController
 	end
 
 	def show
-    if !current_teacher
-      session[:teacher] = Teacher.find(params[:id])
-    end
     if params[:id].to_i != current_teacher.id
       flash[:notice] = "You cannot access that page"
-      redirect_to teacher_path(:id => session[:teacher].id)
+      redirect_to teacher_path(:id => current_teacher.id)
     end
     @teacher = current_teacher
 	end

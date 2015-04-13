@@ -2,17 +2,17 @@ class ClassroomsController < ApplicationController
   before_filter :authenticate_teacher!
 
   def new
-  	@teacher = session[:teacher]
+  	@teacher = current_teacher
   end
 
   def create
-  	@teacher = session[:teacher]
+  	@teacher = current_teacher
   	@teacher.classrooms.create(params[:classroom])
   	redirect_to teacher_path(@teacher)
   end
 
   def show
-    @teacher = session[:teacher]
+    @teacher = current_teacher
     params[:teacher_id] = @teacher.id
     if !@teacher.classrooms.include?(Classroom.find(params[:id].to_i))
       flash[:notice] = "You cannot access that classroom"
@@ -26,7 +26,7 @@ class ClassroomsController < ApplicationController
       @classroom = Classroom.find(params[:id])
     end
     @prefilledURL = @classroom.get_short_link
-    @teacher = session[:teacher]
+    @teacher = current_teacher
   end
 
 end
