@@ -6,7 +6,6 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'rubygems'
-require 'factory_girl'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -42,5 +41,4 @@ RSpec.configure do |config|
 
   # Allow for device testhelpers to be used (i.e. sign_in)
   config.include Devise::TestHelpers, :type => :controller
-  config.include FactoryGirl::Syntax::Method
 end

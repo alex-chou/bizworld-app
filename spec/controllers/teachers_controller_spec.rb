@@ -4,9 +4,8 @@ describe TeachersController do
 
   describe 'teacher logged in' do
     before (:each) do
-      @teacher = Teacher.create!(city: "Berkeley", email: "bob@gmail.com", name: "Bob Alice", school_name: "UC Berkeley", state: "CA", username: "bob", password: "password")
-      sign_in @teacher
-      response.should be_success
+      @teacher = FactoryGirl.build(:teacher)
+      sign_in :teacher, @teacher
     end
 
     describe '#index' do
