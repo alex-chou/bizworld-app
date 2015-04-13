@@ -12,6 +12,7 @@ When /I create the following class/ do |classroom_table|
 end
 
 
+
 Given /the following classrooms belong to the teacher/ do |classrooms_table|
   t = Teacher.first
   classrooms_table.hashes.each do |classroom|
@@ -81,4 +82,15 @@ end
 
 Then /^I should see the link to (?:pre|post)-test$/ do
   page.should have_content("bit.ly")
+end
+
+
+When /^I add the following students/ do |student_table|
+  i = 1
+  student_table.hashes.each do |student|
+    field = 'name' + i.to_s
+    fill_in(field, :with => student[:name])
+    i += 1
+  end
+  click_button 'Add Students'
 end

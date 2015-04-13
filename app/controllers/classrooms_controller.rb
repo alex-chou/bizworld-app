@@ -50,7 +50,6 @@ class ClassroomsController < ApplicationController
     flash[:notice] = "Students added to class: #{student_names}"
     puts(params)
     redirect_to "/teachers/#{params[:teacher_id]}/classrooms/#{params[:id]}"
-
   end
 
 end

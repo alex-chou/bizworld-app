@@ -13,6 +13,11 @@ BizworldApp::Application.routes.draw do
     post '/classrooms/:id/add_students' => 'classrooms#add_students'
   end
 
+  resources :students do
+    collection { post :import }
+  end
+
+
   post '/survey/create' => 'surveys#create'
 
   Bitly.configure do |config|
