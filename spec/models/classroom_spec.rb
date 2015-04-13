@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Classroom do
   before (:each) do
-    @teacher = Teacher.create(city: 'Berkeley', email: 'cs169-bizworld@bizworld.org', name: 'Armando Fox', school_name: 'UC Berkeley', state: 'CA', username: 'AFox', password: 'password')
-    @classroom = @teacher.classrooms.create(name: 'MWF 3-4 PM', class_type: '3', program: 'bizworld')
+    @teacher = FactoryGirl.create(:teacher)
+    @classroom = FactoryGirl.create(:classroom, :teacher => @teacher)
   end
 
   describe 'get_link' do
