@@ -6,7 +6,9 @@ BizworldApp::Application.routes.draw do
 
   resources :teachers
   resources :classrooms
-  resources :students
+  resources :students do
+    collection { post :import }
+  end
 
   get '/classrooms/:id/create_link' => 'classrooms#create_link'
   post '/survey/create' => 'surveys#create'

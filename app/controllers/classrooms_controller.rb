@@ -49,7 +49,6 @@ class ClassroomsController < ApplicationController
     @classroom.create_students(student_names)
     flash[:notice] = "Students added to class: #{student_names}"
     puts(params)
-    redirect_to "/teachers/#{params[:teacher_id]}/classrooms/#{params[:id]}"
-
+    redirect_to "/classrooms/#{params[:id]}"
   end
 end
