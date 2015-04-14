@@ -52,9 +52,8 @@ Given /the following students belong to the classroom/ do |students_table|
 end
 
 Given /^I am "(.*)" looking at "(.*)"$/ do |teacher_name, classroom_name|
-  @teacher = Teacher.find_by_name(teacher_name)
   @classroom = Classroom.find_by_name(classroom_name)
-  visit teacher_classroom_path(@teacher.id, @classroom.id)
+  visit classroom_path(@classroom.id)
 end
 
 Then /^"(.*)" should be on the class roster$/ do |student|
@@ -63,7 +62,7 @@ end
 
 And /^I want to administer a (pre|post)-test$/ do |test_type|
   click_link("Administer #{test_type}-test")
-  assert_equal current_path, teacher_classroom_path(@teacher.id, @classroom.id) + "/create_link"
+  assert_equal current_path, classroom_path(@classroom.id) + "/create_link"
 end
 
 Then /^(?:I )should(n't)? see "([^"]*)" in the link$/ do |not_seen, value|
