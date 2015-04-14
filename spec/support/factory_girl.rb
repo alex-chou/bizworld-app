@@ -15,6 +15,8 @@ FactoryGirl.define do
 
   factory :classroom do
     association :teacher, :factory => :teacher
+    class_type "bizworld"
+    name "TuTh 3:30-5:00PM"
   end
 
   factory :student do
