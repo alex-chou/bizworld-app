@@ -10,6 +10,7 @@ module NavigationHelpers
 
     when /^the teacher dashboard page for "(.*)"$/ then "/teachers/1"
     when /^the login page$/ then '/teachers/sign_in'
+    when /^the admin dashboard page$/ then '/teachers/'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
