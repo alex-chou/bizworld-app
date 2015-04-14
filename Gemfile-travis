@@ -11,6 +11,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'rake'
   gem 'devise'
+  gem 'factory_girl'
 end
 
 
