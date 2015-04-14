@@ -29,4 +29,11 @@ class ClassroomsController < ApplicationController
     @teacher = session[:teacher]
   end
 
+  def score_overview
+    classroom = Classroom.find(params[:id])
+    respond_to do |format|
+      format.html { render text: classroom.to_csv_score_overview}
+      format.csv {send_data classroom.to_csv_score_overview}
+    end
+  end
 end

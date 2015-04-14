@@ -21,4 +21,16 @@ class Classroom < ActiveRecord::Base
   def self.sanitize_field(field)
     field.split(" ").join("+")
   end
+
+  def to_csv_score_overview
+    CSV.generate do |csv|
+      csv << ['First Name', 'Last Name', 'School Name', 'Teacher Name', 'City Name',
+              'State', 'Grade', 'Gender', 'Ethnicity', 'Pre-score', 'Post-score']
+      self.students.each do |student|
+        csv << [student.first_name, student.last_name, student.school_name, student.teacher_name, student.city_name,
+                student.state, student.grade, student.gender, student.ethnicity, student.get_survey_score('pre'),
+                student.get_survey_score('post')]
+      end
+    end
+  end
 end

@@ -36,4 +36,5 @@
                             %td= student.get_survey_score('pre')
                             %td= student.get_survey_score('post')
 
+    = button_to "Download Score Overview", teacher_classroom_path + "/score_overview.csv", :class => "btn-primary btn-outline", :method => :get, :target => "_blank"
     = link_to "Administer pre-test", teacher_classroom_path + "/create_link"

@@ -9,6 +9,7 @@ BizworldApp::Application.routes.draw do
       resources :students
     end
     get '/classrooms/:id/create_link' => 'classrooms#create_link'
+    get '/classrooms/:id/score_overview' => 'classrooms#score_overview'
   end
 
   post '/survey/create' => 'surveys#create'
