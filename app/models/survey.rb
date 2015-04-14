@@ -3,6 +3,7 @@ class Survey < ActiveRecord::Base
   has_many :question_surveys
   has_many :questions, :through => :question_surveys
   attr_accessible :survey_type, :score
+  validates_presence_of :student, :survey_type
 
   @@non_questions = ["First Name", "Last Name", "Classroom ID", "Survey Type"]
 

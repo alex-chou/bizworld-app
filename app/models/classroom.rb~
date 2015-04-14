@@ -20,8 +20,6 @@ class Classroom < ActiveRecord::Base
   end
 
   def self.sanitize_field(field)
-    if field != nil
-      field.split(" ").join("+")
-    end
+    field.split(" ").join("+")
   end
 end
