@@ -32,7 +32,7 @@
                       %tbody
                         - @classroom.students.each do |student|
                           %tr
-                            %td= link_to student.name, teacher_classroom_student_path(@teacher.id, @classroom.id, :student_id => student.id)
+                            %td= link_to student.name, teacher_classroom_student_path(@teacher.id, @classroom.id, :id => student.id)
                             %td= student.get_survey_score('pre')
                             %td= student.get_survey_score('post')
 
