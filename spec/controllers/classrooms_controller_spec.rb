@@ -3,11 +3,12 @@ require 'spec_helper'
 describe ClassroomsController do
   before (:each) do
     sign_in_valid_teacher
+    @classroom_params = { class_type: "bizworld", name: "TuTh 3:30-5:00PM" }
   end
 
   describe '#create' do
     it 'should create a new classroom tied to the teacher' do
-      post "create", :teacher_id => @teacher.id
+      post "create", :teacher_id => @teacher.id, :classroom => @classroom_params
       response.should redirect_to(teacher_path(@teacher))
       Classroom.all[0].teacher.should == @teacher
     end
@@ -33,7 +34,7 @@ describe ClassroomsController do
   end
 
   it 'should be able to access a classroom just created' do
-    post "create", :teacher_id => @teacher.id
+    post "create", :teacher_id => @teacher.id, :classroom => @classroom_params
     get "show", :teacher_id => @teacher.id, :id => @teacher.classrooms[0].id
     response.should be_success
   end
