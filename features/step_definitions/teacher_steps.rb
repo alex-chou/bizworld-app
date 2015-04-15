@@ -45,6 +45,7 @@ end
 
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
+  puts(text)
   if page.respond_to? :should
     page.should have_content(text)
   else
