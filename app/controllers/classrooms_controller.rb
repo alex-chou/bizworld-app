@@ -37,8 +37,7 @@ class ClassroomsController < ApplicationController
       @classroom = Classroom.find(params[:id])
     end
     student_names = []
-    # debugger
-    num_students = 50 # for now
+    num_students = 50 # accept a maximum of 50 students at a time.
     for i in (1..num_students).to_a
       student_index = "name" + i.to_s
       student_name = params[:students][student_index]
