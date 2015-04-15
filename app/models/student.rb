@@ -81,7 +81,6 @@ class Student < ActiveRecord::Base
       attrs = row.to_hash
       first_name = nil
       last_name = nil
-      debugger
       first_name, last_name = Student.parse_first_and_last_name_separately(first_name, last_name, attrs)
       if not Student.is_valid_name(first_name, last_name)
         first_name, last_name = Student.parse_full_name(first_name, last_name, attrs)
