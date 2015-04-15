@@ -23,8 +23,8 @@ describe SurveysController do
     it 'creates new student and adds survey' do
       post :create, {
         'responses' => {
-          'First Name' => @student.first_name,
-          'Last Name' => @student.last_name,
+          'First Name' => 'Kevin',
+          'Last Name' => 'Casey',
           'Classroom ID' => @classroom.id,
           'Survey Type' => 'pre',
           'Question 1' => 'True'
@@ -39,5 +39,4 @@ describe SurveysController do
       response.body.should == expected
     end
   end
-
 end
