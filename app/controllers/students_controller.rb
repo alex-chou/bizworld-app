@@ -13,10 +13,12 @@ class StudentsController < ApplicationController
     error = Student.import(params[:file], session["classroom_id"])
     if error.blank?
       flash[:notice] = "Students added."
+      redirect_to classroom_path(session["classroom_id"])
     else
       flash[:notice] = error
+      redirect_to (classroom_path(session["classroom_id"]) + "/add_students_form")
     end
-    redirect_to "/classrooms/#{session["classroom_id"]}"
+    
   end
 
 

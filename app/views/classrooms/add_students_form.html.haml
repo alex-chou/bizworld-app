@@ -1,7 +1,7 @@
 %h1 Add Students
 
 %h2 via form
-= form_tag "/teachers/#{params[:teacher_id]}/classrooms/#{params[:id]}/add_students" do
+= form_tag "/classrooms/#{params[:id]}/add_students" do
   - for i in (1..30).to_a do
     - title = "name" + i.to_s
     = label :students, title.to_sym, title

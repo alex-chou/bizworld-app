@@ -36,5 +36,5 @@
                             %td= student.get_survey_score('pre')
                             %td= student.get_survey_score('post')
 
-    = link_to "Add students to class", teacher_classroom_path + "/add_students_form"
+    = link_to "Add students to class", classroom_path(@classroom.id) + "/add_students_form"
     = link_to "Administer pre-test", classroom_path(@classroom.id) + "/create_link"

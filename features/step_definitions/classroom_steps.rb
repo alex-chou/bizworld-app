@@ -84,7 +84,7 @@ Then /^I should see the link to (?:pre|post)-test$/ do
 end
 
 
-When /^I add the following students/ do |student_table|
+When /^I add the following students via form/ do |student_table|
   i = 1
   student_table.hashes.each do |student|
     field = 'name' + i.to_s
@@ -92,4 +92,9 @@ When /^I add the following students/ do |student_table|
     i += 1
   end
   click_button 'Add Students'
+end
+
+When /^I import the student names spreadsheet (.*)$/ do |spreadsheet|
+  attach_file(:file, File.join(Rails.root, 'features', 'upload-files', "#{spreadsheet}"))
+  click_button "Import"
 end
