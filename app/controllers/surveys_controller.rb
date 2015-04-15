@@ -36,7 +36,7 @@ class SurveysController < ApplicationController
                                       :version => survey_number,
                                       :master => false)
     @survey.populate @responses
-    @survey.grade
+    # @survey.grade
 
     render :json => {success: true}
   end

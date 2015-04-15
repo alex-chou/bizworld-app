@@ -27,7 +27,6 @@ class Student < ActiveRecord::Base
   end
 
   def self.master_student
-    debugger
     student = Student.find_by_first_name 'MASTER'
 
     if student.nil?
