@@ -85,6 +85,7 @@ class Student < ActiveRecord::Base
       end
       if Student.is_valid_name(first_name, last_name)
         classroom.students.create(:first_name => first_name, :last_name => last_name)
+      end
     end
   end
 
