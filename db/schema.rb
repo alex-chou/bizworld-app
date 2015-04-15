@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20150413225116) do
-=======
-ActiveRecord::Schema.define(:version => 20150413234511) do
->>>>>>> d4ace27a86f2c6aa3ff0add6ceb393bfcb0b9b2c
 
   create_table "classroom_students", :force => true do |t|
     t.integer "classroom_id"
@@ -76,17 +72,10 @@ ActiveRecord::Schema.define(:version => 20150413234511) do
     t.string   "school_name"
     t.string   "city"
     t.string   "state"
-<<<<<<< HEAD
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.string   "email",                  :default => "",    :null => false
     t.string   "encrypted_password",     :default => "",    :null => false
-=======
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
->>>>>>> d4ace27a86f2c6aa3ff0add6ceb393bfcb0b9b2c
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

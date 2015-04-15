@@ -13,12 +13,10 @@ class TeachersController < ApplicationController
 	end
 
 	def show
-    if !session[:teacher]
-      session[:teacher] = Teacher.find(params[:id])
-    end
     if params[:id].to_i != current_teacher.id and !current_teacher.try(:admin?)
       flash[:notice] = "You cannot access that page"
       redirect_to teacher_path(@teacher.id)
     end
+    @teacher = current_teacher
 	end
 end
