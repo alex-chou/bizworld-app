@@ -10,8 +10,13 @@ class StudentsController < ApplicationController
 
 
   def import
-    Student.import(params[:file], session["classroom_id"])
-    redirect_to root_url, notice: "Students added."
+    error = Student.import(params[:file], session["classroom_id"])
+    if error.blank?
+      flash[:notice] = "Students added."
+    else
+      flash[:notice] = error
+    end
+    redirect_to "/classrooms/#{session["classroom_id"]}"
   end
 
 

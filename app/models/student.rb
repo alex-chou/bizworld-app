@@ -3,11 +3,10 @@ class Student < ActiveRecord::Base
   has_many :classrooms, :through => :classroom_students
   has_many :surveys
   attr_accessible :age, :ethnicity, :gender, :first_name, :last_name
-  validates_presence_of :first_name, :last_name 
 
 
   def name
-    "#{self.first_name} #{self.last_name}"
+    self.first_name + ' ' + self.last_name
   end
 
   def get_survey(survey_type)
@@ -72,9 +71,11 @@ class Student < ActiveRecord::Base
   end
 
   def self.import(file, classroom_id)
+    error = ""
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     classroom = Classroom.find(classroom_id)
+    students_added = false
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       attrs = row.to_hash
@@ -83,11 +84,21 @@ class Student < ActiveRecord::Base
       first_name, last_name = Student.parse_first_and_last_name_separately(first_name, last_name, attrs)
       if not Student.is_valid_name(first_name, last_name)
         first_name, last_name = Student.parse_full_name(first_name, last_name, attrs)
+        students_added = true
       end
       if Student.is_valid_name(first_name, last_name)
         classroom.students.create(:first_name => first_name, :last_name => last_name)
+        students_added = true
+      else
+        error = "One or more students could not be read from the file."
       end
     end
+    if not students_added
+       error = "Unable to add students. Make sure the column headers are labeled
+       as 'name', 'full name', or 'full_name' for full names; 'first', 'first name', or 'first_name'
+       for first names; and 'last', 'last name', or 'last_name' for last names."
+    end
+    return error
   end
 
   def self.open_spreadsheet(file)
