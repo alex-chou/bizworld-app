@@ -14,6 +14,7 @@ BizworldApp::Application.routes.draw do
 
   resources :students do
     collection { post :import }
+  end
 
   post '/survey/create' => 'surveys#create'
 
