@@ -4,13 +4,11 @@ BizworldApp::Application.routes.draw do
 
   devise_for :teachers
 
-  resources :teachers do
-    resources :classrooms do
-      resources :students
-    end
-    get '/classrooms/:id/create_link' => 'classrooms#create_link'
-  end
+  resources :teachers
+  resources :classrooms
+  resources :students
 
+  get '/classrooms/:id/create_link' => 'classrooms#create_link'
   post '/survey/create' => 'surveys#create'
 
   Bitly.configure do |config|

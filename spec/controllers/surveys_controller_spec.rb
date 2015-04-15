@@ -3,25 +3,32 @@ require 'spec_helper'
 describe SurveysController do
   describe '#create' do
     before :each do
-      @classroom = Classroom.create
-      @student = Student.create(:first_name => 'Aneesh', :last_name => 'Prasad')
-      @classroom.students << @student
+      @classroom = FactoryGirl.create(:classroom)
+      @student = FactoryGirl.create(:student, :classrooms => [@classroom])
     end
 
     it 'finds existing student and adds survey' do
-      post :create, {'responses' =>
-        {'First Name' => 'Aneesh', 'Last Name' => 'Prasad',
-          'Classroom ID' => '1', 'Survey Type' => 'pre',
-          'Survey Version' => '1', 'Question 1' => 'True'}
+      post :create, {
+        'responses' => {
+          'First Name' => @student.first_name,
+          'Last Name' => @student.last_name,
+          'Classroom ID' => @classroom.id,
+          'Survey Type' => 'pre',
+          'Question 1' => 'True'
+        }
       }
       assigns(:survey).student.id.should equal @student.id
     end
 
     it 'creates new student and adds survey' do
-      post :create, {'responses' =>
-        {'First Name' => 'Kevin', 'Last Name' => 'Casey',
-          'Classroom ID' => '1', 'Survey Type' => 'pre',
-          'Survey Version' => '1', 'Question 1' => 'True'}
+      post :create, {
+        'responses' => {
+          'First Name' => 'Kevin',
+          'Last Name' => 'Casey',
+          'Classroom ID' => @classroom.id,
+          'Survey Type' => 'pre',
+          'Question 1' => 'True'
+        }
       }
       assigns(:survey).student.id.should equal assigns(:student).id
     end
@@ -42,5 +49,4 @@ describe SurveysController do
       response.body.should == expected
     end
   end
-
 end

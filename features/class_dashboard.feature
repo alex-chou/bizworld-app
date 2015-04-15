@@ -7,8 +7,8 @@ Feature: view a particular class's dashboard
 Background: Teacher exists and has multiple classes
 
   Given the following teacher is signed up:
-  | name         | school_name  | city         | state | email				        | username	| password |
-  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando 	| password |
+  | name         | school_name  | city         | state | email                | password |
+  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | password |
 
   And the following classrooms belong to the teacher:
   | name       | program     | class_type   | start_date | end_date	 |

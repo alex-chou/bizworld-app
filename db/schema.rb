@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20150414004938) do
     t.string   "school_name"
     t.string   "city"
     t.string   "state"
-    t.string   "username"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false

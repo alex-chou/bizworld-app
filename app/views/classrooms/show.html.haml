@@ -1,5 +1,5 @@
 %div#wrapper
-  
+
   = render :partial => "shared/navbar"
 
   %div#page-wrapper
@@ -32,8 +32,8 @@
                       %tbody
                         - @classroom.students.each do |student|
                           %tr
-                            %td= link_to student.name, teacher_classroom_student_path(@teacher.id, @classroom.id, :student_id => student.id)
+                            %td= link_to student.name, student_path(student.id)
                             %td= student.get_survey_score('pre')
                             %td= student.get_survey_score('post')
 
-    = link_to "Administer pre-test", teacher_classroom_path + "/create_link"
+    = link_to "Administer pre-test", classroom_path(@classroom.id) + "/create_link"
