@@ -8,7 +8,6 @@ Given /the following teacher is signed up/ do |teacher_table|
 		t.city = teacher[:city]
 		t.state = teacher[:state]
 		t.email = teacher[:email]
-		t.username = teacher[:username]
 		t.password = teacher[:password]
 		t.save
 	end
