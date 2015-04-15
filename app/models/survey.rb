@@ -11,7 +11,12 @@ class Survey < ActiveRecord::Base
     non_questions = ["First Name", "Last Name", "Classroom ID", "Survey Type"]
     responses.each do |question, answer|
       if !non_questions.include?(question)
-        self.questions.create :question => question, :answer => answer
+        q = self.questions.find_by_question question
+        if q
+          q.update_attributes :answer => answer
+        else
+          self.questions.create :question => question, :answer => answer
+        end
       end
     end
   end
@@ -21,9 +26,14 @@ class Survey < ActiveRecord::Base
     master = Student.master_student
     # ERROR: When version doesn't exist
     key = master.surveys.find_by_version self.version
+    if !key
+      return nil
+    end
     responses = self.questions
 
     self.score = 0
+
+
 
     # Compare corresponding questions with each other
     # Populate key and correct fields
@@ -38,5 +48,7 @@ class Survey < ActiveRecord::Base
         end
       end
     end
+
+    self.score = (self.score / self.questions.length) * 100 if self.questions.length != 0
   end
 end

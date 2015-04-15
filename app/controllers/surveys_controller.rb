@@ -16,8 +16,8 @@ class SurveysController < ApplicationController
       @student = Student.master_student
       @survey = @student.surveys.create(:survey_type => survey_type,
                                         :version => survey_number,
+                                        :score => 100,
                                         :master => true)
-
       @survey.populate @responses
       return render :json => {success: true}
     end
@@ -36,7 +36,11 @@ class SurveysController < ApplicationController
                                       :version => survey_number,
                                       :master => false)
     @survey.populate @responses
-    # @survey.grade
+    score = @survey.grade
+
+    if !score
+      return render :json => {success: false}
+    end
 
     render :json => {success: true}
   end
