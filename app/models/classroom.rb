@@ -3,6 +3,7 @@ class Classroom < ActiveRecord::Base
   has_many :classroom_students
   has_many :students, :through => :classroom_students
   attr_accessible :class_type, :end_date, :name, :program, :start_date, :link, :short_link
+  validates_presence_of :teacher, :class_type, :name
 
   def get_short_link
     bitly = Bitly.client
@@ -19,6 +20,8 @@ class Classroom < ActiveRecord::Base
   end
 
   def self.sanitize_field(field)
-    field.split(" ").join("+")
+    if field != nil
+      field.split(" ").join("+")
+    end
   end
 end

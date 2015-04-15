@@ -3,10 +3,10 @@ class TeachersController < ApplicationController
 
 	def index
     if !current_teacher.try(:admin?)
-      if !session[:teacher]
+      if !current_teacher
         redirect_to new_teacher_session_path
       else
-        redirect_to teacher_path(session[:teacher].id)
+        redirect_to teacher_path(current_teacher.id)
       end
     end
     @teacher = current_teacher
@@ -16,11 +16,11 @@ class TeachersController < ApplicationController
     if !session[:teacher]
       session[:teacher] = Teacher.find(params[:id])
     end
-    if params[:id].to_i != session[:teacher].id and !current_teacher.try(:admin?)
+    if params[:id].to_i != current_teacher.id and !current_teacher.try(:admin?)
       flash[:notice] = "You cannot access that page"
-      redirect_to teacher_path(:id => session[:teacher].id)
+      redirect_to teacher_path(:id => current_teacher.id)
     end
-    @teacher = session[:teacher]
+    @teacher = current_teacher
 	end
 
   def new

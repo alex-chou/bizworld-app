@@ -7,8 +7,8 @@ Feature: create a unique pre/post test link
 Background: one teacher and two classes have been added to the database
 
   Given the following teacher is signed up:
-  | name         | school_name  | city         | state | email                | username  | password |
-  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando   | password |
+  | name         | school_name  | city         | state | email                | password |
+  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | password |
 
   And the following classrooms exists:
   | name      | grade       | teacher       |

@@ -7,5 +7,6 @@ class Teacher < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :classrooms
-  attr_accessible :city, :name, :school_name, :state, :username
+  attr_accessible :city, :name, :school_name, :state
+  validates_presence_of :city, :name, :school_name, :state
 end
