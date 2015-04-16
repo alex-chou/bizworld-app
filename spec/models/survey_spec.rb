@@ -14,7 +14,7 @@ describe Survey do
     master_survey.populate @correct_answers
 
 
-    @student = Student.create
+    @student = Student.create(:first_name => 'Foo', :last_name => 'Bar')
     @student_survey = @student.surveys.create(:survey_type => 'pre',
                                      :version => 1,
                                      :master => false)
