@@ -15,7 +15,7 @@ class TeachersController < ApplicationController
 	def show
     if params[:id].to_i != current_teacher.id and !current_teacher.try(:admin?)
       flash[:notice] = "You cannot access that page"
-      redirect_to teacher_path(@teacher.id)
+      redirect_to teacher_path(current_teacher.id)
     end
     @teacher = current_teacher
 	end
