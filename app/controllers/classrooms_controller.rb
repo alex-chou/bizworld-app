@@ -21,6 +21,6 @@ class ClassroomsController < ApplicationController
     if not @classroom
       @classroom = Classroom.find(params[:id])
     end
-    @prefilledURL = @classroom.get_short_link
+    @prefilledURL = @classroom.get_short_link(params[:test_type])
   end
 end
