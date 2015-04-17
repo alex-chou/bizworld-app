@@ -39,8 +39,7 @@ class ClassroomsController < ApplicationController
     student_names = []
     num_students = 50 # accept a maximum of 50 students at a time.
     for i in (1..num_students).to_a
-      student_index = "name" + i.to_s
-      student_name = params[:students][student_index]
+      student_name = params[:students]["name" + i.to_s]
       if student_name != nil and student_name != ""
         student_names.append(student_name)
       end

@@ -8,7 +8,6 @@ class StudentsController < ApplicationController
     end
   end
 
-
   def import
 #redirect_to root_url, notice: "Students added."
     error = Student.import(params[:file], session["classroom_id"])

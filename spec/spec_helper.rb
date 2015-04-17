@@ -40,4 +40,7 @@ RSpec.configure do |config|
 
   # Allow for device testhelpers to be used (i.e. sign_in)
   config.include Devise::TestHelpers, :type => :controller
+
+  # Allow fixture_file_upload function
+  config.include ActionDispatch::TestProcess
 end

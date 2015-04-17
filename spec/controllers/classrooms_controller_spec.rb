@@ -38,4 +38,10 @@ describe ClassroomsController do
     get "show", :teacher_id => @teacher.id, :id => @teacher.classrooms[0].id
     response.should be_success
   end
+
+  it 'should lead back to the classroom page after completion' do
+    classroom = FactoryGirl.create :classroom
+    post "add_students", :id => classroom.id, :students => {:name1 => "Joey Shmoey", :name2 => "Second Student"}
+    response.should redirect_to(classroom_path(classroom.id))
+  end
 end

@@ -34,4 +34,16 @@ describe Classroom do
       Classroom.sanitize_field(nil).should == nil
     end
   end
+
+  describe '#create_students' do
+    it "should allow a teacher to add students to their class" do
+      student_names = ["Bryce Harper"]
+      @classroom.create_students(student_names)
+      @bryce = Student.where(first_name:"Bryce", last_name: "Harper")[0]
+      @david = Student.create(first_name: "David", last_name: "Ortiz")[0]
+      @classroom.students.include?(@bryce).should eq(true)
+      @classroom.students.include?(@david).should eq(false)
+    end
+  end
+
 end
