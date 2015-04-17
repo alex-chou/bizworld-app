@@ -49,4 +49,20 @@ describe Student do
       Student.new(last_name: "Bob").should_not be_valid
     end
   end
+
+
+  it "can upload a roster via spreadsheet" do
+    @classroom = FactoryGirl.create :classroom
+    @file = fixture_file_upload('/files/student_names.xlsx')
+    Student.import(@file, @classroom.id)
+    @jerry = Student.where(first_name:"Jerry", last_name: "Seinfeld")[0]
+    @classroom.students.include?(@jerry).should eq(true)
+  end
+
+  it "will display an error if the spreadsheet has improper labels" do
+    @classroom = FactoryGirl.create :classroom
+    @file = fixture_file_upload('/files/improper_labels.xlsx')
+    error_message = Student.import(@file, @classroom.id)
+    error_message.include?("Unable to add students").should eq(true)
+  end
 end

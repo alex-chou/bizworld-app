@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150413225116) do
+ActiveRecord::Schema.define(:version => 20150413234511) do
 
   create_table "classroom_students", :force => true do |t|
     t.integer "classroom_id"
@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(:version => 20150413225116) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "admin",                  :default => false
-    t.string   "username"
   end
 
   add_index "teachers", ["email"], :name => "index_teachers_on_email", :unique => true

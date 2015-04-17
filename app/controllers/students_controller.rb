@@ -8,7 +8,6 @@ class StudentsController < ApplicationController
     end
   end
 
-
   def import
     error = Student.import(params[:file], session["classroom_id"])
     if error.blank?
@@ -18,9 +17,6 @@ class StudentsController < ApplicationController
       flash[:notice] = error
       redirect_to (classroom_path(session["classroom_id"]) + "/add_students_form")
     end
-    
   end
-
-
 
 end
