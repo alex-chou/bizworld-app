@@ -61,8 +61,8 @@ Then /^"(.*)" should be on the class roster$/ do |student|
   page.should have_content(student)
 end
 
-And /^I want to administer a (pre|post)-test$/ do |test_type|
-  click_link("Administer #{test_type}-test")
+And /^I want to administer a (Pre|Post)-Assessment$/ do |test_type|
+  click_link("Administer #{test_type}-Assessment")
   assert_equal current_path, classroom_path(@classroom.id) + "/create_link"
 end
 
@@ -79,7 +79,7 @@ Then /^I should(n't)? see the following in the link: (.*)$/ do |not_seen, values
   end
 end
 
-Then /^I should see the link to (?:pre|post)-test$/ do
+Then /^I should see the link to (?:Pre|Post)-Assessment$/ do
   page.should have_content("bit.ly")
 end
 

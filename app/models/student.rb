@@ -113,4 +113,12 @@ class Student < ActiveRecord::Base
     end
   end
 
+  def self.master_student
+    student = Student.find_by_first_name 'MASTER'
+    if student.nil?
+      student = Student.create(:first_name => 'MASTER',
+                                :last_name => 'MASTER')
+    end
+    return student
+  end
 end

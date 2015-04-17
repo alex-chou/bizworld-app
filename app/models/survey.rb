@@ -2,7 +2,7 @@ class Survey < ActiveRecord::Base
   belongs_to :student
   has_many :question_surveys
   has_many :questions, :through => :question_surveys
-  attr_accessible :survey_type, :score
+  attr_accessible :survey_type, :score, :version, :master
   validates_presence_of :student, :survey_type
 
   @@non_questions = ["First Name", "Last Name", "Classroom ID", "Survey Type"]
@@ -24,5 +24,32 @@ class Survey < ActiveRecord::Base
   end
 
   def grade
+    # Find the correct version of master
+    master = Student.master_student
+    key = master.surveys.find_by_version self.version
+    if !key
+      return nil
+    end
+    responses = self.questions
+
+    self.score = 0
+
+
+
+    # Compare corresponding questions with each other
+    # Populate key and correct fields
+    key.questions.each do |q|
+      responses.each do |r|
+        if r.question == q.question
+          r.key = q.answer
+          r.correct = r.answer == r.key
+          if r.correct
+            self.score = self.score + 1
+          end
+        end
+      end
+    end
+
+    self.score = (self.score / self.questions.length) * 100 if self.questions.length != 0
   end
 end
