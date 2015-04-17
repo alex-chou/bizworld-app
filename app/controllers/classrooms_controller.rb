@@ -17,6 +17,11 @@ class ClassroomsController < ApplicationController
     end
   end
 
+  def index
+    @teacher = session[:teacher]
+    redirect_to teacher_path(@teacher.id)
+  end
+
   def create_link
     if not @classroom
       @classroom = Classroom.find(params[:id])
