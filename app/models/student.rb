@@ -74,6 +74,9 @@ class Student < ActiveRecord::Base
   def self.import(file, classroom_id)
     error = ""
     spreadsheet = open_spreadsheet(file)
+    if spreadsheet == "Unknown file type; please upload an .xls or .xlsx file."
+      return spreadsheet
+    end
     header = spreadsheet.row(1)
     classroom = Classroom.find(classroom_id)
     students_added = false
@@ -106,7 +109,7 @@ class Student < ActiveRecord::Base
     when '.csv' then Roo::Csv.new(file.path, nil, :ignore)
     when '.xls' then Roo::Excel.new(file.path, nil, :ignore)
     when '.xlsx' then Roo::Excelx.new(file.path, nil, :ignore)
-    else raise "Unknown file type: #{file.original_filename}"
+    else return "Unknown file type; please upload an .xls or .xlsx file."
     end
   end
 
