@@ -51,6 +51,6 @@ Scenario: upload spreadsheet with improper labels
 Scenario: upload improper file type
   Given I am "Armando Fox" looking at "Monday 8AM"
   And I follow "Add students to class"
-  And I import the improper file pear.jpeg
+  And I import the file pear.jpeg
 
   Then I should see "Unknown file type; please upload an .xls or .xlsx file."

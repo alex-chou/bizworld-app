@@ -13,7 +13,7 @@ Given /the following teacher is signed up/ do |teacher_table|
 	end
 end
 
-Given /^the teacher is( not) signed in$/ do |not_in|
+Given /^the teacher is( not)? signed in$/ do |not_in|
   if !not_in
     t = Teacher.first
     visit path_to('the login page')

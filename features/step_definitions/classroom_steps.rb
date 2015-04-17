@@ -11,8 +11,6 @@ When /I create the following class/ do |classroom_table|
   click_button 'Save Changes'
 end
 
-
-
 Given /the following classrooms belong to the teacher/ do |classrooms_table|
   t = Teacher.first
   classrooms_table.hashes.each do |classroom|
@@ -82,7 +80,6 @@ end
 Then /^I should see the link to (?:Pre|Post)-Assessment$/ do
   page.should have_content("bit.ly")
 end
-
 
 When /^I add the following students via form/ do |student_table|
   i = 1

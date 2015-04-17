@@ -18,5 +18,4 @@ class StudentsController < ApplicationController
       redirect_to (classroom_path(session["classroom_id"]) + "/add_students_form")
     end
   end
-
 end

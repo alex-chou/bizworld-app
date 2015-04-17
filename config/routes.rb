@@ -6,7 +6,9 @@ BizworldApp::Application.routes.draw do
 
   resources :teachers
   resources :classrooms
-  resources :students
+  resources :students do
+    collection { post :import }
+  end
 
   get '/classrooms/:id/create_link' => 'classrooms#create_link'
   get '/classrooms/:id/add_students_form' => 'classrooms#add_students_form'
@@ -17,6 +19,8 @@ BizworldApp::Application.routes.draw do
   end
 
   post '/survey/create' => 'surveys#create'
+  get '/classrooms/:id/add_students_form' => 'classrooms#add_students_form'
+  post '/classrooms/:id/add_students' => 'classrooms#add_students'
 
   Bitly.configure do |config|
     config.use_api_version_3
