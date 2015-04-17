@@ -1,6 +1,9 @@
 %div#wrapper
 
-  = render :partial => "shared/navbar"
+  -if @teacher.admin?
+    = render :partial => "shared/navbar_admin"
+  -else
+    = render :partial => "shared/navbar"
 
   %div#page-wrapper
 

@@ -8,10 +8,10 @@ class ClassroomsController < ApplicationController
   end
 
   def show
-    teacher = current_teacher
-    if !teacher.classrooms.find_by_id(params[:id].to_i)
+    @teacher = current_teacher
+    if !@teacher.classrooms.find_by_id(params[:id].to_i) and !@teacher.admin?
       flash[:notice] = "You cannot access that classroom"
-      redirect_to teacher_path(teacher.id)
+      redirect_to teacher_path(@teacher.id)
     else
       @classroom = Classroom.find(params[:id])
     end

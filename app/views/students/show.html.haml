@@ -1,8 +1,43 @@
-%h1= "#{@student.name}"
+%div#wrapper
 
-%h4= "Gender: #{@student.gender}"
-%h4= "Ethnicity: #{@student.ethnicity}"
+  -if @teacher.admin?
+    = render :partial => "shared/navbar_admin"
+  -else
+    = render :partial => "shared/navbar"  
 
-%h2= "#{@student.name}'s test scores"
+  %div#page-wrapper
+
+    %div#row
+      %div#col-lg-12
+        %h1#page-header #{@student.name}
+        %h2#page-header #{@student.school_name}
+        %h2#page-header #{@student.teacher_name}
+        %h2#page-header #{@student.city_name}
+        %h2#page-header #{@student.state}
+        %h2#page-header #{@student.grade}
+        %h2#page-header #{@student.gender}
+        %h2#page-header #{@student.ethnicity}
+
+    %div#row
+      %div#col-lg-12
+        %div.panel.panel-default
+          %div.panel-body
+            %div.dataTable_wrapper
+              %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
+                %div.row
+                  %div.col-sm-12
+                    %table.table.table-striped.table-bordered.table-hover.dataTable.no-footer
+                      %thead
+                        %tr
+                          %th Question
+                          %th Pre-Choice
+                          %th Post-Choice
+                          %th Correct-Choice
+                      %tbody
+                        %tr
+                          %td
+ 
+    = link_to "Add new class", new_classroom_path
+
 %h4= "Pre-test Score: #{@student.get_survey_score('pre')}"
 %h4= "Post-test Score: #{@student.get_survey_score('post')}"

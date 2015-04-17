@@ -18,5 +18,10 @@ class TeachersController < ApplicationController
       redirect_to teacher_path(current_teacher.id)
     end
     @teacher = current_teacher
+    @admin = false
+    if current_teacher.admin?
+      @teacher = Teacher.find(params[:id])
+      @admin = true
+    end
 	end
 end

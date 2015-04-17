@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
     if not @student
       redirect_to teacher_path(current_teacher.id)
     end
+    @teacher = current_teacher
   end
 
 end
