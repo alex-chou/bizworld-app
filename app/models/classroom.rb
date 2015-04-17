@@ -5,8 +5,8 @@ class Classroom < ActiveRecord::Base
   attr_accessible :class_type, :end_date, :name, :program, :start_date, :link, :short_link
   validates_presence_of :teacher, :class_type, :name
 
-  @@test_urls = {:pre_url => 'https://docs.google.com/forms/d/18fGk0NX-z_Slad4WvlpPQFAugEsRoyVqpcscx6o8cdM/viewform?',
-                 :post_url => 'https://docs.google.com/forms/d/1H7Wwbo8mTbnKpCwMr231ZjWixIUo6sHXm0M431vwHU0/viewform?'}
+  @@test_urls = {'pre' => 'https://docs.google.com/forms/d/18fGk0NX-z_Slad4WvlpPQFAugEsRoyVqpcscx6o8cdM/viewform?',
+                 'post' => 'https://docs.google.com/forms/d/1H7Wwbo8mTbnKpCwMr231ZjWixIUo6sHXm0M431vwHU0/viewform?'}
 
   def get_short_link(test_type)
     bitly = Bitly.client
@@ -15,11 +15,7 @@ class Classroom < ActiveRecord::Base
 
   def get_link(test_type)
     teacher = self.teacher
-    if test_type == 'pre'
-      survey_link = @@test_urls[:pre_url]
-    else
-      survey_link = @@test_urls[:post_url]
-    end
+    survey_link = @@test_urls[test_type]
     survey_link += %Q{entry.1019834039=} + Classroom.sanitize_field(teacher.name) +
         %Q{&entry.56447872=} + Classroom.sanitize_field(teacher.city) +
         %Q{&entry.1968199897=} + Classroom.sanitize_field(teacher.state) +
