@@ -27,4 +27,7 @@ Scenario: Wrong user information
   And I press "Log in"
   Then I should see "Invalid email or password"
 
-
+Scenario: Redirect to login
+  When the teacher is not signed in
+  And I go to the teacher dashboard page for "Armando Fox"
+  Then I should redirect to the login page
