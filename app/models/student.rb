@@ -3,8 +3,7 @@ class Student < ActiveRecord::Base
   has_many :classrooms, :through => :classroom_students
   has_many :surveys
   attr_accessible :age, :ethnicity, :gender, :first_name, :last_name
-  validates_presence_of :first_name, :last_name 
-
+  validates_presence_of :first_name, :last_name
 
   def name
     "#{self.first_name} #{self.last_name}"
