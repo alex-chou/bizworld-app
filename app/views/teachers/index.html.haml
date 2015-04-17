@@ -1,9 +1,34 @@
-- if teacher_signed_in?
-  = "Logged in as #{current_teacher.email}"
-  = link_to "Edit Profile", edit_teacher_registration_path
-  = link_to "Logout", destroy_teacher_session_path, :method => :delete
-- else
-  = link_to "Signup", new_teacher_registration_path
-  = link_to "Login", new_teacher_session_path
-- if session[:teacher]
-  = link_to "View Dashboard", teacher_path(session[:teacher].id)
+%div#wrapper
+
+  = render :partial => "shared/navbar"      
+
+  %div#page-wrapper
+
+    %div#row
+      %div#col-lg-12
+        %h1#page-header Teachers
+
+    %div#row
+      %div#col-lg-12
+        %div.panel.panel-default
+          %div.panel-body
+            %div.dataTable_wrapper
+              %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
+                %div.row
+                  %div.col-sm-12
+                    %table.table.table-striped.table-bordered.table-hover.dataTable.no-footer
+                      %thead
+                        %tr
+                          %th Name
+                          %th Number of Classes
+                          %th School
+                          %th City
+                          %th State
+                      %tbody
+                        - Teacher.all.each do |teacher|
+                          %tr
+                            %td= link_to "#{teacher.name}", teacher_path(teacher)
+                            %td= teacher.classrooms.count
+                            %td= teacher.school_name
+                            %td= teacher.city
+                            %td= teacher.state

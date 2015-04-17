@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 5.times do |count0|
-  teacher = Teacher.create!(city: "Berkeley", email: "bob#{count0}@gmail.com", name: "Bob Alice#{count0}", school_name: "UC Berkeley", state: "CA", username: "bob#{count0}", password: "password")
+  teacher = Teacher.create!(city: "Berkeley", email: "bob#{count0}@gmail.com", name: "Bob Alice#{count0}", school_name: "UC Berkeley", state: "CA", password: "password")
   3.times do |count1|
     classroom = teacher.classrooms.create!(name: "MWF#{count1} #{count1}-#{count1 + 1} PM", class_type: count1.to_s, program: "bizworld")
     12.times do |count2|
