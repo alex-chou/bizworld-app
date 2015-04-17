@@ -103,3 +103,4 @@ When /^I import the improper file (.*)$/ do |file|
   attach_file(:file, File.join(Rails.root, 'features', 'upload-files', "#{file}"))
   click_button "Import"
 end
+
