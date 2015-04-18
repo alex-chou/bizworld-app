@@ -9,6 +9,7 @@ class StudentsController < ApplicationController
   end
 
   def import
+    #TODO: Is there a possible refactoring that will not rely on session?
     error = Student.import(params[:file], session["classroom_id"])
     if error.blank?
       flash[:notice] = "Students added."

@@ -6,7 +6,7 @@ class Student < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
 
   def name
-    self.first_name + ' ' + self.last_name
+    "#{self.first_name} #{self.last_name}"
   end
 
   def get_survey(survey_type)

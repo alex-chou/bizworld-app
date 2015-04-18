@@ -29,9 +29,6 @@ class ClassroomsController < ApplicationController
     @prefilledURL = @classroom.get_short_link(params[:test_type])
   end
 
-  def add_students_form
-  end
-
   def add_students()
     if not @classroom
       @classroom = Classroom.find(params[:id])
@@ -46,6 +43,6 @@ class ClassroomsController < ApplicationController
     end
     @classroom.create_students(student_names)
     flash[:notice] = "Students added to class: #{student_names}"
-    redirect_to "/classrooms/#{params[:id]}"
+    redirect_to classroom_path(@classroom.id)
   end
 end
