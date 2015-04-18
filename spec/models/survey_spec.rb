@@ -34,8 +34,7 @@ describe Survey do
     it 'should grade a correct survey properly' do
       @student_survey.populate @correct_answers
       @student_survey.grade
-      assert @student_survey.score == 100
-
+      @student_survey.score.should == 100
     end
 
     it 'should grade a wrong survey properly' do

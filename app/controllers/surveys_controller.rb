@@ -22,11 +22,8 @@ class SurveysController < ApplicationController
       return render :json => {success: true}
     end
 
-
     @classroom = Classroom.find_by_id classroom_id
-
-    @student = @classroom.students.find_by_first_name_and_last_name(first_name,
-                                                                    last_name)
+    @student = @classroom.students.find_by_first_name_and_last_name(first_name, last_name)
 
     if @student.nil?
       @student = @classroom.students.create(:first_name => first_name,

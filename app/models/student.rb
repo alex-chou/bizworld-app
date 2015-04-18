@@ -120,4 +120,8 @@ class Student < ActiveRecord::Base
     end
     return student
   end
+
+  def self.master_key(version)
+    return self.master_student.surveys.find_by_version version
+  end
 end
