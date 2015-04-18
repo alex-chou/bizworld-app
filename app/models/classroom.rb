@@ -15,18 +15,19 @@ class Classroom < ActiveRecord::Base
 
   def get_link(test_type)
     teacher = self.teacher
-    TEST_URLS[test_type] + 
-      %Q{entry.1019834039=} + Classroom.sanitize_field(teacher.name) +
-      %Q{&entry.56447872=} + Classroom.sanitize_field(teacher.city) +
-      %Q{&entry.1968199897=} + Classroom.sanitize_field(teacher.state) +
-      %Q{&entry.1945527637=} + self.id.to_s +
-      %Q{&entry.514626172=} + teacher.id.to_s
-
+    params = {
+      'entry.1019834039' => teacher.name,
+      'entry.56447872' => teacher.city,
+      'entry.1968199897' => teacher.state,
+      'entry.1945527637' => self.id.to_s,
+      'entry.514626172' => teacher.id.to_s
+    }
+    Classroom.replace_space(TEST_URLS[test_type] + params.to_query)
   end
 
-  def self.sanitize_field(field)
-    if field != nil
-      field.split(" ").join("+")
+  def self.replace_space(line)
+    if line != nil
+      line.gsub /( |%20)/, '+'
     end
   end
 
