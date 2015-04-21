@@ -34,10 +34,12 @@
                           %th Post-Choice
                           %th Correct-Choice
                       %tbody
-                        %tr
-                          %td
+                        -@pre_questions.zip(@post_questions).each do |pre, post|
+                          %tr
+                            %td= pre.question
+                            %td= pre.answer
+                            %td= post.answer
+                            %td= pre.key
  
     = link_to "Add new class", new_classroom_path
 
-%h4= "Pre-test Score: #{@student.get_survey_score('pre')}"
-%h4= "Post-test Score: #{@student.get_survey_score('post')}"

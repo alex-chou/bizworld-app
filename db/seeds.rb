@@ -57,14 +57,23 @@ answers2 = {"1. How can a company know it made a profit?" => "It earned the most
         survey = student.surveys.create(:survey_type => 'pre', :version => 1)
         survey.populate(answers1)
         survey.grade
+        post_survey = student.surveys.create(:survey_type => 'post', :version => 1)
+        post_survey.populate(answers1)
+        post_survey.grade
       elsif count2 % 3 == 0
         survey = student.surveys.create(:survey_type => 'pre', :version => 1)
         survey.populate(answers2)
         survey.grade
+        post_survey = student.surveys.create(:survey_type => 'post', :version => 1)
+        post_survey.populate(answers1)
+        post_survey.grade
       else
         survey = student.surveys.create(:survey_type => 'pre', :version => 1)
         survey.populate(answers2)
         survey.grade
+        post_survey = student.surveys.create(:survey_type => 'post', :version => 1)
+        post_survey.populate(answers1)
+        post_survey.grade
       end
     end
   end

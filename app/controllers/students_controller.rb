@@ -7,6 +7,8 @@ class StudentsController < ApplicationController
       redirect_to teacher_path(current_teacher.id)
     end
     @teacher = current_teacher
+    @pre_questions = @student.get_survey('pre').questions
+    @post_questions = @student.get_survey('post').questions
   end
 
   def import
