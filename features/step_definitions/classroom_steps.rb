@@ -11,7 +11,6 @@ When /I create the following class/ do |classroom_table|
   click_button 'Save Changes'
 end
 
-
 Given /the following classrooms belong to the teacher/ do |classrooms_table|
   t = Teacher.first
   classrooms_table.hashes.each do |classroom|
@@ -81,3 +80,24 @@ end
 Then /^I should see the link to (?:Pre|Post)-Assessment$/ do
   page.should have_content("bit.ly")
 end
+
+When /^I add the following students via form/ do |student_table|
+  i = 1
+  student_table.hashes.each do |student|
+    field = 'name' + i.to_s
+    fill_in(field, :with => student[:name])
+    i += 1
+  end
+  click_button 'Add Students'
+end
+
+When /^I import the student names spreadsheet (.*)$/ do |spreadsheet|
+  attach_file(:file, File.join(Rails.root, 'features', 'upload-files', "#{spreadsheet}"))
+  click_button "Import"
+end
+
+When /^I import the improper file (.*)$/ do |file|
+  attach_file(:file, File.join(Rails.root, 'features', 'upload-files', "#{file}"))
+  click_button "Import"
+end
+

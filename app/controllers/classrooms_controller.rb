@@ -36,4 +36,20 @@ class ClassroomsController < ApplicationController
       format.csv {send_data classroom.to_csv_score_overview}
     end
   end
+  def add_students()
+    if not @classroom
+      @classroom = Classroom.find(params[:id])
+    end
+    student_names = []
+    num_students = 50 # accept a maximum of 50 students at a time.
+    for i in (1..num_students).to_a
+      student_name = params[:students]["name" + i.to_s]
+      if student_name != nil and student_name != ""
+        student_names.append(student_name)
+      end
+    end
+    @classroom.create_students(student_names)
+    flash[:notice] = "Students added to class: #{student_names}"
+    redirect_to classroom_path(@classroom.id)
+  end
 end

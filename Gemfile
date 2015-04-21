@@ -24,7 +24,6 @@ group :assets do
   gem 'therubyracer'
   gem 'sass-rails'
   gem 'coffee-rails'
-
 end
 
 gem 'bootstrap-sass'
@@ -32,3 +31,4 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'bitly', '~> 0.10.4'
 gem 'devise'
+gem 'roo'

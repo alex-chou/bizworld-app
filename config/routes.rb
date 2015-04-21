@@ -5,11 +5,17 @@ BizworldApp::Application.routes.draw do
   devise_for :teachers
 
   resources :teachers
-  resources :classrooms
-  resources :students
 
   get '/classrooms/:id/score_overview' => 'classrooms#score_overview'
+  resources :classrooms
   get '/classrooms/:id/create_link' => 'classrooms#create_link'
+  get '/classrooms/:id/add_students_form' => 'classrooms#add_students_form'
+  post '/classrooms/:id/add_students' => 'classrooms#add_students'
+
+  resources :students do
+    collection { post :import }
+  end
+
   post '/survey/create' => 'surveys#create'
 
   Bitly.configure do |config|
