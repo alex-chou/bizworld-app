@@ -118,6 +118,20 @@ class Student < ActiveRecord::Base
     if student.nil?
       student = Student.create(:first_name => 'MASTER',
                                 :last_name => 'MASTER')
+      key_dictionary = {"1. How can a company know it made a profit?" => "It earned more money in revenue than it spent on expenses",
+                        "2. If you take out a loan from the bank, you must:" => "Repay the balance of the loan and interest",
+                        "3. Your company made 10 of the same bracelet. Your total expenses, including bracelet materials, were $80. To make a profit how much should each bracelet cost?" => "$9",
+                        "4. What does a venture capitalist receive in exchange for investing in a company?" => "Shares of stock in the company and a vote in decision-making.",
+                        "5. Why is it important to keep careful records of all your finances?" => "All of the above.",
+                        "6. If a company sells shares of stock, the company is:" => "Losing a part of the ownership of the company in exchange for money.",
+                        "7. What is the profit equation?" => "Revenue - Expenses = Profit (or Loss)",
+                        "8. Money a company earns from selling a product or service is called:" => "Revenue.",
+                        "9. The most important goal of marketing is to:" => "All of the above.",
+                        "10. When developing a product, during the manufacturing stage the company needs to:" => "Make the product quickly and with limited waste.",
+                        "11. When deciding on a price for a product, what factor(s) should a company consider?" => "All of the above."
+                        }
+      key = student.surveys.create(version: Survey.current_version, survey_type: 'pre')
+      key.populate(key_dictionary)
     end
     return student
   end

@@ -41,16 +41,22 @@ class Survey < ActiveRecord::Base
             self.score += 1
           end
         end
+        r.save
       end
     end
 
     if num_questions != 0
       self.score *= 100.0 / num_questions
     end
+    self.save
     self.score
   end
 
   def num_questions
     self.questions.length
+  end
+
+  def self.current_version
+    return 1
   end
 end
