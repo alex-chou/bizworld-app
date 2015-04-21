@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Survey do
   before (:each) do
 
-    @correct_answers = {"A" => "Alice", "B" => "Bob", "E" => "Eve"}
+    @correct_answers = Survey.key_dictionary
     @wrong_answers = {"A" => "James", "B" => "Jimmy", "E" => "Joe"}
 
     master = Student.master_student

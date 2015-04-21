@@ -6,6 +6,8 @@ describe StudentsController do
       sign_in_valid_teacher
       @classroom = FactoryGirl.create(:classroom, :teacher => @teacher)
       @student = FactoryGirl.create(:student, :classrooms => [@classroom])
+      @student.surveys.create(:survey_type => 'pre')
+      @student.surveys.create(:survey_type => 'post')
     end
 
     it 'should allow the teacher to see their student' do

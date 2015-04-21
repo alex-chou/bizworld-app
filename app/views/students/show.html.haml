@@ -26,7 +26,7 @@
               %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
                 %div.row
                   %div.col-sm-12
-                    %table.table.table-striped.table-bordered.table-hover.dataTable.no-footer
+                    %table.table.table-bordered.table-hover.dataTable.no-footer
                       %thead
                         %tr
                           %th Question
@@ -34,11 +34,19 @@
                           %th Post-Choice
                           %th Correct-Choice
                       %tbody
-                        -@pre_questions.zip(@post_questions).each do |pre, post|
+                        -@test_display.each do |pre, post|
                           %tr
                             %td= pre.question
-                            %td= pre.answer
-                            %td= post.answer
+                            -if @right_or_wrong_questions.include?(pre.question) and pre.correct
+                              %td.correct= pre.answer
+                            -else
+                              %td= pre.answer
+                            -if !post
+                              %td= "N/A"
+                            -elsif @right_or_wrong_questions.include?(post.question) and post.correct
+                              %td.correct= post.answer
+                            -else
+                              %td= post.answer
                             %td= pre.key
  
     = link_to "Add new class", new_classroom_path
