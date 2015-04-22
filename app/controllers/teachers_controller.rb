@@ -24,4 +24,18 @@ class TeachersController < ApplicationController
       @admin = true
     end
 	end
+
+  def raw_data_pre
+    respond_to do |format|
+      format.html { render text: Teacher.all_students_raw_data_pre}
+      format.csv {send_data Teacher.all_students_raw_data_pre}
+    end
+  end
+
+  def raw_data_post
+    respond_to do |format|
+      format.html { render text: Teacher.all_students_raw_data_post}
+      format.csv {send_data Teacher.all_students_raw_data_post}
+    end
+  end
 end

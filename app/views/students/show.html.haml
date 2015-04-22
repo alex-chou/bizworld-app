@@ -7,16 +7,21 @@
 
   %div#page-wrapper
 
-    %div#row
-      %div#col-lg-12
-        %h1#page-header #{@student.name}
-        %h2#page-header #{@student.school_name}
-        %h2#page-header #{@student.teacher_name}
-        %h2#page-header #{@student.city_name}
-        %h2#page-header #{@student.state}
-        %h2#page-header #{@student.grade}
-        %h2#page-header #{@student.gender}
-        %h2#page-header #{@student.ethnicity}
+    = "#{@student.name}"
+    %br
+    = "#{@student.school_name}"
+    %br
+    = "#{@student.teacher_name}"
+    %br
+    = "#{@student.city_name}"
+    %br
+    = "#{@student.state}"
+    %br
+    = "#{@student.grade}"
+    %br
+    = "#{@student.gender}"
+    %br
+    = "#{@student.ethnicity}"
 
     %div#row
       %div#col-lg-12

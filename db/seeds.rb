@@ -16,7 +16,7 @@ answers1 = {"1. How can a company know it made a profit?" => "It earned more mon
             "8. Money a company earns from selling a product or service is called:" => "Revenue.",
             "9. The most important goal of marketing is to:" => "All of the above.",
             "10. When developing a product, during the manufacturing stage the company needs to:" => "Make the product quickly and with limited waste.",
-            "11. When deciding on a price for a product, what factor(s) should a company consider?" => "All of the above."
+            "11. When deciding on a price for a product, what factor(s) should a company consider?" => "All of the above.",
             "I make an effort to get along with my teammates." => "5",
             "I am confident speaking in front of others." => "5",
             "I think about the advantages and disadvantages of a choice before making a decision." => "5",
@@ -32,7 +32,7 @@ answers1 = {"1. How can a company know it made a profit?" => "It earned more mon
             "I develop different ways of solving a problem." => "5",
             "I take charge on work that needs to get done." => "5",
             "I think learning is fun." => "5",
-            "I contribute and pitch in when working in a group." => "5"
+            "I contribute and pitch in when working in a group." => "5",
             "What have you learned about teamwork from school?" => "Everything",
             "What have you learned about leadership from school?" => "Everything",
             "What do you know about managing money?" => "Everything"
@@ -48,7 +48,26 @@ answers2 = {"1. How can a company know it made a profit?" => "It earned the most
             "8. Money a company earns from selling a product or service is called:" => "Profit.",
             "9. The most important goal of marketing is to:" => "All of the above.",
             "10. When developing a product, during the manufacturing stage the company needs to:" => "Make the product quickly and with limited waste.",
-            "11. When deciding on a price for a product, what factor(s) should a company consider?" => "All of the above."
+            "11. When deciding on a price for a product, what factor(s) should a company consider?" => "All of the above.",
+            "I make an effort to get along with my teammates." => "4",
+            "I am confident speaking in front of others." => "3",
+            "I think about the advantages and disadvantages of a choice before making a decision." => "5",
+            "The things I learn in school will help me in the real world." => "4",
+            "I am confident leading others." => "5",
+            "I listen to other people's ideas while working in a group." => "5",
+            "How I say something is just important as what I say." => "3",
+            "I am able to motivate others." => "5",
+            "I analyze the effects of my decisions." => "5",
+            "I think that math is important." => "4",
+            "I discuss my ideas with others." => "5",
+            "I can come to a compromise with others when we disagree." => "3",
+            "I develop different ways of solving a problem." => "3",
+            "I take charge on work that needs to get done." => "5",
+            "I think learning is fun." => "5",
+            "I contribute and pitch in when working in a group." => "5",
+            "What have you learned about teamwork from school?" => "A good amount",
+            "What have you learned about leadership from school?" => "A good amount",
+            "What do you know about managing money?" => "A good amount"
             }
 
 answers2 = {"1. How can a company know it made a profit?" => "It earned the most revenue during sales",
@@ -61,7 +80,26 @@ answers2 = {"1. How can a company know it made a profit?" => "It earned the most
             "8. Money a company earns from selling a product or service is called:" => "Profit.",
             "9. The most important goal of marketing is to:" => "Help increase sales of your product.",
             "10. When developing a product, during the manufacturing stage the company needs to:" => "Sell the product to your customers.",
-            "11. When deciding on a price for a product, what factor(s) should a company consider?" => "The cost of the supplies to make the product, including operating costs for the business."
+            "11. When deciding on a price for a product, what factor(s) should a company consider?" => "The cost of the supplies to make the product, including operating costs for the business.",
+            "I make an effort to get along with my teammates." => "2",
+            "I am confident speaking in front of others." => "1",
+            "I think about the advantages and disadvantages of a choice before making a decision." => "5",
+            "The things I learn in school will help me in the real world." => "5",
+            "I am confident leading others." => "3",
+            "I listen to other people's ideas while working in a group." => "5",
+            "How I say something is just important as what I say." => "2",
+            "I am able to motivate others." => "3",
+            "I analyze the effects of my decisions." => "5",
+            "I think that math is important." => "5",
+            "I discuss my ideas with others." => "4",
+            "I can come to a compromise with others when we disagree." => "5",
+            "I develop different ways of solving a problem." => "1",
+            "I take charge on work that needs to get done." => "1",
+            "I think learning is fun." => "5",
+            "I contribute and pitch in when working in a group." => "5",
+            "What have you learned about teamwork from school?" => "Hardly anything",
+            "What have you learned about leadership from school?" => "Hardly anything",
+            "What do you know about managing money?" => "Hardly anything"
             }
 
 
@@ -97,3 +135,7 @@ answers2 = {"1. How can a company know it made a profit?" => "It earned the most
     end
   end
 end
+
+admin = Teacher.create(email: "admin@gmail.com", password: "password", city: "Berkeley", name: "admin", school_name: "UC Berkeley", state: "CA")
+admin.admin = true
+admin.save

@@ -8,6 +8,7 @@ class Survey < ActiveRecord::Base
   NON_QUESTIONS = ["First Name", "Last Name", "Classroom ID", "Survey Type", "Teacher Name",
                    "City Name", "State", "Grade", "Gender", "Ethnicity"]
 
+
   def populate(responses)
     # responses is a dictionary {"First Name":"Aneesh", "Question 1: How many people ...":"24", "Question 14": "How often ...":"Very Frequently",
     # "15: "How do you feel ...":"Great"}
@@ -53,6 +54,15 @@ class Survey < ActiveRecord::Base
     self.score
   end
 
+  def get_answer(question)
+    question = self.questions.find_by_question(question)
+    if question
+      return question.answer
+    else
+      nil
+    end
+  end
+
   def num_questions
     self.questions.length
   end
@@ -75,4 +85,36 @@ class Survey < ActiveRecord::Base
     "11. When deciding on a price for a product, what factor(s) should a company consider?" => "All of the above."
     }
   end
+
+  def self.self_eval_questions
+    ["I make an effort to get along with my teammates.",
+     "I am confident speaking in front of others.",
+     "I think about the advantages and disadvantages of a choice before making a decision.",
+     "The things I learn in school will help me in the real world.",
+     "I am confident leading others.",
+     "I listen to other people's ideas while working in a group.",
+     "How I say something is just important as what I say.",
+     "I am able to motivate others.",
+     "I analyze the effects of my decisions.",
+     "I think that math is important.",
+     "I discuss my ideas with others.",
+     "I can come to a compromise with others when we disagree.",
+     "I develop different ways of solving a problem.",
+     "I take charge on work that needs to get done.",
+     "I think learning is fun.",
+     "I contribute and pitch in when working in a group."
+    ]
+  end
+
+  def self.pre_free_response
+    ["What have you learned about teamwork from school?", "What have you learned about leadership from school?",
+                       "What do you know about managing money?"]
+  end
+
+  def self.post_free_response
+    ["What have you learned about teamwork BizWorld?", "What have you learned about leadership from BizWorld?",
+      "What advice would you give to a new student about to begin BizWorld?", "What do you know about managing money from BizWorld?"]
+  end
+
+
 end
