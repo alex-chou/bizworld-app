@@ -1,0 +1,16 @@
+%nav{:class => 'navbar navbar-default navbar-static-top', :role => 'navigation', :style => "margin-bottom: 0"}
+  %div{:class => 'navbar-header', :id => 'navbar-header'}
+    %a{:class => "navbar-brand"}
+      = "#{current_teacher.name}"
+
+  %div{:class => "navbar-default sidebar", :role => 'navigation'}
+    %div{:class => "sidebar-nav navbar-collapse"}
+      %ul{:id => "side-menu", :class => "nav in"}
+        %li
+          = link_to "Teachers", teachers_path
+        %li
+          = link_to "Classrooms", teacher_path(current_teacher.id)
+        %li
+          = link_to "Logout", destroy_teacher_session_path, :method => :delete, :id => 'logout'
+
+  %div{:class => 'collapse navbar-collapse navbar-ex1-collapse'}

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Survey do
   before (:each) do
 
-    @correct_answers = {"A" => "Alice", "B" => "Bob", "E" => "Eve"}
+    @correct_answers = Survey.key_dictionary
     @wrong_answers = {"A" => "James", "B" => "Jimmy", "E" => "Joe"}
 
     master = Student.master_student
@@ -34,8 +34,7 @@ describe Survey do
     it 'should grade a correct survey properly' do
       @student_survey.populate @correct_answers
       @student_survey.grade
-      assert @student_survey.score == 100
-
+      @student_survey.score.should == 100
     end
 
     it 'should grade a wrong survey properly' do

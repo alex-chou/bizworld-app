@@ -56,9 +56,14 @@ ActiveRecord::Schema.define(:version => 20150414004938) do
     t.integer  "age"
     t.string   "gender"
     t.string   "ethnicity"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "last_name"
+    t.string   "school_name"
+    t.string   "teacher_name"
+    t.string   "state"
+    t.integer  "grade"
+    t.string   "city_name"
   end
 
   create_table "surveys", :force => true do |t|

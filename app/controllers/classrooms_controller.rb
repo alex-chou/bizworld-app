@@ -8,10 +8,10 @@ class ClassroomsController < ApplicationController
   end
 
   def show
-    teacher = current_teacher
-    if !teacher.classrooms.find_by_id(params[:id].to_i)
+    @teacher = current_teacher
+    if !@teacher.classrooms.find_by_id(params[:id].to_i) and !@teacher.admin?
       flash[:notice] = "You cannot access that classroom"
-      redirect_to teacher_path(teacher.id)
+      redirect_to teacher_path(@teacher.id)
     else
       @classroom = Classroom.find(params[:id])
     end
@@ -29,9 +29,13 @@ class ClassroomsController < ApplicationController
     @prefilledURL = @classroom.get_short_link(params[:test_type])
   end
 
-  def add_students_form
+  def score_overview
+    classroom = Classroom.find(params[:id])
+    respond_to do |format|
+      format.html { render text: classroom.to_csv_score_overview}
+      format.csv {send_data classroom.to_csv_score_overview}
+    end
   end
-
   def add_students()
     if not @classroom
       @classroom = Classroom.find(params[:id])
@@ -46,6 +50,6 @@ class ClassroomsController < ApplicationController
     end
     @classroom.create_students(student_names)
     flash[:notice] = "Students added to class: #{student_names}"
-    redirect_to "/classrooms/#{params[:id]}"
+    redirect_to classroom_path(@classroom.id)
   end
 end

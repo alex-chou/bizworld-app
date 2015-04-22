@@ -1,12 +1,10 @@
 %div#wrapper
 
-  = render :partial => "shared/navbar"      
+  = render :partial => "shared/navbar_admin"      
 
   %div#page-wrapper
 
-    %div#row
-      %div#col-lg-12
-        %h1#page-header Teachers
+    Teachers
 
     %div#row
       %div#col-lg-12
@@ -32,3 +30,5 @@
                             %td= teacher.school_name
                             %td= teacher.city
                             %td= teacher.state
+    = button_to "Download Pre Test Data", teachers_path + "/raw_data_pre.csv", :class => "btn-primary btn-outline", :method => :get, :target => "_blank"
+    = button_to "Download Post Test Data", teachers_path + "/raw_data_post.csv", :class => "btn-primary btn-outline", :method => :get, :target => "_blank"

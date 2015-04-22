@@ -1,12 +1,13 @@
 %div#wrapper
 
-  = render :partial => "shared/navbar"      
+  -if @admin
+    = render :partial => "shared/navbar_admin"
+  -else
+    = render :partial => "shared/navbar"  
 
   %div#page-wrapper
 
-    %div#row
-      %div#col-lg-12
-        %h1#page-header #{@teacher.name}'s Classes
+    = "#{@teacher.name}'s Classes"
 
     %div#row
       %div#col-lg-12

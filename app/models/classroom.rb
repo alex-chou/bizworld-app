@@ -5,7 +5,7 @@ class Classroom < ActiveRecord::Base
   attr_accessible :class_type, :end_date, :name, :program, :start_date, :link, :short_link
   validates_presence_of :teacher, :class_type, :name
 
-  @@test_urls = {'pre' => 'https://docs.google.com/forms/d/18fGk0NX-z_Slad4WvlpPQFAugEsRoyVqpcscx6o8cdM/viewform?',
+  TEST_URLS = {'pre' => 'https://docs.google.com/forms/d/18fGk0NX-z_Slad4WvlpPQFAugEsRoyVqpcscx6o8cdM/viewform?',
                  'post' => 'https://docs.google.com/forms/d/1H7Wwbo8mTbnKpCwMr231ZjWixIUo6sHXm0M431vwHU0/viewform?'}
 
   def get_short_link(test_type)
@@ -15,18 +15,19 @@ class Classroom < ActiveRecord::Base
 
   def get_link(test_type)
     teacher = self.teacher
-    survey_link = @@test_urls[test_type]
-    survey_link += %Q{entry.1019834039=} + Classroom.sanitize_field(teacher.name) +
-        %Q{&entry.56447872=} + Classroom.sanitize_field(teacher.city) +
-        %Q{&entry.1968199897=} + Classroom.sanitize_field(teacher.state) +
-        %Q{&entry.1945527637=} + self.id.to_s +
-        %Q{&entry.514626172=} + teacher.id.to_s
-
+    params = {
+      'entry.1019834039' => teacher.name,
+      'entry.56447872' => teacher.city,
+      'entry.1968199897' => teacher.state,
+      'entry.1945527637' => self.id.to_s,
+      'entry.514626172' => teacher.id.to_s
+    }
+    Classroom.replace_space(TEST_URLS[test_type] + params.to_query)
   end
 
-  def self.sanitize_field(field)
-    if field != nil
-      field.split(" ").join("+")
+  def self.replace_space(line)
+    if line != nil
+      line.gsub /( |%20)/, '+'
     end
   end
 
@@ -36,6 +37,18 @@ class Classroom < ActiveRecord::Base
       first_name = first_and_last[0]
       last_name = first_and_last[1]
       self.students.create(:first_name => first_name, :last_name => last_name)
+    end
+  end
+
+  def to_csv_score_overview
+    CSV.generate do |csv|
+      csv << ['First Name', 'Last Name', 'School Name', 'Teacher Name', 'City Name',
+              'State', 'Grade', 'Gender', 'Ethnicity', 'Pre-score', 'Post-score']
+      self.students.each do |student|
+        csv << [student.first_name, student.last_name, student.school_name, student.teacher_name, student.city_name,
+                student.state, student.grade, student.gender, student.ethnicity, student.get_survey_score('pre'),
+                student.get_survey_score('post')]
+      end
     end
   end
 end
