@@ -9,7 +9,11 @@ class StudentsController < ApplicationController
   end
 
   def import
-    error = Student.import(params[:file], session["classroom_id"])
+    begin
+      error = Student.import(params[:file], session["classroom_id"])
+    rescue(NoMethodError)
+      error = "Please upload a file before clicking Import."
+    end
     if error.blank?
       flash[:notice] = "Students added."
       redirect_to classroom_path(session["classroom_id"])
