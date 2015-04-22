@@ -24,6 +24,19 @@ Scenario: View individual teacher dashboard
   And I follow "Armando Fox"
   Then I am on the teacher dashboard page for "Armando Fox"
 
+Scenario: View edit admin page
+  When I am on the admin dashboard page
+  And I follow "Edit Admins"
+  Then I am on the edit admin page
+
+Scenario: Edit other user's admin settings
+  When I am on the edit admin page
+  And I select "Armando Fox"
+  And I follow save
+  Then I should be on the admin dashboard  page
+  And "Armando Fox" should be an admin
+
+
 Scenario: Not admin
   When I logout
   And I am not the admin
