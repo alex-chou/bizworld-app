@@ -4,8 +4,11 @@ BizworldApp::Application.routes.draw do
 
   devise_for :teachers
 
+  get '/teachers/raw_data_pre' => 'teachers#raw_data_pre'
+  get '/teachers/raw_data_post' => 'teachers#raw_data_post'
   resources :teachers
-
+  
+  get '/classrooms/:id/score_overview' => 'classrooms#score_overview'
   resources :classrooms
   get '/classrooms/:id/create_link' => 'classrooms#create_link'
   get '/classrooms/:id/add_students_form' => 'classrooms#add_students_form'

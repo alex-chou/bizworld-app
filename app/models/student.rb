@@ -2,8 +2,9 @@ class Student < ActiveRecord::Base
   has_many :classroom_students
   has_many :classrooms, :through => :classroom_students
   has_many :surveys
-  attr_accessible :age, :ethnicity, :gender, :first_name, :last_name
-  validates_presence_of :first_name, :last_name
+  attr_accessible :age, :ethnicity, :gender, :first_name, :last_name, :school_name, :teacher_name, :state, :grade, :city_name
+  validates_presence_of :first_name, :last_name 
+
 
   def name
     "#{self.first_name} #{self.last_name}"
@@ -117,6 +118,9 @@ class Student < ActiveRecord::Base
     if student.nil?
       student = Student.create(:first_name => 'MASTER',
                                 :last_name => 'MASTER')
+      key_dictionary = Survey.key_dictionary
+      key = student.surveys.create(version: Survey.current_version, survey_type: 'pre')
+      key.populate(key_dictionary)
     end
     return student
   end
@@ -124,4 +128,5 @@ class Student < ActiveRecord::Base
   def self.master_key(version)
     return self.master_student.surveys.find_by_version version
   end
+
 end
