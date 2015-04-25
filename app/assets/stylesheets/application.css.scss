@@ -13,3 +13,23 @@
  */
 
  @import 'bootstrap';
+
+ #bizworld-logo {
+   width: 200;
+   height: 50;
+   padding-left: 10px;
+ }
+
+ .logged-in-as {
+   display: inline-block;
+ }
+
+ h2 {
+   padding-top:0;
+   padding-bottom: 5px;
+   margin: 0;
+ }
+
+ p.info {
+   font-size: 125%;
+ }
