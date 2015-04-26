@@ -4,7 +4,7 @@ describe SurveysController do
   describe '#create' do
     before :each do
       @classroom = FactoryGirl.create(:classroom)
-      @student = FactoryGirl.create(:student, :classrooms => [@classroom])
+      @student = FactoryGirl.create(:student, :classroom => @classroom)
     end
 
     it 'finds existing student and adds survey' do
