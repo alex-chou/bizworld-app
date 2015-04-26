@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20150414004938) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "admin",                  :default => false
+    t.string   "username"
   end
 
   add_index "teachers", ["email"], :name => "index_teachers_on_email", :unique => true

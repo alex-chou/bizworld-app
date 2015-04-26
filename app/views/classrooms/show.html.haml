@@ -7,7 +7,8 @@
 
   %div#page-wrapper
 
-    = "Information on class #{@classroom.name}"
+    %h3= "Class Information"
+    %p="<b> Information on class:</b> #{@classroom.name}"
     %br
     = "Class Type: #{@classroom.class_type}"
     %br
@@ -20,24 +21,22 @@
 
     %div#row
       %div#col-lg-12
-        %div.panel.panel-default
-          %div.panel-body
-            %div.dataTable_wrapper
-              %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
-                %div.row
-                  %div.col-sm-12
-                    %table.table.table-striped.table-bordered.table-hover.dataTable.no-footer
-                      %thead
-                        %tr
-                          %th Name
-                          %th Pre-test score
-                          %th Post-test score
-                      %tbody
-                        - @classroom.students.each do |student|
-                          %tr
-                            %td= link_to student.name, student_path(student.id)
-                            %td= student.get_survey_score('pre')
-                            %td= student.get_survey_score('post')
+        %div.dataTable_wrapper
+          %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
+            %div.row
+              %div.col-sm-12
+                %table.table.table-striped.table-bordered.table-hover.dataTable.no-footer
+                  %thead
+                    %tr
+                      %th Name
+                      %th Pre-test score
+                      %th Post-test score
+                  %tbody
+                    - @classroom.students.each do |student|
+                      %tr
+                        %td= link_to student.name, student_path(student.id)
+                        %td= student.get_survey_score('pre')
+                        %td= student.get_survey_score('post')
 
     = button_to "Download Score Overview", classroom_path(@classroom.id) + "/score_overview.csv", :class => "btn-primary btn-outline", :method => :get, :target => "_blank"
 

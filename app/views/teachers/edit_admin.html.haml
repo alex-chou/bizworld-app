@@ -1,2 +1,26 @@
 %div#wrapper
-	= render :partial => "shared/navbar_admin"
+
+  = render :partial => "shared/navbar_admin"      
+
+  %div#page-wrapper
+
+    %h2= "Edit Admins"
+
+    %div#row
+      %div#col-lg-12
+        %div.dataTable_wrapper
+          %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
+            %div.row
+              %div.col-sm-12
+                %table.table.table-striped.table-bordered.table-hover.dataTable.no-footer
+                  %thead
+                    %tr
+                      %th Name
+                      %th Admin?
+                  %tbody
+                  = form_tag teachers_edit_admin_path, :method => :get, :id=>"edit_admin_form" do
+                    - Teacher.all.each do |teacher|
+                      %tr
+                        %td= teacher.name
+                        %td= check_box_tag "edit_admin[#{teacher.id}]", 1, teacher.admin, :id=> "edit_admin_#{teacher.id}"
+                    = submit_tag 'Save', :id => 'edit_admin_submit'
