@@ -2,7 +2,7 @@ require 'uri'
 require 'cgi'
 
 When /I create the following class/ do |classroom_table|
-  click_link 'Add new class'
+  click_button 'Add new class'
   classroom_table.hashes.each do |classroom|
     fill_in('Name', :with => classroom[:name])
     fill_in('Program', :with => classroom[:program])
@@ -59,9 +59,10 @@ Then /^"(.*)" should be on the class roster$/ do |student|
   page.should have_content(student)
 end
 
-And /^I want to administer a (Pre|Post)-Assessment$/ do |test_type|
-  click_link("Administer #{test_type}-Assessment")
-  assert_equal current_path, classroom_path(@classroom.id) + "/create_link"
+And /^I want to administer a (pre|post)-Assessment$/ do |test_type|
+  test_capitalized = test_type.capitalize
+  click_button("Administer #{test_capitalized}-Assessment")
+  assert_equal current_path, classroom_path(@classroom.id) + "/create_link_#{test_type}"
 end
 
 Then /^(?:I )should(n't)? see "([^"]*)" in the link$/ do |not_seen, value|
@@ -77,7 +78,7 @@ Then /^I should(n't)? see the following in the link: (.*)$/ do |not_seen, values
   end
 end
 
-Then /^I should see the link to (?:Pre|Post)-Assessment$/ do
+Then /^I should see the link to (?:pre|post)-Assessment$/ do
   page.should have_content("bit.ly")
 end
 

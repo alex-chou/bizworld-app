@@ -37,8 +37,6 @@
 
     = button_to "Download Score Overview", classroom_path(@classroom.id) + "/score_overview.csv", :class => "btn btn-primary", :method => :get, :target => "_blank"
 
-    = link_to "Add students to class", classroom_path(@classroom.id) + "/add_students_form"
-    %br
-    = link_to "Administer Pre-Assessment", :controller => "classrooms", :action => "create_link", :id => @classroom.id, :test_type => 'pre'
-    %br
-    = link_to "Administer Post-Assessment", :controller => 'classrooms', :action => 'create_link', :id => @classroom.id, :test_type => 'post'
+    = button_to "Add students to class", classroom_path(@classroom.id) + "/add_students_form", :class => "btn btn-primary", :method => :get
+    = button_to "Administer Pre-Assessment", classroom_path(@classroom.id) + "/create_link_pre", :method => :get, :class => "btn btn-primary"
+    = button_to "Administer Post-Assessment", classroom_path(@classroom.id) + "/create_link_post", :method => :get, :class => "btn btn-primary"

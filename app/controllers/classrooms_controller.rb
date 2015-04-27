@@ -1,6 +1,10 @@
 class ClassroomsController < ApplicationController
   before_filter :authenticate_teacher!
 
+  def new
+    @teacher = current_teacher
+  end
+
   def create
   	teacher = current_teacher
   	teacher.classrooms.create(params[:classroom])
@@ -22,11 +26,20 @@ class ClassroomsController < ApplicationController
     redirect_to teacher_path(@teacher.id)
   end
 
-  def create_link
+  def create_link_pre
     if not @classroom
       @classroom = Classroom.find(params[:id])
     end
-    @prefilledURL = @classroom.get_short_link(params[:test_type])
+    @prefilledURL = @classroom.get_short_link('pre')
+    @teacher = current_teacher
+  end
+
+  def create_link_post
+    if not @classroom
+      @classroom = Classroom.find(params[:id])
+    end
+    @prefilledURL = @classroom.get_short_link('post')
+    @teacher = current_teacher
   end
 
   def score_overview

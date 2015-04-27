@@ -19,10 +19,10 @@ Background: one teacher and two classes have been added to the database
 
 Scenario: generate pre link for "class a"
   Given I am "Armando Fox" looking at "class a"
-  And I want to administer a Pre-Assessment 
-  Then I should see the link to Pre-Assessment
+  And I want to administer a pre-Assessment 
+  Then I should see the link to pre-Assessment
 
 Scenario: generate post link for "class a"
   Given I am "Armando Fox" looking at "class a"
-  And I want to administer a Post-Assessment 
-  Then I should see the link to Post-Assessment
+  And I want to administer a post-Assessment 
+  Then I should see the link to post-Assessment

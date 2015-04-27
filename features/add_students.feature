@@ -18,7 +18,7 @@ Background: Teacher exists and has a class
 
 Scenario: add students to class via form
   Given I am "Armando Fox" looking at "Monday 8AM"
-  And I follow "Add students to class"
+  And I press "Add students to class"
   And I add the following students via form:
   | name           |
   | Tom Brady      |
@@ -31,7 +31,7 @@ Scenario: add students to class via form
 
 Scenario: add students to class via spreadsheet
   Given I am "Armando Fox" looking at "Monday 8AM"
-  And I follow "Add students to class"
+  And I press "Add students to class"
   And I import the student names spreadsheet student_names.xlsx
 
   Then I should see "Jerry Seinfeld"
@@ -40,7 +40,7 @@ Scenario: add students to class via spreadsheet
 
 Scenario: upload spreadsheet with improper labels
   Given I am "Armando Fox" looking at "Monday 8AM"
-  And I follow "Add students to class"
+  And I press "Add students to class"
   And I import the student names spreadsheet improper_labels.xlsx
 
   Then I should not see "Nasir Jones"
@@ -49,6 +49,6 @@ Scenario: upload spreadsheet with improper labels
 
 Scenario: upload improper file type
   Given I am "Armando Fox" looking at "Monday 8AM"
-  And I follow "Add students to class"
+  And I press "Add students to class"
   And I import the improper file pear.jpeg
   Then I should see "Unknown file type; please upload an .xls or .xlsx file."

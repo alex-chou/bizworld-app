@@ -1,0 +1,14 @@
+%div#wrapper
+
+  -if @teacher.admin?
+    = render :partial => "shared/navbar_admin"
+  -else
+    = render :partial => "shared/navbar"  
+
+  %div#page-wrapper
+
+    %div#row
+      %div#col-lg-12
+        %h2= "Link To PreTest"
+        = link_to @prefilledURL, @prefilledURL, :target => "_blank", :id => "link"
+        = button_to "Back", classroom_path, :class => "btn btn-primary", :method => :get

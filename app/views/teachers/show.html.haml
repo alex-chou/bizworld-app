@@ -30,4 +30,6 @@
                         %td= classroom.class_type
                         %td= classroom.start_date.to_s
                         %td= classroom.end_date.to_s
-    = link_to "Add new class", new_classroom_path
+
+
+    = button_to "Add new class", new_classroom_path, :class => "btn btn-primary", :method => :get
