@@ -16,6 +16,8 @@
       %p.info!= "<b>Grade</b>: #{@student.grade}"
       %p.info!= "<b>Gender</b>: #{@student.gender}"
       %p.info!= "<b>Ethnicity</b>: #{@student.ethnicity}"
+      %p.info!= "<b>Pre Score</b>: #{@student.get_survey_score('pre')}"
+      %p.info!= "<b>Pre Score</b>: #{@student.get_survey_score('post')}"
 
     %div#row
       %div#col-lg-12

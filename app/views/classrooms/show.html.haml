@@ -36,7 +36,6 @@
                         %td= student.get_survey_score('post')
 
     = button_to "Download Score Overview", classroom_path(@classroom.id) + "/score_overview.csv", :class => "btn btn-primary", :method => :get, :target => "_blank"
-
     = button_to "Add students to class", classroom_path(@classroom.id) + "/add_students_form", :class => "btn btn-primary", :method => :get
     = button_to "Administer Pre-Assessment", classroom_path(@classroom.id) + "/create_link_pre", :method => :get, :class => "btn btn-primary"
     = button_to "Administer Post-Assessment", classroom_path(@classroom.id) + "/create_link_post", :method => :get, :class => "btn btn-primary"
