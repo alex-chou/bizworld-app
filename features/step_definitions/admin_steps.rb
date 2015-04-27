@@ -21,3 +21,7 @@ end
 When /^I logout$/ do
   click_link('logout')
 end
+
+Then /^I should download a csv with (pre|post) test data$/ do |type|
+  page.driver.response.headers['Content-Disposition'].should == 'attachment'
+end
