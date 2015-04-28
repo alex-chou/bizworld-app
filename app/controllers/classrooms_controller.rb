@@ -36,6 +36,7 @@ class ClassroomsController < ApplicationController
       format.csv {send_data classroom.to_csv_score_overview}
     end
   end
+
   def add_students()
     if not @classroom
       @classroom = Classroom.find(params[:id])
@@ -48,8 +49,29 @@ class ClassroomsController < ApplicationController
         student_names.append(student_name)
       end
     end
-    @classroom.create_students(student_names)
-    flash[:notice] = "Students added to class: #{student_names}"
-    redirect_to classroom_path(@classroom.id)
+    valid_students, invalid_students = @classroom.create_students(student_names)
+    if invalid_students != []
+      message = "Please include a last name for "
+      if invalid_students.size == 1
+        message << invalid_students[0]
+      else
+        for student in invalid_students[0..-2]
+          message << student + ", "
+        end
+        message << " and " + invalid_students[-1] + ". "
+      end
+    else
+      message = ""
+    end
+    if valid_students != []
+      message += "Students added to class: #{valid_students}"
+    end
+    if valid_students == [] and invalid_students == []
+      flash[:notice] = "Enter student names below to add them to the class."
+      redirect_to classroom_path(@classroom.id) + "/add_students_form"
+    else
+      flash[:notice] = message
+      redirect_to classroom_path(@classroom.id)
+    end
   end
 end

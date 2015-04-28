@@ -29,6 +29,25 @@ Scenario: add students to class via form
   And I should see "Peyton Manning"
   And I should see "Drew Brees"
 
+Scenario: add improperly formatted students to class via form
+  Given I am "Armando Fox" looking at "Monday 8AM"
+  And I follow "Add students to class"
+  And I add the following students via form:
+  | name           |
+  | Tom Brady      |
+  | Peyton Manning |
+  | Abigail        |
+  | Drew Brees     |
+  | Elias          |
+
+  And I follow "Classrooms"
+  And I follow "Monday 8AM"
+  Then I should see "Tom Brady"
+  And I should see "Peyton Manning"
+  And I should see "Drew Brees"
+  And I should not see "Abigail"
+  And I should not see "Elias"
+
 Scenario: add students to class via spreadsheet
   Given I am "Armando Fox" looking at "Monday 8AM"
   And I follow "Add students to class"
