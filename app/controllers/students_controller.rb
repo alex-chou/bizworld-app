@@ -29,7 +29,6 @@ class StudentsController < ApplicationController
       error = "Please upload a file before clicking Import."
     end
     #TODO: Is there a possible refactoring that will not rely on session?
-    error = Student.import(params[:file], session["classroom_id"])
     if error.blank?
       flash[:notice] = "Students added."
       redirect_to classroom_path(session["classroom_id"])
