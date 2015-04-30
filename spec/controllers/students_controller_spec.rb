@@ -5,7 +5,7 @@ describe StudentsController do
     before (:each) do
       sign_in_valid_teacher
       @classroom = FactoryGirl.create(:classroom, :teacher => @teacher)
-      @student = FactoryGirl.create(:student, :classrooms => [@classroom])
+      @student = FactoryGirl.create(:student, :classroom => @classroom)
       @student.surveys.create(:survey_type => 'pre')
       @student.surveys.create(:survey_type => 'post')
     end
