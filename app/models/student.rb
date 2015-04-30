@@ -1,6 +1,5 @@
 class Student < ActiveRecord::Base
-  has_many :classroom_students
-  has_many :classrooms, :through => :classroom_students
+  belongs_to :classroom
   has_many :surveys
   attr_accessible :age, :ethnicity, :gender, :first_name, :last_name, :school_name, :teacher_name, :state, :grade, :city_name
   validates_presence_of :first_name, :last_name 
