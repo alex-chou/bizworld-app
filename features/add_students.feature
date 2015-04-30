@@ -55,6 +55,6 @@ Scenario: upload improper file type
 
 Scenario: Should prompt user to upload a file if no file uploaded
   Given I am "Armando Fox" looking at "Monday 8AM"
-  And I follow "Add students to class"
+  And I press "Add students to class"
   And I press "Import"
   Then I should see "Please upload a file"
