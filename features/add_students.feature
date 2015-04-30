@@ -52,3 +52,9 @@ Scenario: upload improper file type
   And I press "Add students to class"
   And I import the improper file pear.jpeg
   Then I should see "Unknown file type; please upload an .xls or .xlsx file."
+
+Scenario: Should prompt user to upload a file if no file uploaded
+  Given I am "Armando Fox" looking at "Monday 8AM"
+  And I follow "Add students to class"
+  And I press "Import"
+  Then I should see "Please upload a file"

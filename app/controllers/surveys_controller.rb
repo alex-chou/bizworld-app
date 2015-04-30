@@ -4,7 +4,7 @@ class SurveysController < ApplicationController
     if !params.include?(:responses)
       return render :json => {success: false}
     end
-    @responses = params['responses']
+    @responses = JSON.parse(params['responses'])
 
     first_name = @responses['First Name']
     last_name = @responses['Last Name']
