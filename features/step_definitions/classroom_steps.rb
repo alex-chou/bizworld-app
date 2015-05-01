@@ -52,6 +52,7 @@ end
 
 Given /^I am "(.*)" looking at "(.*)"$/ do |teacher_name, classroom_name|
   @classroom = Classroom.find_by_name(classroom_name)
+  @teacher = Teacher.find_by_name(teacher_name)
   visit classroom_path(@classroom.id)
 end
 
@@ -72,8 +73,23 @@ Then /^I should(n't)? see the following in the link: (.*)$/ do |not_seen, values
   end
 end
 
-Then /^I should see the link to (?:Pre|Post)-Assessment$/ do
+Then /^I should see the link to the (?:Pre|Post)-Assessment$/ do
   page.should have_content("bit.ly")
+end
+
+And /^I follow the link to the (Pre|Post)-Assessment$/ do |test_type|
+  Capybara.current_driver = :mechanize
+  url = @classroom.get_short_link('pre')
+  visit url
+end
+
+Then /^I should see the correct prepopulated survey$/ do
+  page.should have_xpath("//input[@value='#{@teacher.name}']")
+  page.should have_xpath("//input[@value='#{@teacher.city}']")
+  page.should have_xpath("//input[@value='#{@teacher.state}']")
+  page.should have_xpath("//input[@value='#{@teacher.id}']")
+  page.should have_xpath("//input[@value='#{@classroom.id}']")
+  Capybara.use_default_driver
 end
 
 When /^I add the following students via form/ do |student_table|

@@ -46,7 +46,7 @@
     = link_to "Add students to class", classroom_path(@classroom.id) + "/add_students_form"
     %br
     = "Pre-Assessment Link: "
-    = link_to @pretestURL, @pretestURL, :target => "_blank"
+    = link_to @pretestURL, @pretestURL, :id => "PreLink", :target => "_blank"
     %br
     = "Post-Assessment Link: "
-    = link_to @posttestURL, @posttestURL, :target => "_blank"
+    = link_to @posttestURL, @posttestURL, :id => "PostLink", :target => "_blank"

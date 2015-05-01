@@ -19,8 +19,13 @@ Background: one teacher and two classes have been added to the database
 
 Scenario: generate pre link for "class a"
   Given I am "Armando Fox" looking at "class a"
-  Then I should see the link to Pre-Assessment
+  Then I should see the link to the Pre-Assessment
 
 Scenario: generate post link for "class a"
   Given I am "Armando Fox" looking at "class a"
-  Then I should see the link to Post-Assessment
+  Then I should see the link to the Post-Assessment
+
+Scenario: Links should lead to prepopulated surveys
+  Given I am "Armando Fox" looking at "class a"
+  And I follow the link to the Pre-Assessment
+  Then I should see the correct prepopulated survey
