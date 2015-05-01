@@ -20,7 +20,7 @@ FactoryGirl.define do
   end
 
   factory :student do
-    classrooms {[FactoryGirl.create(:classroom)]}
+    association :classroom, factory: :classroom
     first_name "Alice"
     last_name "Private"
   end
