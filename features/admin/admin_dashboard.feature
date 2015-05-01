@@ -31,9 +31,9 @@ Scenario: View edit admin page
 
 Scenario: Edit other user's admin settings
   When I am on the edit admin page
-  And I select "Armando Fox"
-  And I follow save
-  Then I should be on the admin dashboard  page
+  And I check "edit_admin_1"
+  And I press "edit_admin_submit"
+  Then I am on the admin dashboard page
   And "Armando Fox" should be an admin
 
 
