@@ -44,7 +44,6 @@ class Classroom < ActiveRecord::Base
         self.students.create(:first_name => first_name, :last_name => last_name)
       end
     end
-    puts(invalid_students)
     return valid_students, invalid_students
   end
 
