@@ -56,8 +56,4 @@ class TeachersController < ApplicationController
     end
   end
 
-  def admin_panel
-
-  end
-
 end
