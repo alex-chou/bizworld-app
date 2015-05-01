@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Teacher do 
 
-  describe '#all_students_raw_data_pre' do
+  describe '#all_students_raw_data pre' do
     student = Student.create(:first_name => 'Eve0', :last_name => 'Casey', :school_name => 'Cal Elementary', :teacher_name => 'Armando Fox',
                              :city_name => 'Berkeley', :state => 'CA', :grade => '4', :gender => 'female', :ethnicity => 'Decline to Respond')
     @survey = student.surveys.create(:survey_type => 'pre', :version => 1)
@@ -37,11 +37,11 @@ describe Teacher do
     @survey.grade
     it "should return the correct csv data" do 
       data = File.read("spec/fixtures/files/pre_sample.csv")
-      Teacher.all_students_raw_data_pre.should == data
+      Teacher.all_students_raw_data('pre').should == data
     end
   end
 
-  describe '#all_students_raw_data_post' do
+  describe '#all_students_raw_data post' do
     student = Student.create(:first_name => 'Eve0', :last_name => 'Casey', :school_name => 'Cal Elementary', :teacher_name => 'Armando Fox',
                              :city_name => 'Berkeley', :state => 'CA', :grade => '4', :gender => 'female', :ethnicity => 'Decline to Respond')
     @survey = student.surveys.create(:survey_type => 'post', :version => 1)
@@ -80,10 +80,8 @@ describe Teacher do
     @survey.grade
     it "should return the correct csv data" do 
       data = File.read("spec/fixtures/files/post_sample.csv")
-      Teacher.all_students_raw_data_post.should == data
+      Teacher.all_students_raw_data('post').should == data
     end
   end
-
-
 
 end

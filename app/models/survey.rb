@@ -116,13 +116,12 @@ class Survey < ActiveRecord::Base
     EVAL_QUESTIONS
   end
 
-  def self.pre_free_response
-    []
+  def self.free_response(type)
+    if type == 'pre'
+      []
+    elsif type == 'post'
+      FREE_QUESTIONS
+    end
   end
-
-  def self.post_free_response
-    FREE_QUESTIONS
-  end
-
 
 end

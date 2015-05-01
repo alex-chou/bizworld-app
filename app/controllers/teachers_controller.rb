@@ -27,15 +27,15 @@ class TeachersController < ApplicationController
 
   def raw_data_pre
     respond_to do |format|
-      format.html { render text: Teacher.all_students_raw_data_pre}
-      format.csv {send_data Teacher.all_students_raw_data_pre}
+      format.html { render text: Teacher.all_students_raw_data('pre')}
+      format.csv {send_data Teacher.all_students_raw_data('pre')}
     end
   end
 
   def raw_data_post
     respond_to do |format|
-      format.html { render text: Teacher.all_students_raw_data_post}
-      format.csv {send_data Teacher.all_students_raw_data_post}
+      format.html { render text: Teacher.all_students_raw_data('post')}
+      format.csv {send_data Teacher.all_students_raw_data('post')}
     end
   end
 
