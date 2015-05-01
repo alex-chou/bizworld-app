@@ -37,8 +37,7 @@
 
     = button_to "Download Score Overview", classroom_path(@classroom.id) + "/score_overview.csv", :class => "btn btn-primary", :method => :get, :target => "_blank"
     = button_to "Add students to class", classroom_path(@classroom.id) + "/add_students_form", :class => "btn btn-primary", :method => :get
-    = "Pre-Assessment Link: "
-    = link_to @pretestURL, @pretestURL, :target => "_blank"
-    %br
-    = "Post-Assessment Link: "
-    = link_to @posttestURL, @posttestURL, :target => "_blank"
+    %h4= "Pre-Assessment Link: "
+    = link_to @pretestURL, @pretestURL, :target => "_blank", :class => 'bitly'
+    %h4= "Post-Assessment Link: "
+    = link_to @posttestURL, @posttestURL, :target => "_blank", :class => 'bitly'
