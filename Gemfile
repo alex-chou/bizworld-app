@@ -12,6 +12,7 @@ group :development, :test do
   gem 'rake'
   gem 'debugger'
   gem 'factory_girl'
+  gem 'capybara-mechanize'
 end
 
 
@@ -32,4 +33,3 @@ gem 'haml'
 gem 'bitly', '~> 0.10.4'
 gem 'devise'
 gem 'roo', '~> 1.13.2'
-gem 'capybara-mechanize'
