@@ -59,12 +59,6 @@ Then /^"(.*)" should be on the class roster$/ do |student|
   page.should have_content(student)
 end
 
-And /^I want to administer a (pre|post)-Assessment$/ do |test_type|
-  test_capitalized = test_type.capitalize
-  click_button("Administer #{test_capitalized}-Assessment")
-  assert_equal current_path, classroom_path(@classroom.id) + "/create_link_#{test_type}"
-end
-
 Then /^(?:I )should(n't)? see "([^"]*)" in the link$/ do |not_seen, value|
   if not not_seen
     value = value.split(" ").join("+")
