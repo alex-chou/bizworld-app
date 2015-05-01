@@ -31,12 +31,20 @@ class Classroom < ActiveRecord::Base
   end
 
   def create_students(student_names)
+    valid_students = []
+    invalid_students = []
     for student_name in student_names
       first_and_last = student_name.split(" ")
-      first_name = first_and_last[0]
-      last_name = first_and_last[1]
-      self.students.create(:first_name => first_name, :last_name => last_name)
+      if first_and_last.size < 2
+        invalid_students << student_name
+      else
+        valid_students << student_name
+        first_name = first_and_last[0]
+        last_name = first_and_last[1]
+        self.students.create(:first_name => first_name, :last_name => last_name)
+      end
     end
+    return valid_students, invalid_students
   end
 
   def to_csv_score_overview
