@@ -73,11 +73,7 @@ Then /^I should(n't)? see the following in the link: (.*)$/ do |not_seen, values
   end
 end
 
-<<<<<<< HEAD
 Then /^I should see the link to the (?:Pre|Post)-Assessment$/ do
-=======
-Then /^I should see the link to (?:pre|post)-Assessment$/ do
->>>>>>> 8427b852cb4135a6ca7ede90bf49358cf9839e3a
   page.should have_content("bit.ly")
 end
 
