@@ -1,0 +1,7 @@
+#!/bin/sh
+
+bundle install
+
+git remote add heroku git@heroku.com:bizworld-app.git
+
+bundle exec rake db:setup
