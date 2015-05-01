@@ -21,12 +21,13 @@
                       %th State
                   %tbody
                     - Teacher.all.each do |teacher|
-                      %tr
-                        %td= link_to "#{teacher.name}", teacher_path(teacher)
-                        %td= teacher.classrooms.count
-                        %td= teacher.school_name
-                        %td= teacher.city
-                        %td= teacher.state
+                      - if !teacher.admin?
+                        %tr
+                          %td= link_to "#{teacher.name}", teacher_path(teacher)
+                          %td= teacher.classrooms.count
+                          %td= teacher.school_name
+                          %td= teacher.city
+                          %td= teacher.state
     = button_to "Download Pre Test Data", teachers_path + "/raw_data_pre.csv", :class => "btn btn-primary", :method => :get, :target => "_blank"
     %br
     = button_to "Download Post Test Data", teachers_path + "/raw_data_post.csv", :class => "btn btn-primary", :method => :get, :target => "_blank"
