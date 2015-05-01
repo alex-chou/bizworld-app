@@ -12,6 +12,8 @@ group :development, :test do
   gem 'rake'
   gem 'debugger'
   gem 'factory_girl'
+  gem 'selenium'
+  gem "selenium-webdriver", "~> 2.38.0"
 end
 
 
@@ -31,5 +33,4 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'bitly', '~> 0.10.4'
 gem 'devise'
-gem 'roo', '~> 1.13.2'
-gem 'capybara-mechanize'
+gem 'roo'
