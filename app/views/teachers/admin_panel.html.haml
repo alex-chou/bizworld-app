@@ -1,0 +1,11 @@
+%div#wrapper
+
+  = render :partial => "shared/navbar_admin"  
+
+  %div#page-wrapper
+
+    %h2= "Admin Dashboard"
+    %h3= "Aggregate Statistics"
+    %p!= "<b>Total Number of Teachers</b>: #{Teacher.where(admin: false).count}"
+    %p!= "<b>Total Number of Classes</b>: #{Classroom.count}"	
+    %p!= "<b>Total Number of Students</b>: #{Student.count}"
