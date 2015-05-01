@@ -21,3 +21,11 @@ end
 When /^I logout$/ do
   click_link('logout')
 end
+
+When /^(?:|I )check "([^"]*)"$/ do |field|
+  check(field)
+end
+
+And /^"([^"]*)" should be an admin$/ do |teacher|
+  assert Teacher.find_by_name(teacher).admin == true
+end
