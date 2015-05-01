@@ -13,13 +13,13 @@ class TeachersController < ApplicationController
 	end
 
 	def show
-    if params[:id].to_i != current_teacher.id and !current_teacher.try(:admin?)
-      flash[:notice] = "You cannot access that page"
-      redirect_to teacher_path(current_teacher.id)
-    end
     @teacher = current_teacher
+    if params[:id].to_i != @teacher.id and !@teacher.admin?
+      flash[:notice] = "You cannot access that page"
+      redirect_to teacher_path(@teacher.id)
+    end
     @admin = false
-    if current_teacher.admin?
+    if @teacher.admin?
       @teacher = Teacher.find(params[:id])
       @admin = true
     end
@@ -27,15 +27,15 @@ class TeachersController < ApplicationController
 
   def raw_data_pre
     respond_to do |format|
-      format.html { render text: Teacher.all_students_raw_data_pre}
-      format.csv {send_data Teacher.all_students_raw_data_pre}
+      format.html { render text: Teacher.all_students_raw_data('pre')}
+      format.csv {send_data Teacher.all_students_raw_data('pre')}
     end
   end
 
   def raw_data_post
     respond_to do |format|
-      format.html { render text: Teacher.all_students_raw_data_post}
-      format.csv {send_data Teacher.all_students_raw_data_post}
+      format.html { render text: Teacher.all_students_raw_data('post')}
+      format.csv {send_data Teacher.all_students_raw_data('post')}
     end
   end
 
