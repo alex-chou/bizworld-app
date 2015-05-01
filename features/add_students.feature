@@ -29,6 +29,25 @@ Scenario: add students to class via form
   And I should see "Peyton Manning"
   And I should see "Drew Brees"
 
+Scenario: add improperly formatted students to class via form
+  Given I am "Armando Fox" looking at "Monday 8AM"
+  And I press "Add students to class"
+  And I add the following students via form:
+  | name           |
+  | Tom Brady      |
+  | Peyton Manning |
+  | Abigail        |
+  | Drew Brees     |
+  | Elias          |
+
+  And I follow "Classrooms"
+  And I follow "Monday 8AM"
+  Then I should see "Tom Brady"
+  And I should see "Peyton Manning"
+  And I should see "Drew Brees"
+  And I should not see "Abigail"
+  And I should not see "Elias"
+
 Scenario: add students to class via spreadsheet
   Given I am "Armando Fox" looking at "Monday 8AM"
   And I press "Add students to class"
@@ -47,7 +66,7 @@ Scenario: upload spreadsheet with improper labels
   And I should not see "Shawn Carter"
   And I should see "Unable to add students"
 
-Scenario: upload improper file type
+Scenario: Should propmt user to upload proper file type if they upload an improper file type
   Given I am "Armando Fox" looking at "Monday 8AM"
   And I press "Add students to class"
   And I import the improper file pear.jpeg
