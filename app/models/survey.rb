@@ -117,8 +117,7 @@ class Survey < ActiveRecord::Base
   end
 
   def self.pre_free_response
-    ["What have you learned about teamwork from school?", "What have you learned about leadership from school?",
-                       "What do you know about managing money?"]
+    []
   end
 
   def self.post_free_response

@@ -5,7 +5,15 @@ So that I can analyze student test results as a whole
 
 Background: Admin exists
 
-  And the admin is logged in
+  Given the following teacher is signed up:
+  | name         | school_name  | city         | state | email                | username  | password |
+  | Armando Fox  | UC Berkeley  | Berkeley     | CA    | armando@berkeley.edu | Armando   | password |
+
+  And the following classrooms belong to the teacher:
+  | name       | program     | class_type   | start_date | end_date  |
+  | Monday 8AM | Bizworld    | After School | 1-1-2015   | 1-10-2015 |
+
+  Given the admin is logged in
 
 Scenario: Download Pre Test Data
   When I am on the admin dashboard page

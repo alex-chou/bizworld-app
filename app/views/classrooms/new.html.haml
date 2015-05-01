@@ -1,20 +1,30 @@
-%h1 Create New Class
+%div#wrapper
 
-= form_tag classrooms_path do
+  -if @teacher.admin?
+    = render :partial => "shared/navbar_admin"
+  -else
+    = render :partial => "shared/navbar"  
 
-  = label :classroom, :name, 'Name'
-  = text_field :classroom, 'name'
+  %div#page-wrapper
 
-  = label :classroom, :program, 'Program'
-  = text_field :classroom, 'program'
+    %div#row
+      %div#col-lg-12
+        %h2="Create New Class"
+        = form_tag classrooms_path do
 
-  = label :classroom, :class_type, 'Class Type'
-  = text_field :classroom, 'class_type'
-
-  = label :classroom, :start_date, 'Start Date'
-  = text_field :classroom, 'start_date'
-
-  = label :classroom, :end_date, 'End Date'
-  = text_field :classroom, 'end_date'
-
-  = submit_tag 'Save Changes'
+          = label :classroom, :name, 'Name'
+          = text_field :classroom, 'name'
+          %br
+          = label :classroom, :program, 'Program'
+          = text_field :classroom, 'program'
+          %br
+          = label :classroom, :class_type, 'Class Type'
+          = text_field :classroom, 'class_type'
+          %br
+          = label :classroom, :start_date, 'Start Date'
+          = text_field :classroom, 'start_date'
+          %br
+          = label :classroom, :end_date, 'End Date'
+          = text_field :classroom, 'end_date'
+          %br
+          = submit_tag 'Save Changes'
