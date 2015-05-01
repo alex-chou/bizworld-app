@@ -31,7 +31,7 @@ Scenario: add students to class via form
 
 Scenario: add improperly formatted students to class via form
   Given I am "Armando Fox" looking at "Monday 8AM"
-  And I follow "Add students to class"
+  And I press "Add students to class"
   And I add the following students via form:
   | name           |
   | Tom Brady      |
