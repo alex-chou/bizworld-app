@@ -12,6 +12,7 @@ group :development, :test do
   gem 'rake'
   gem 'debugger'
   gem 'factory_girl'
+  gem 'capybara-mechanize'
 end
 
 
