@@ -1,6 +1,10 @@
 class ClassroomsController < ApplicationController
   before_filter :authenticate_teacher!
 
+  def new
+    @teacher = current_teacher
+  end
+
   def create
   	teacher = current_teacher
   	teacher.classrooms.create(params[:classroom])
@@ -31,7 +35,7 @@ class ClassroomsController < ApplicationController
       format.csv {send_data classroom.to_csv_score_overview}
     end
   end
-  def add_students()
+  def add_students
     if not @classroom
       @classroom = Classroom.find(params[:id])
     end
@@ -46,5 +50,9 @@ class ClassroomsController < ApplicationController
     @classroom.create_students(student_names)
     flash[:notice] = "Students added to class: #{student_names}"
     redirect_to classroom_path(@classroom.id)
+  end
+
+  def add_students_form
+    @teacher = current_teacher
   end
 end

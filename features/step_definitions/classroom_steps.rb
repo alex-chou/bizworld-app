@@ -2,7 +2,7 @@ require 'uri'
 require 'cgi'
 
 When /I create the following class/ do |classroom_table|
-  click_link 'Add new class'
+  click_button 'Add new class'
   classroom_table.hashes.each do |classroom|
     fill_in('Name', :with => classroom[:name])
     fill_in('Program', :with => classroom[:program])
@@ -72,7 +72,7 @@ Then /^I should(n't)? see the following in the link: (.*)$/ do |not_seen, values
   end
 end
 
-Then /^I should see the link to (?:Pre|Post)-Assessment$/ do
+Then /^I should see the link to (?:pre|post)-Assessment$/ do
   page.should have_content("bit.ly")
 end
 

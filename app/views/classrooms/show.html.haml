@@ -7,20 +7,17 @@
 
   %div#page-wrapper
 
-    %h3= "Class Information"
-    %p="<b> Information on class:</b> #{@classroom.name}"
-    %br
-    = "Class Type: #{@classroom.class_type}"
-    %br
-    = "Program: #{@classroom.program}"
-    %br
-    = "Start Date: #{@classroom.start_date}"
-    %br
-    = "End Date: #{@classroom.end_date}"
-    %br
+    %div#class-info
+      %h2="Class Information"
+      %p.info!="<b>Information on class</b>: #{@classroom.name}"
+      %p.info!="<b>Class Type</b>: #{@classroom.class_type}"
+      %p.info!="<b>Program</b>: #{@classroom.program}"
+      %p.info!="<b>Start Date</b>: #{@classroom.start_date}"
+      %p.info!="<b>End Date</b>: #{@classroom.end_date}"
 
     %div#row
       %div#col-lg-12
+        %h3="Student Roster"
         %div.dataTable_wrapper
           %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
             %div.row
@@ -38,14 +35,9 @@
                         %td= student.get_survey_score('pre')
                         %td= student.get_survey_score('post')
 
-   
-
-    = button_to "Download Score Overview", classroom_path(@classroom.id) + "/score_overview.csv", :class => "btn-primary btn-outline", :method => :get, :target => "_blank"
-
-    = link_to "Add students to class", classroom_path(@classroom.id) + "/add_students_form"
-    %br
-    = "Pre-Assessment Link: "
-    = link_to @pretestURL, @pretestURL, :target => "_blank"
-    %br
-    = "Post-Assessment Link: "
-    = link_to @posttestURL, @posttestURL, :target => "_blank"
+    = button_to "Download Score Overview", classroom_path(@classroom.id) + "/score_overview.csv", :class => "btn btn-primary", :method => :get, :target => "_blank"
+    = button_to "Add students to class", classroom_path(@classroom.id) + "/add_students_form", :class => "btn btn-primary", :method => :get
+    %h4= "Pre-Assessment Link: "
+    = link_to @pretestURL, @pretestURL, :target => "_blank", :class => 'bitly'
+    %h4= "Post-Assessment Link: "
+    = link_to @posttestURL, @posttestURL, :target => "_blank", :class => 'bitly'

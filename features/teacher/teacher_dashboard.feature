@@ -21,7 +21,7 @@ Scenario: View all classes
 
 Scenario: create a new class
   When I am on the teacher dashboard page for "Armando Fox"
-  And I follow "Add new class"
+  And I press "Add new class"
   Then I should see "Create New Class"
   And I should see "Name"
   And I should see "Program"

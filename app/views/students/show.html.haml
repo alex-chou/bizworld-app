@@ -7,52 +7,44 @@
 
   %div#page-wrapper
 
-    = "#{@student.name}"
-    %br
-    = "#{@student.school_name}"
-    %br
-    = "#{@student.teacher_name}"
-    %br
-    = "#{@student.city_name}"
-    %br
-    = "#{@student.state}"
-    %br
-    = "#{@student.grade}"
-    %br
-    = "#{@student.gender}"
-    %br
-    = "#{@student.ethnicity}"
+    %div#class-info
+      %h2= "#{@student.name}"
+      %p.info!= "<b>School Name</b>: #{@student.school_name}"
+      %p.info!= "<b>Teacher Name</b>: #{@student.teacher_name}"
+      %p.info!= "<b>City</b>: #{@student.city_name}"
+      %p.info!= "<b>State</b>: #{@student.state}"
+      %p.info!= "<b>Grade</b>: #{@student.grade}"
+      %p.info!= "<b>Gender</b>: #{@student.gender}"
+      %p.info!= "<b>Ethnicity</b>: #{@student.ethnicity}"
+      %p.info!= "<b>Pre Score</b>: #{@student.get_survey_score('pre')}"
+      %p.info!= "<b>Pre Score</b>: #{@student.get_survey_score('post')}"
 
     %div#row
       %div#col-lg-12
-        %div.panel.panel-default
-          %div.panel-body
-            %div.dataTable_wrapper
-              %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
-                %div.row
-                  %div.col-sm-12
-                    %table.table.table-bordered.table-hover.dataTable.no-footer
-                      %thead
-                        %tr
-                          %th Question
-                          %th Pre-Choice
-                          %th Post-Choice
-                          %th Correct-Choice
-                      %tbody
-                        -@test_display.each do |pre, post|
-                          %tr
-                            %td= pre.question
-                            -if @right_or_wrong_questions.include?(pre.question) and pre.correct
-                              %td.correct= pre.answer
-                            -else
-                              %td= pre.answer
-                            -if !post
-                              %td= "N/A"
-                            -elsif @right_or_wrong_questions.include?(post.question) and post.correct
-                              %td.correct= post.answer
-                            -else
-                              %td= post.answer
-                            %td= pre.key
- 
-    = link_to "Add new class", new_classroom_path
-
+        %h2= "Student Answers"
+        %div.dataTable_wrapper
+          %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
+            %div.row
+              %div.col-sm-12
+                %table.table.table-bordered.table-hover.dataTable.no-footer
+                  %thead
+                    %tr
+                      %th Question
+                      %th Pre-Choice
+                      %th Post-Choice
+                      %th Correct-Choice
+                  %tbody
+                    -@test_display.each do |pre, post|
+                      %tr
+                        %td= pre.question
+                        -if @right_or_wrong_questions.include?(pre.question) and pre.correct
+                          %td.correct= pre.answer
+                        -else
+                          %td= pre.answer
+                        -if !post
+                          %td= "N/A"
+                        -elsif @right_or_wrong_questions.include?(post.question) and post.correct
+                          %td.correct= post.answer
+                        -else
+                          %td= post.answer
+                        %td= pre.key

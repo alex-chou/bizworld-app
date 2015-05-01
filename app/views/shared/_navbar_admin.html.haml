@@ -1,7 +1,8 @@
 %nav{:class => 'navbar navbar-default navbar-static-top', :role => 'navigation', :style => "margin-bottom: 0"}
   %div{:class => 'navbar-header', :id => 'navbar-header'}
-    %div{:class => 'nav navbar-nav navbar-right'}
-      = "text"
+    = image_tag("bizworldLogoBig.png", :id => 'bizworld-logo', width: 200, height:50)
+    %li{:class => 'logged-in-as'}
+      = "Logged in as #{current_teacher.name}"
 
   %div{:class => "navbar-default sidebar", :role => 'navigation'}
     %div{:class => "sidebar-nav navbar-collapse"}
