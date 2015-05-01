@@ -4,31 +4,30 @@
 
   %div#page-wrapper
 
-    Teachers
-
     %div#row
       %div#col-lg-12
-        %div.panel.panel-default
-          %div.panel-body
-            %div.dataTable_wrapper
-              %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
-                %div.row
-                  %div.col-sm-12
-                    %table.table.table-striped.table-bordered.table-hover.dataTable.no-footer
-                      %thead
+        %h2="Teachers"
+        %div.dataTable_wrapper
+          %div.dataTables_wrapper.form-inline.dt-bootstrap.no-footer
+            %div.row
+              %div.col-sm-12
+                %table.table.table-striped.table-bordered.table-hover.dataTable.no-footer
+                  %thead
+                    %tr
+                      %th Name
+                      %th Number of Classes
+                      %th School
+                      %th City
+                      %th State
+                  %tbody
+                    - Teacher.all.each do |teacher|
+                      - if !teacher.admin?
                         %tr
-                          %th Name
-                          %th Number of Classes
-                          %th School
-                          %th City
-                          %th State
-                      %tbody
-                        - Teacher.all.each do |teacher|
-                          %tr
-                            %td= link_to "#{teacher.name}", teacher_path(teacher)
-                            %td= teacher.classrooms.count
-                            %td= teacher.school_name
-                            %td= teacher.city
-                            %td= teacher.state
-    = button_to "Download Pre Test Data", teachers_path + "/raw_data_pre.csv", :class => "btn-primary btn-outline", :method => :get, :target => "_blank"
-    = button_to "Download Post Test Data", teachers_path + "/raw_data_post.csv", :class => "btn-primary btn-outline", :method => :get, :target => "_blank"
+                          %td= link_to "#{teacher.name}", teacher_path(teacher)
+                          %td= teacher.classrooms.count
+                          %td= teacher.school_name
+                          %td= teacher.city
+                          %td= teacher.state
+    = button_to "Download Pre Test Data", teachers_path + "/raw_data_pre.csv", :class => "btn btn-primary", :method => :get, :target => "_blank"
+    %br
+    = button_to "Download Post Test Data", teachers_path + "/raw_data_post.csv", :class => "btn btn-primary", :method => :get, :target => "_blank"

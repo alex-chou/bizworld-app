@@ -19,12 +19,12 @@ Background: Teacher exists and has multiple classes
 Scenario: view a new class
 	When I am on the teacher dashboard page for "Armando Fox"
   And I follow "Monday 8AM"
-  Then I should see "Information on class Monday 8AM"
+  Then I should see "Information on class: Monday 8AM"
   And I should see "Program: Bizworld"
   And I should see "Class Type: After School"
 
 Scenario: See Pre and Post Assessment links on Class dashboard
   When I am on the teacher dashboard page for "Armando Fox"
   And I follow "Monday 8AM"
-  Then I should see the Pre-Assessment link
-  And I should see the Post-Assessment link
+  Then I should see the link to Pre-Assessment
+  And I should see the link to Post-Assessment

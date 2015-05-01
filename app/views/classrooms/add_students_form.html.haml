@@ -1,17 +1,26 @@
-%h1 Add Students
+%div#wrapper
 
-%h2 via form
-= form_tag "/classrooms/#{params[:id]}/add_students" do
-  - for i in (1..30).to_a do
-    - title = "name" + i.to_s
-    = label :students, title.to_sym, title
-    = text_field :students, title
+  -if @teacher.admin?
+    = render :partial => "shared/navbar_admin"
+  -else
+    = render :partial => "shared/navbar"
 
-  = submit_tag 'Add Students'
+  %div#page-wrapper
 
-%h2 or upload a spreadsheet
+    %h2 Add Students
 
-= form_tag import_students_path, multipart: true do 
-  - session["classroom_id"] = params[:id]
-  = file_field_tag :file 
-  = submit_tag "Import" 
+    %h2 via form
+    = form_tag "/classrooms/#{params[:id]}/add_students" do
+      - for i in (1..30).to_a do
+        - title = "name" + i.to_s
+        = label :students, title.to_sym, title
+        = text_field :students, title
+
+      = submit_tag 'Add Students'
+
+    %h2 or upload a spreadsheet
+
+    = form_tag import_students_path, multipart: true do 
+      - session["classroom_id"] = params[:id]
+      = file_field_tag :file 
+      = submit_tag "Import" 
