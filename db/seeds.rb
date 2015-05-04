@@ -109,24 +109,24 @@ when "development"
         student = classroom.students.create!(first_name: "Eve#{count2}", last_name: "Casey", age: (count0+count1+count2).to_s, gender: "female", ethnicity: "Decline to Respond",
                                              city_name: "Berkeley", school_name: "Cal Elementary", state: "CA", teacher_name: "Armando Fox", grade: 4)
         if count2 % 2 == 0
-          survey = student.surveys.create(:survey_type => 'pre', :version => 1)
+          survey = student.surveys.create(:survey_type => 'pre')
           survey.populate(answers1)
           survey.grade
-          post_survey = student.surveys.create(:survey_type => 'post', :version => 1)
+          post_survey = student.surveys.create(:survey_type => 'post')
           post_survey.populate(answers1)
           post_survey.grade
         elsif count2 % 3 == 0
-          survey = student.surveys.create(:survey_type => 'pre', :version => 1)
+          survey = student.surveys.create(:survey_type => 'pre')
           survey.populate(answers2)
           survey.grade
-          post_survey = student.surveys.create(:survey_type => 'post', :version => 1)
+          post_survey = student.surveys.create(:survey_type => 'post')
           post_survey.populate(answers1)
           post_survey.grade
         else
-          survey = student.surveys.create(:survey_type => 'pre', :version => 1)
+          survey = student.surveys.create(:survey_type => 'pre')
           survey.populate(answers2)
           survey.grade
-          post_survey = student.surveys.create(:survey_type => 'post', :version => 1)
+          post_survey = student.surveys.create(:survey_type => 'post')
           post_survey.populate(answers1)
           post_survey.grade
         end

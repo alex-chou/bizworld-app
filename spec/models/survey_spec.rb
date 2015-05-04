@@ -8,16 +8,13 @@ describe Survey do
 
     master = Student.master_student
     master_survey = master.surveys.create(:survey_type => 'pre',
-                                          :version => 1,
                                           :score => 100,
                                           :master => true)
     master_survey.populate @correct_answers
 
 
     @student = Student.create(:first_name => 'Foo', :last_name => 'Bar')
-    @student_survey = @student.surveys.create(:survey_type => 'pre',
-                                     :version => 1,
-                                     :master => false)
+    @student_survey = @student.surveys.create(:survey_type => 'pre', :master => false)
 
     @survey = FactoryGirl.create(:survey)
     @questions = {"A" => "Alice", "B" => "Bob", "E" => "Eve"}

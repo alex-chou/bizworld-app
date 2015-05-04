@@ -2,7 +2,7 @@ class Survey < ActiveRecord::Base
   belongs_to :student
   has_many :question_surveys
   has_many :questions, :through => :question_surveys
-  attr_accessible :survey_type, :score, :version, :master
+  attr_accessible :survey_type, :score, :master
   validates_presence_of :student, :survey_type
 
   NON_QUESTIONS = ["First Name", "Last Name", "Classroom ID", "Survey Type", "Teacher Name",
@@ -60,12 +60,6 @@ class Survey < ActiveRecord::Base
   end
 
   def grade
-    # Find the correct version of master
-    #key = Student.master_key self.version
-    #if !key
-    #  return nil
-    #end
-
     responses = self.questions
 
     self.score = 0
@@ -102,10 +96,6 @@ class Survey < ActiveRecord::Base
 
   def num_questions
     self.questions.length
-  end
-
-  def self.current_version
-    return 1
   end
 
   def self.key_dictionary

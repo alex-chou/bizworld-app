@@ -118,14 +118,10 @@ class Student < ActiveRecord::Base
       student = Student.create(:first_name => 'MASTER',
                                 :last_name => 'MASTER')
       key_dictionary = Survey.key_dictionary
-      key = student.surveys.create(version: Survey.current_version, survey_type: 'pre')
+      key = student.surveys.create(survey_type: 'pre')
       key.populate(key_dictionary)
     end
     return student
-  end
-
-  def self.master_key(version)
-    return self.master_student.surveys.find_by_version version
   end
 
 end

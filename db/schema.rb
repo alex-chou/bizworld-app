@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150426180717) do
+ActiveRecord::Schema.define(:version => 20150504163211) do
 
   create_table "classrooms", :force => true do |t|
     t.string   "name"
@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(:version => 20150426180717) do
     t.integer  "student_id"
     t.float    "score"
     t.boolean  "master"
-    t.integer  "version"
   end
 
   create_table "teachers", :force => true do |t|

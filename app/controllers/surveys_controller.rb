@@ -10,12 +10,10 @@ class SurveysController < ApplicationController
     last_name = @responses['Last Name']
     classroom_id = @responses['Classroom ID']
     survey_type = @responses['Survey Type']
-    survey_number = @responses['Survey Version']
 
     if first_name == 'MASTER'
       @student = Student.master_student
       @survey = @student.surveys.create(:survey_type => survey_type,
-                                        :version => survey_number,
                                         :score => 100,
                                         :master => true)
       @survey.populate @responses
@@ -29,9 +27,7 @@ class SurveysController < ApplicationController
       @student = @classroom.students.create(:first_name => first_name,
                                              :last_name => last_name)
     end
-    @survey = @student.surveys.create(:survey_type => survey_type,
-                                      :version => survey_number,
-                                      :master => false)
+    @survey = @student.surveys.create(:survey_type => survey_type, :master => false)
     @survey.populate @responses
     score = @survey.grade
 

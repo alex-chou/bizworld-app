@@ -5,7 +5,7 @@ describe Teacher do
   describe '#all_students_raw_data pre' do
     student = Student.create(:first_name => 'Eve0', :last_name => 'Casey', :school_name => 'Cal Elementary', :teacher_name => 'Armando Fox',
                              :city_name => 'Berkeley', :state => 'CA', :grade => '4', :gender => 'female', :ethnicity => 'Decline to Respond')
-    @survey = student.surveys.create(:survey_type => 'pre', :version => 1)
+    @survey = student.surveys.create(:survey_type => 'pre')
     @survey.populate({"1. How can a company know that it made a profit?" => "It earned more money in revenue than it spent on expenses",
             "2. If you take out a loan from the bank, you must" => "Repay the balance of the loan and interest",
             "3. Your company made 10 of the same bracelet. Your total expenses, including bracelet materials, were $80. To make a profit how much should each bracelet cost?" => "$9",
@@ -44,7 +44,7 @@ describe Teacher do
   describe '#all_students_raw_data post' do
     student = Student.create(:first_name => 'Eve0', :last_name => 'Casey', :school_name => 'Cal Elementary', :teacher_name => 'Armando Fox',
                              :city_name => 'Berkeley', :state => 'CA', :grade => '4', :gender => 'female', :ethnicity => 'Decline to Respond')
-    @survey = student.surveys.create(:survey_type => 'post', :version => 1)
+    @survey = student.surveys.create(:survey_type => 'post')
     @survey.populate({"1. How can a company know that it made a profit?" => "It earned more money in revenue than it spent on expenses",
             "2. If you take out a loan from the bank, you must" => "Repay the balance of the loan and interest",
             "3. Your company made 10 of the same bracelet. Your total expenses, including bracelet materials, were $80. To make a profit how much should each bracelet cost?" => "$9",
