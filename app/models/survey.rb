@@ -51,9 +51,9 @@ class Survey < ActiveRecord::Base
 
     responses.each do |question, answer|
       if !NON_QUESTIONS.include?(question)
-        update = questions.find_by_question(question).try(:update_attributes, {:answer => answer})
+        update = self.questions.find_by_question(question).try(:update_attributes, {:answer => answer})
         if !update
-          questions.create :question => question, :answer => answer
+          self.questions.create :question => question, :answer => answer
         end
       end
     end
