@@ -6,7 +6,7 @@ class Survey < ActiveRecord::Base
   validates_presence_of :student, :survey_type
 
   NON_QUESTIONS = ["First Name", "Last Name", "Classroom ID", "Survey Type", "Teacher Name",
-                   "City Name", "State", "Grade", "Gender", "Ethnicity"]
+                   "City Name", "State", "Grade", "Gender", "Ethnicity", "Teacher ID", "Survey Version"]
 
   EVAL_QUESTIONS = ["I make an effort to get along with my teammates.",
                     "I am confident speaking in front of others.",
