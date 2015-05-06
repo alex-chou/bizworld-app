@@ -4,8 +4,8 @@ admin.save
 
 case Rails.env
 when "development"
-  answers1 = {"1. How can a company know it made a profit?" => "It earned more money in revenue than it spent on expenses",
-              "2. If you take out a loan from the bank, you must:" => "Repay the balance of the loan and interest",
+  answers1 = {"1. How can a company know that it made a profit?" => "It earned more money in revenue than it spent on expenses",
+              "2. If you take out a loan from the bank, you must" => "Repay the balance of the loan and interest",
               "3. Your company made 10 of the same bracelet. Your total expenses, including bracelet materials, were $80. To make a profit how much should each bracelet cost?" => "$9",
               "4. What does a venture capitalist receive in exchange for investing in a company?" => "Shares of stock in the company and a vote in decision-making.",
               "5. Why is it important to keep careful records of all your finances?" => "All of the above.",
@@ -13,7 +13,7 @@ when "development"
               "7. What is the profit equation?" => "Revenue - Expenses = Profit (or Loss)",
               "8. Money a company earns from selling a product or service is called:" => "Revenue.",
               "9. The most important goal of marketing is to:" => "All of the above.",
-              "10. When developing a product, during the manufacturing stage the company needs to:" => "Make the product quickly and with limited waste.",
+              "10. The purpose of manufacturing is:" => "Make the product quickly and with limited waste.",
               "11. When deciding on a price for a product, what factor(s) should a company consider?" => "All of the above.",
               "I make an effort to get along with my teammates." => "5",
               "I am confident speaking in front of others." => "5",
@@ -100,12 +100,11 @@ when "development"
               "What do you know about managing money?" => "Hardly anything"
               }
 
-
-  5.times do |count0|
+  3.times do |count0|
     teacher = Teacher.create!(city: "Berkeley", email: "bob#{count0}@gmail.com", name: "Bob Alice#{count0}", school_name: "UC Berkeley", state: "CA", password: "password")
-    3.times do |count1|
-      classroom = teacher.classrooms.create!(name: "MWF#{count1} #{count1}-#{count1 + 1} PM", class_type: count1.to_s, program: "bizworld")
-      12.times do |count2|
+    1.times do |count1|
+      classroom = teacher.classrooms.create!(name: "MWF #{count1 + 1}-#{count1 + 2} PM", class_type: count1.to_s, program: "bizworld")
+      8.times do |count2|
         student = classroom.students.create!(first_name: "Eve#{count2}", last_name: "Casey", age: (count0+count1+count2).to_s, gender: "female", ethnicity: "Decline to Respond",
                                              city_name: "Berkeley", school_name: "Cal Elementary", state: "CA", teacher_name: "Armando Fox", grade: 4)
         if count2 % 2 == 0
